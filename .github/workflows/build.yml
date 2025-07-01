@@ -18,20 +18,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Install Nix
-        uses: DeterminateSystems/nix-installer-action@main
+        uses: cachix/install-nix-action@v31
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
       
-      - name: Enable Nix Flakes
+      - name: Build Resumes
         run: |
-          mkdir -p ~/.config/nix
-          echo "experimental-features = nix-command flakes" > ~/.config/nix/nix.conf
-      
-      - name: Build resume with Nix
-        run: |
-          # Run without using or generating a lock file
-          nix run --no-write-lock-file
+          # Build the project
+          nix build
+          
+          # Create build directory if it doesn't exist
+          mkdir -p build
+          
+          # Copy the build outputs to the expected location
+          cp -r ./result/build/* ./build/
 
       - name: Upload HTML resume
         uses: actions/upload-artifact@v4
