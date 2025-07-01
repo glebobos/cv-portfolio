@@ -77,7 +77,7 @@
           
           # Generate HTML resume
           ${pkgs.pandoc}/bin/pandoc -s \
-            --template=./templates/resume-template.html \
+            --template="$PWD/templates/resume-template.html" \
             --css=resume.css \
             -f markdown -t html \
             "$OUTPUT_DIR/resume.md" -o "$OUTPUT_DIR/resume.html"
@@ -89,7 +89,7 @@
           
           # Generate one-page PDF resume
           ${pkgs.pandoc}/bin/pandoc -s \
-            --template=./templates/resume-template.html \
+            --template="$PWD/templates/resume-template.html" \
             --css=one_page.css \
             -f markdown -t html \
             "$OUTPUT_DIR/resume.md" -o "$OUTPUT_DIR/one_page.html"

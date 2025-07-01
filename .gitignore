@@ -8,10 +8,13 @@ assets/pdfs/*.pdf
 /result
 
 # Temporary files
-*.html
+/build/*.html
 *.tmp
 *~
 *.bak
+
+# Keep template HTML files
+!templates/*.html
 
 # Node modules (if you add any JS-based tools)
 node_modules/

@@ -95,7 +95,7 @@ echo "Generating HTML and PDF files..."
 if command -v pandoc &> /dev/null; then
   # Generate HTML resume
   pandoc -s \
-    --template=./templates/resume-template.html \
+    --template="$PWD/templates/resume-template.html" \
     -f markdown -t html \
     "$OUTPUT_DIR/resume.md" -o "$OUTPUT_DIR/resume.html" \
     --css=resume.css
@@ -109,7 +109,7 @@ if command -v pandoc &> /dev/null; then
       
     # Generate one-page PDF resume
     pandoc -s \
-      --template=./templates/resume-template.html \
+      --template="$PWD/templates/resume-template.html" \
       -f markdown -t html \
       "$OUTPUT_DIR/resume.md" -o "$OUTPUT_DIR/one_page.html" \
       --css=one_page.css

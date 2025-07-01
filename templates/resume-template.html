@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professional Resume</title>
+  <link rel="stylesheet" href="resume.css">
+  <style>
+    /* Additional styles for web viewing */
+    .resume-container {
+      max-width: 850px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 5px;
+    }
+    
+    .resume-actions {
+      text-align: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #f8f9fa;
+      border-radius: 5px;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 8px 16px;
+      margin: 0 5px;
+      background-color: #3498db;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: 600;
+      transition: background-color 0.2s;
+    }
+    
+    .btn:hover {
+      background-color: #2980b9;
+      text-decoration: none;
+    }
+    
+    .source-link {
+      font-size: 0.8em;
+      color: #6c757d;
+      text-align: center;
+      margin-top: 20px;
+    }
+    
+    @media print {
+      .resume-actions, .source-link {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="resume-container">
+    <div class="resume-actions">
+      <a href="resume.pdf" class="btn" download>Download Full Resume PDF</a>
+      <a href="one_page_resume.pdf" class="btn" download>Download One-Page PDF</a>
+    </div>
+    
+    <!-- Resume content will be inserted here by pandoc -->
+    <div id="resume-content">
+      $body$
+    </div>
+    
+    <div class="source-link">
+      <p>Generated from Markdown source files using the resume-md approach. Last updated: July 1, 2025</p>
+      <p><a href="https://github.com/yourusername/cv-portfolio">View Source on GitHub</a></p>
+    </div>
+  </div>
+</body>
+</html>
