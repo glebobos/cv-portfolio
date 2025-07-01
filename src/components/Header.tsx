@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X, Download, Mail, Github, Linkedin } from 'lucide-react';
-import { resumeData } from '../data/resumeData';
+import { markdownResumeData } from '../data/markdownResumeData';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,9 +25,9 @@ const Header = () => {
   ];
 
   const socialLinks = [
-    { href: resumeData.personalInfo.github, icon: Github, label: 'GitHub' },
-    { href: resumeData.personalInfo.linkedin, icon: Linkedin, label: 'LinkedIn' },
-    { href: `mailto:${resumeData.personalInfo.email}`, icon: Mail, label: 'Email' },
+    { href: markdownResumeData.personalInfo.github, icon: Github, label: 'GitHub' },
+    { href: markdownResumeData.personalInfo.linkedin, icon: Linkedin, label: 'LinkedIn' },
+    { href: `mailto:${markdownResumeData.personalInfo.email}`, icon: Mail, label: 'Email' },
   ];
 
   return (
@@ -49,12 +49,12 @@ const Header = () => {
           >
             <div className="w-10 h-10 bg-gradient-to-r from-primary-500 to-primary-700 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-lg">
-                {resumeData.personalInfo.name.split(' ').map(n => n[0]).join('')}
+                {markdownResumeData.personalInfo.name.split(' ').map(n => n[0]).join('')}
               </span>
             </div>
             <div className="hidden sm:block">
               <h1 className="font-bold text-lg text-secondary-900">
-                {resumeData.personalInfo.name}
+                {markdownResumeData.personalInfo.name}
               </h1>
               <p className="text-sm text-secondary-600">Systems Engineer</p>
             </div>

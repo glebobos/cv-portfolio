@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { resumeData } from '../data/resumeData';
+import { markdownResumeData } from '../data/markdownResumeData';
 
 const Experience = () => {
   const [ref, inView] = useInView({
@@ -23,7 +23,7 @@ const Experience = () => {
           </div>
 
           <div className="max-w-4xl mx-auto">
-            {resumeData.experience.map((exp, index) => (
+            {markdownResumeData.experience.map((exp, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, x: -50 }}

@@ -1,13 +1,16 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { GraduationCap, Calendar, MapPin } from 'lucide-react';
-import { resumeData } from '../data/resumeData';
+import { GraduationCap, Calendar } from 'lucide-react';
+import { markdownResumeData } from '../data/markdownResumeData';
 
 const Education = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1
   });
+
+  // Use markdown data (single source of truth)
+  const educationData = markdownResumeData.education;
 
   return (
     <section id="education" className="py-20 bg-white">
@@ -27,9 +30,9 @@ const Education = () => {
           </div>
 
           <div className="max-w-4xl mx-auto">
-            {/* Formal Education */}
+            {/* Formal Education from Markdown */}
             <div className="space-y-8">
-              {resumeData.education.map((edu, index) => (
+              {educationData.map((edu, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, x: -50 }}

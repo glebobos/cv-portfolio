@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { resumeData } from '../data/resumeData';
+import { markdownResumeData } from '../data/markdownResumeData';
+import { MarkdownRenderer } from './MarkdownRenderer';
 
 const About = () => {
   const [ref, inView] = useInView({
@@ -32,17 +33,16 @@ const About = () => {
               className="space-y-6"
             >
               <div className="prose prose-lg">
-                {resumeData.summary.split('\n\n').map((paragraph, index) => (
-                  <p key={index} className="text-secondary-700 leading-relaxed">
-                    {paragraph.trim()}
-                  </p>
-                ))}
+                <MarkdownRenderer 
+                  content={markdownResumeData.summary}
+                  className="text-secondary-700 leading-relaxed"
+                />
               </div>
 
               <div className="grid grid-cols-2 gap-6 pt-6">
                 <div>
                   <h4 className="font-semibold text-secondary-900 mb-2">Location</h4>
-                  <p className="text-secondary-600">{resumeData.personalInfo.location}</p>
+                  <p className="text-secondary-600">{markdownResumeData.personalInfo.location}</p>
                 </div>
                 <div>
                   <h4 className="font-semibold text-secondary-900 mb-2">Experience</h4>

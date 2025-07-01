@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { ExternalLink, Award } from 'lucide-react';
-import { resumeData } from '../data/resumeData';
+import { markdownResumeData } from '../data/markdownResumeData';
 
 const Certifications = () => {
   const [ref, inView] = useInView({
@@ -10,14 +10,14 @@ const Certifications = () => {
   });
 
   // Group certifications by issuer
-  const certificationGroups = resumeData.certifications.reduce((groups, cert) => {
+  const certificationGroups = markdownResumeData.certifications.reduce((groups, cert) => {
     const key = cert.issuer;
     if (!groups[key]) {
       groups[key] = [];
     }
     groups[key].push(cert);
     return groups;
-  }, {} as Record<string, typeof resumeData.certifications>);
+  }, {} as Record<string, typeof markdownResumeData.certifications>);
 
   const getIssuerIcon = (issuer: string) => {
     if (issuer.includes('AWS') || issuer.includes('Amazon')) return '☁️';
@@ -105,12 +105,6 @@ const Certifications = () => {
                                 <span className="font-medium">Expires:</span> {cert.expiryDate}
                               </div>
                             )}
-                            
-                            {cert.credentialId && (
-                              <div className="text-xs text-secondary-500 mt-2">
-                                ID: {cert.credentialId}
-                              </div>
-                            )}
                           </div>
                         </motion.div>
                       ))}
@@ -130,7 +124,7 @@ const Certifications = () => {
                 <h3 className="text-lg font-semibold text-secondary-900 mb-2">Certification Summary</h3>
                 <div className="flex flex-wrap justify-center gap-4 text-sm text-secondary-600">
                   <span className="bg-primary-100 text-primary-800 px-3 py-1 rounded-full">
-                    Total: {resumeData.certifications.length} Certifications
+                    Total: {markdownResumeData.certifications.length} Certifications
                   </span>
                   <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full">
                     Active & Current

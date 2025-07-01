@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { ExternalLink, Github } from 'lucide-react';
-import { resumeData } from '../data/resumeData';
+import { markdownResumeData } from '../data/markdownResumeData';
 
 const Projects = () => {
   const [ref, inView] = useInView({
@@ -25,7 +24,7 @@ const Projects = () => {
 
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {resumeData.projects.map((project, index) => (
+              {markdownResumeData.projects.map((project, index) => (
                 <motion.div
                   key={project.name}
                   initial={{ opacity: 0, y: 50 }}
@@ -38,28 +37,6 @@ const Projects = () => {
                       <h3 className="text-xl font-bold text-secondary-900">
                         {project.name}
                       </h3>
-                      <div className="flex space-x-2">
-                        {project.github && (
-                          <a
-                            href={project.github}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="p-2 text-secondary-600 hover:text-primary-600 transition-colors duration-200"
-                          >
-                            <Github size={18} />
-                          </a>
-                        )}
-                        {project.link && (
-                          <a
-                            href={project.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="p-2 text-secondary-600 hover:text-primary-600 transition-colors duration-200"
-                          >
-                            <ExternalLink size={18} />
-                          </a>
-                        )}
-                      </div>
                     </div>
 
                     <p className="text-secondary-700 mb-4 leading-relaxed">

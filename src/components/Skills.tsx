@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { resumeData } from '../data/resumeData';
+import { markdownResumeData } from '../data/markdownResumeData';
 
 const Skills = () => {
   const [ref, inView] = useInView({
@@ -55,7 +55,7 @@ const Skills = () => {
 
           <div className="max-w-6xl mx-auto">
             <div className="grid gap-8">
-              {resumeData.skillCategories.map((category, categoryIndex) => (
+              {markdownResumeData.skillCategories.map((category, categoryIndex) => (
                 <motion.div
                   key={category.name}
                   initial={{ opacity: 0, y: 30 }}
@@ -135,27 +135,25 @@ const Skills = () => {
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                   {[
                     { 
-                      label: 'Expert Level Skills', 
-                      value: resumeData.skillCategories.reduce((count, cat) => 
+                      label: 'Expert Level Skills',                      value: markdownResumeData.skillCategories.reduce((count, cat) =>
                         count + cat.skills.filter(skill => skill.level >= 5).length, 0
                       ),
                       color: 'from-green-500 to-green-600'
                     },
                     { 
-                      label: 'Advanced Skills', 
-                      value: resumeData.skillCategories.reduce((count, cat) => 
+                      label: 'Advanced Skills',                      value: markdownResumeData.skillCategories.reduce((count, cat) =>
                         count + cat.skills.filter(skill => skill.level === 4).length, 0
                       ),
                       color: 'from-blue-500 to-blue-600'
                     },
                     { 
                       label: 'Total Technologies', 
-                      value: resumeData.skillCategories.reduce((count, cat) => count + cat.skills.length, 0),
+                      value: markdownResumeData.skillCategories.reduce((count, cat) => count + cat.skills.length, 0),
                       color: 'from-primary-500 to-primary-600'
                     },
                     { 
                       label: 'Skill Categories', 
-                      value: resumeData.skillCategories.length,
+                      value: markdownResumeData.skillCategories.length,
                       color: 'from-secondary-500 to-secondary-600'
                     }
                   ].map((stat, index) => (

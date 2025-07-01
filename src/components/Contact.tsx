@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Mail, Phone, MapPin, Github, Linkedin } from 'lucide-react';
-import { resumeData } from '../data/resumeData';
+import { markdownResumeData } from '../data/markdownResumeData';
 
 const Contact = () => {
   const [ref, inView] = useInView({
@@ -13,19 +13,19 @@ const Contact = () => {
     {
       icon: Mail,
       label: 'Email',
-      value: resumeData.personalInfo.email,
-      href: `mailto:${resumeData.personalInfo.email}`
+      value: markdownResumeData.personalInfo.email,
+      href: `mailto:${markdownResumeData.personalInfo.email}`
     },
     {
       icon: Phone,
       label: 'Phone',
-      value: resumeData.personalInfo.phone,
-      href: `tel:${resumeData.personalInfo.phone}`
+      value: markdownResumeData.personalInfo.phone,
+      href: `tel:${markdownResumeData.personalInfo.phone}`
     },
     {
       icon: MapPin,
       label: 'Location',
-      value: resumeData.personalInfo.location,
+      value: markdownResumeData.personalInfo.location,
       href: '#'
     }
   ];
@@ -34,12 +34,12 @@ const Contact = () => {
     {
       icon: Github,
       label: 'GitHub',
-      href: resumeData.personalInfo.github
+      href: markdownResumeData.personalInfo.github
     },
     {
       icon: Linkedin,
       label: 'LinkedIn',
-      href: resumeData.personalInfo.linkedin
+      href: markdownResumeData.personalInfo.linkedin
     }
   ];
 
@@ -135,7 +135,7 @@ const Contact = () => {
                 
                 <div className="space-y-4">
                   <motion.a
-                    href={`mailto:${resumeData.personalInfo.email}`}
+                    href={`mailto:${markdownResumeData.personalInfo.email}`}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className="btn-primary w-full justify-center"
@@ -145,7 +145,7 @@ const Contact = () => {
                   </motion.a>
                   
                   <motion.a
-                    href={resumeData.personalInfo.linkedin}
+                    href={markdownResumeData.personalInfo.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.05 }}

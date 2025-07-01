@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { ChevronDown, Download, Mail } from 'lucide-react';
-import { resumeData } from '../data/resumeData';
+import { markdownResumeData } from '../data/markdownResumeData';
 
 const Hero = () => {
   const scrollToAbout = () => {
@@ -52,7 +52,7 @@ const Hero = () => {
             <div className="w-32 h-32 md:w-40 md:h-40 mx-auto mb-6 relative">
               <div className="w-full h-full bg-gradient-to-r from-primary-500 to-primary-700 rounded-full flex items-center justify-center">
                 <span className="text-white font-bold text-4xl md:text-5xl">
-                  {resumeData.personalInfo.name.split(' ').map(n => n[0]).join('')}
+                  {markdownResumeData.personalInfo.name.split(' ').map(n => n[0]).join('')}
                 </span>
               </div>
               <motion.div
@@ -78,7 +78,7 @@ const Hero = () => {
                 transition={{ delay: 0.6, duration: 0.6 }}
               >
                 <span className="gradient-text">
-                  {resumeData.personalInfo.name}
+                  {markdownResumeData.personalInfo.name}
                 </span>
               </motion.h1>
               
@@ -88,7 +88,7 @@ const Hero = () => {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.8, duration: 0.6 }}
               >
-                {resumeData.personalInfo.title}
+                {markdownResumeData.personalInfo.title}
               </motion.p>
             </div>
 
@@ -119,7 +119,7 @@ const Hero = () => {
                 Download Resume
               </motion.button>
               <motion.a
-                href={`mailto:${resumeData.personalInfo.email}`}
+                href={`mailto:${markdownResumeData.personalInfo.email}`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="btn-secondary"
