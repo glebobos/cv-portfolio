@@ -1,298 +1,35 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Professional resume of HLEB YARMOLCHYK">
-  <meta name="theme-color" content="#0070f3">
-  <title>HLEB YARMOLCHYK - Professional Resume</title>
-  <!-- Using system fonts instead of external resources to avoid network dependency during build -->
-  <style>
-    /* Icon styles using Unicode symbols */
-    .icon-download::before { content: "⬇️"; margin-right: 6px; }
-    .icon-file::before { content: "📄"; margin-right: 6px; }
-    .icon-print::before { content: "🖨️"; margin-right: 6px; }
-    .icon-github::before { content: "🔗"; margin-right: 6px; }
-    .icon-projects::before { content: "💡"; margin-right: 6px; }
-    .icon-linkedin::before { content: "🔗"; margin-right: 6px; }
-    .icon-code::before { content: "💻"; margin-right: 6px; }
-  </style>
-  <style>
-    :root {
-      /* Color palette */
-      --color-primary: #0070f3;
-      --color-primary-dark: #0050d0;
-      --color-secondary: #171717;
-      --color-text: #333333;
-      --color-text-light: #666666;
-      --color-background: #ffffff;
-      --color-surface: #f8fafc;
-      --color-border: #eaeaea;
-      --color-accent: #00a3bf;
-      
-      /* Typography */
-      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      
-      /* Spacing */
-      --spacing-xs: 0.25rem;
-      --spacing-sm: 0.5rem;
-      --spacing-md: 1rem;
-      --spacing-lg: 1.5rem;
-      --spacing-xl: 2rem;
-      
-      /* Transitions */
-      --transition-standard: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      
-      /* Shadows */
-      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-      
-      /* Border radius */
-      --radius-sm: 0.25rem;
-      --radius-md: 0.5rem;
-      --radius-lg: 1rem;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Hleb Yarmolchyk - Chief Systems Engineer I | AWS Cloud Architecture & DevOps Expert" />
+    <meta name="keywords" content="DevOps, AWS, Cloud Architecture, Systems Engineer, Resume, Portfolio" />
+    <meta name="author" content="Hleb Yarmolchyk" />
     
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://glebobos.github.io/cv-portfolio/" />
+    <meta property="og:title" content="Hleb Yarmolchyk - Resume & Portfolio" />
+    <meta property="og:description" content="Chief Systems Engineer I | AWS Cloud Architecture & DevOps Expert" />
     
-    html {
-      scroll-behavior: smooth;
-    }
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://glebobos.github.io/cv-portfolio/" />
+    <meta property="twitter:title" content="Hleb Yarmolchyk - Resume & Portfolio" />
+    <meta property="twitter:description" content="Chief Systems Engineer I | AWS Cloud Architecture & DevOps Expert" />
     
-    body {
-      font-family: var(--font-sans);
-      line-height: 1.6;
-      color: var(--color-text);
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: var(--spacing-md);
-      background-color: #f5f8fa;
-    }
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     
-    h1 {
-      font-size: clamp(1.8rem, 1.6rem + 1vw, 2.5rem);
-      color: var(--color-secondary);
-      border-bottom: 3px solid var(--color-primary);
-      padding-bottom: var(--spacing-sm);
-      margin-bottom: var(--spacing-lg);
-    }
-    
-    .container {
-      background-color: var(--color-background);
-      padding: var(--spacing-xl);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-lg);
-      margin-top: var(--spacing-lg);
-      transition: var(--transition-standard);
-    }
-    
-    .card {
-      margin-bottom: var(--spacing-lg);
-      padding: var(--spacing-lg);
-      border-left: 4px solid var(--color-primary);
-      background-color: var(--color-surface);
-      border-radius: var(--radius-md);
-      transition: var(--transition-standard);
-      box-shadow: var(--shadow-sm);
-    }
-    
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-md);
-    }
-    
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--spacing-xs);
-      padding: var(--spacing-sm) var(--spacing-lg);
-      background-color: var(--color-primary);
-      color: white;
-      text-decoration: none;
-      border-radius: var(--radius-md);
-      font-weight: 600;
-      margin-right: var(--spacing-sm);
-      margin-bottom: var(--spacing-sm);
-      transition: var(--transition-standard);
-      box-shadow: var(--shadow-sm);
-    }
-    
-    .btn:hover {
-      background-color: var(--color-primary-dark);
-      text-decoration: none;
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
-    }
-    
-    .btn:active {
-      transform: translateY(0);
-    }
-    
-    .btn i {
-      font-size: 1.2em;
-    }
-    
-    footer {
-      text-align: center;
-      margin-top: var(--spacing-xl);
-      padding-top: var(--spacing-lg);
-      color: var(--color-text-light);
-      font-size: 0.9em;
-      border-top: 1px solid var(--color-border);
-    }
-    
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: var(--spacing-md);
-      margin-top: var(--spacing-sm);
-    }
-    
-    .footer-links a {
-      color: var(--color-primary);
-      text-decoration: none;
-      transition: var(--transition-standard);
-    }
-    
-    .footer-links a:hover {
-      color: var(--color-primary-dark);
-    }
-    
-    /* Hero section */
-    .hero {
-      text-align: center;
-      margin-bottom: var(--spacing-xl);
-    }
-    
-    .hero-subtitle {
-      font-size: 1.2rem;
-      color: var(--color-text-light);
-      margin-bottom: var(--spacing-lg);
-    }
-    
-    /* Dark mode */
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --color-primary: #3b82f6;
-        --color-primary-dark: #2563eb;
-        --color-secondary: #f0f0f0;
-        --color-text: #e0e0e0;
-        --color-text-light: #a0a0a0;
-        --color-background: #121212;
-        --color-surface: #1e1e1e;
-        --color-border: #2a2a2a;
-      }
-      
-      body {
-        background-color: #0a0a0a;
-      }
-    }
-    
-    /* Responsive design */
-    @media (max-width: 768px) {
-      .container {
-        padding: var(--spacing-lg);
-      }
-      
-      .card {
-        padding: var(--spacing-md);
-      }
-      
-      h1 {
-        font-size: 1.8rem;
-      }
-    }
-    
-    /* Animations */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    
-    .card {
-      animation: fadeInUp 0.5s ease-out;
-      animation-fill-mode: both;
-    }
-    
-    .card:nth-child(2) {
-      animation-delay: 0.2s;
-    }
-    
-    .card:nth-child(3) {
-      animation-delay: 0.4s;
-    }
-  </style>
-</head>
-<body>
-  <div class="hero">
-    <h1>HLEB YARMOLCHYK</h1>
-    <p class="hero-subtitle">Professional Resume & Portfolio</p>
-  </div>
-  
-  <div class="container">
-    <p>Welcome to my professional resume and portfolio site. Here you can explore my qualifications, experience, and skills in different formats.</p>
-    
-    <div class="card">
-      <h3>Complete Professional Resume</h3>
-      <p>View my comprehensive professional resume with detailed experience, education, skills, and more.</p>
-      <a href="resume.html" class="btn">
-        <span class="icon-file"></span> View Full Resume
-      </a>
-      <a href="resume.pdf" class="btn" download>
-        <span class="icon-download"></span> Download PDF
-      </a>
-    </div>
-    
-    <div class="card">
-      <h3>One-Page Resume</h3>
-      <p>A condensed version of my resume optimized for quick review and recruitment purposes.</p>
-      <a href="one_page.html" class="btn">
-        <span class="icon-file"></span> View One-Page
-      </a>
-      <a href="one_page_resume.pdf" class="btn" download>
-        <span class="icon-download"></span> Download PDF
-      </a>
-    </div>
-    
-    <div class="card">
-      <h3>Portfolio Highlights</h3>
-      <p>Explore some of my notable projects and professional achievements.</p>
-      <a href="resume.html#projects" class="btn">
-        <span class="icon-projects"></span> View Projects
-      </a>
-    </div>
-  </div>
-  
-  <footer>
-    <p>&copy; 2025 HLEB YARMOLCHYK</p>
-    <div class="footer-links">
-      <a href="https://github.com/glebobos" target="_blank"><span class="icon-github"></span> GitHub</a>
-      <a href="https://linkedin.com/in/glebobos" target="_blank"><span class="icon-linkedin"></span> LinkedIn</a>
-      <a href="https://github.com/glebobos/cv-portfolio" target="_blank"><span class="icon-code"></span> Source Code</a>
-    </div>
-  </footer>
-  
-  <script>
-    // Add smooth scroll behavior
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-      });
-    });
-  </script>
-</body>
+    <title>Hleb Yarmolchyk - Resume & Portfolio</title>
+    <script type="module" crossorigin src="/cv-portfolio/assets/main-CJNVub_j.js"></script>
+    <link rel="stylesheet" crossorigin href="/cv-portfolio/assets/main-B0Xtdh5o.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
 </html>
