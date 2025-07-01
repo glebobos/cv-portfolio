@@ -1,10 +1,16 @@
-# Professional Resume
+# HLEB YARMOLCHYK
+**Chief Systems Engineer I | AWS Cloud Architecture & DevOps Expert**
 
-This is the main index of my professional resume. Below you'll find links to different sections of my experience and qualifications.
+📧 [Email] | 📱 [Phone] | 🔗 [LinkedIn: hleb-yarmolchyk-573142153](https://www.linkedin.com/in/hleb-yarmolchyk-573142153) | 📍 [Location] | 🌐 [GitHub: github.com/glebobos]
 
-## Sections
+## Resume Downloads
 
-- [Summary](./sections/summary.md)
+- [**Download Full Resume (PDF)**](../assets/pdfs/full_resume.pdf)
+- [**Download One-Page Resume (PDF)**](../assets/pdfs/one_page_resume.pdf)
+
+## Resume Sections
+
+- [Executive Summary](./sections/summary.md)
 - [Work Experience](./sections/experience.md)
 - [Education](./sections/education.md)
 - [Skills](./sections/skills.md)

@@ -7,7 +7,7 @@
 # HLEB YARMOLCHYK
 **Chief Systems Engineer I | AWS Cloud Architecture & DevOps Expert**
 
-📧 [Email] | 📱 [Phone] | 🔗 [LinkedIn] | 📍 [Location] | 🌐 [GitHub: github.com/glebobos]
+📧 [Email] | 📱 [Phone] | 🔗 [LinkedIn: hleb-yarmolchyk-573142153](https://www.linkedin.com/in/hleb-yarmolchyk-573142153) | 📍 [Location] | 🌐 [GitHub: github.com/glebobos]
 
 ## EXECUTIVE SUMMARY
 

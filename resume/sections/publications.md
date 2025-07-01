@@ -20,6 +20,18 @@
 - Detailed technical documentation for custom frameworks and automation systems
 - Knowledge base articles on AWS services optimization and advanced configuration patterns
 
+## Patent Portfolio
+
+### Engineering Systems Patents
+**Multiple Registered Patents**
+
+- **Patent:** DYNAMIC PROPERTIES OF SELF-PROPELLED ALL-PURPOSE POWER UNIT WITH A HYDROMECHANICAL TRANSMISSION OF TWO-LINE TYPE
+- **Patent:** A self-propelled grain harvester running on gaseous fuel. 190376 U1
+- **Patent:** Grain harvester Y №4475
+- **Patent:** A self-propelled grain harvester with a power unit running on gaseous fuel. U 190375 U1
+- **Patent:** Device for collecting liquid and monitoring its level in a tank BY U 10162
+- **Patent:** Friction clutch 20382 C2 F 16D 13/00
+
 ## Open Source Projects
 
 ### LambdaTerminal

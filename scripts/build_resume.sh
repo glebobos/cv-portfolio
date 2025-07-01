@@ -21,28 +21,146 @@ extract_content() {
 
 echo "Combining markdown files..."
 
+# Create temp file
+TEMP_FILE=$(mktemp)
+
 # Create frontmatter
-echo "---" > "$OUTPUT_DIR/resume.md"
-TITLE=$(grep "^#" ./resume/sections/summary.md | head -n 1 | sed 's/# //')
-echo "title: $TITLE" >> "$OUTPUT_DIR/resume.md"
-echo "---" >> "$OUTPUT_DIR/resume.md"
+echo "---" > "$TEMP_FILE"
+echo "title: HLEB YARMOLCHYK - Professional Resume" >> "$TEMP_FILE"
+echo "author: Hleb Yarmolchyk" >> "$TEMP_FILE"
+echo "date: $(date +'%B %d, %Y')" >> "$TEMP_FILE"
+echo "---" >> "$TEMP_FILE"
 
-# Extract contact info from summary (name and contact details)
-NAME=$(grep -A 3 "^# " ./resume/sections/summary.md | tail -n 1)
-CONTACTS=$(grep -A 1 "📧" ./resume/sections/summary.md)
-echo "$NAME" >> "$OUTPUT_DIR/resume.md"
-echo "$CONTACTS" >> "$OUTPUT_DIR/resume.md"
-echo "" >> "$OUTPUT_DIR/resume.md"
+# Extract name and contact info from summary
+NAME=$(grep "^# HLEB YARMOLCHYK" ./resume/sections/summary.md)
+TITLE_LINE=$(grep "^\*\*Chief Systems Engineer" ./resume/sections/summary.md)
+CONTACTS=$(grep "^📧" ./resume/sections/summary.md)
 
-# Add executive summary
-SUMMARY=$(grep -A 10 "## EXECUTIVE SUMMARY" ./resume/sections/summary.md)
-echo "$SUMMARY" >> "$OUTPUT_DIR/resume.md"
-echo "" >> "$OUTPUT_DIR/resume.md"
+# Add name and contact info
+echo "$NAME" >> "$TEMP_FILE"
+echo "$TITLE_LINE" >> "$TEMP_FILE"
+echo "" >> "$TEMP_FILE"
+echo "$CONTACTS" >> "$TEMP_FILE"
+echo "" >> "$TEMP_FILE"
 
-# Add skills section
-echo "## Skills" >> "$OUTPUT_DIR/resume.md"
-SKILLS=$(extract_content ./resume/sections/skills.md 5)
-echo "$SKILLS" >> "$OUTPUT_DIR/resume.md"
+# Add executive summary 
+echo "## EXECUTIVE SUMMARY" >> "$TEMP_FILE"
+SUMMARY=$(grep -A 12 "^## EXECUTIVE SUMMARY" ./resume/sections/summary.md | tail -n +2)
+echo "$SUMMARY" >> "$TEMP_FILE"
+echo "" >> "$TEMP_FILE"
+
+# Add core technical competencies
+echo "## CORE TECHNICAL COMPETENCIES" >> "$TEMP_FILE"
+SECTIONS=$(sed -n '/^### \*\*Cloud Platforms/,/^## /p' ./resume/sections/summary.md | sed '$d')
+echo "$SECTIONS" >> "$TEMP_FILE"
+echo "" >> "$TEMP_FILE"
+
+# Add professional experience
+echo "## PROFESSIONAL EXPERIENCE" >> "$TEMP_FILE"
+EXPERIENCE=$(tail -n +5 ./resume/sections/experience.md)
+echo "$EXPERIENCE" >> "$TEMP_FILE"
+echo "" >> "$TEMP_FILE"
+
+# Add project portfolio
+echo "## MAJOR PROJECT PORTFOLIO" >> "$TEMP_FILE"
+PROJECTS=$(tail -n +5 ./resume/sections/projects.md)
+echo "$PROJECTS" >> "$TEMP_FILE"
+echo "" >> "$TEMP_FILE"
+
+# Add technical expertise matrix
+echo "## TECHNICAL EXPERTISE MATRIX" >> "$TEMP_FILE"
+TECH_MATRIX=$(sed -n '/^## Technical Expertise Matrix/,/^##/p' ./resume/sections/skills.md | sed '$d' | tail -n +2)
+echo "$TECH_MATRIX" >> "$TEMP_FILE"
+echo "" >> "$TEMP_FILE"
+
+# Add certifications
+echo "## PROFESSIONAL CERTIFICATIONS" >> "$TEMP_FILE"
+CERTS=$(tail -n +5 ./resume/sections/certifications.md)
+echo "$CERTS" >> "$TEMP_FILE"
+echo "" >> "$TEMP_FILE"
+
+# Add publications and patents
+echo "## PUBLICATIONS & TECHNICAL CONTRIBUTIONS" >> "$TEMP_FILE"
+PUBS=$(tail -n +5 ./resume/sections/publications.md)
+echo "$PUBS" >> "$TEMP_FILE"
+echo "" >> "$TEMP_FILE"
+
+# Add education
+echo "## EDUCATION & BACKGROUND" >> "$TEMP_FILE"
+EDU=$(tail -n +5 ./resume/sections/education.md)
+echo "$EDU" >> "$TEMP_FILE"
+echo "" >> "$TEMP_FILE"
+
+# Add footer
+echo "---" >> "$TEMP_FILE"
+echo "" >> "$TEMP_FILE"
+echo "*Last updated: $(date +'%B %d, %Y')*" >> "$TEMP_FILE"
+echo "" >> "$TEMP_FILE"
+
+# Copy the temp file to the output file
+cp "$TEMP_FILE" "$OUTPUT_DIR/resume.md"
+
+# Clean up
+rm "$TEMP_FILE"
+
+# Generate HTML and PDF files
+echo "Generating HTML and PDF files..."
+
+# Convert to HTML using template
+pandoc -s "$OUTPUT_DIR/resume.md" \
+  --template=./templates/resume-template.html \
+  -c resume.css \
+  -o "$OUTPUT_DIR/resume.html"
+
+# Convert to PDF
+wkhtmltopdf \
+  --page-size A4 \
+  --enable-local-file-access \
+  --margin-top 15 \
+  --margin-bottom 15 \
+  --margin-left 15 \
+  --margin-right 15 \
+  "$OUTPUT_DIR/resume.html" \
+  "$OUTPUT_DIR/resume.pdf"
+
+# Generate one-page resume
+pandoc -s "$OUTPUT_DIR/resume.md" \
+  --template=./templates/resume-template.html \
+  -c one_page.css \
+  -o "$OUTPUT_DIR/one_page.html"
+
+# Convert to PDF
+wkhtmltopdf \
+  --page-size A4 \
+  --enable-local-file-access \
+  --margin-top 15 \
+  --margin-bottom 15 \
+  --margin-left 15 \
+  --margin-right 15 \
+  "$OUTPUT_DIR/one_page.html" \
+  "$OUTPUT_DIR/one_page_resume.pdf"
+
+# Create PDFs directory in assets if it doesn't exist
+mkdir -p ./assets/pdfs
+
+# Copy PDFs to assets directory
+cp "$OUTPUT_DIR/resume.pdf" ./assets/pdfs/full_resume.pdf
+cp "$OUTPUT_DIR/one_page_resume.pdf" ./assets/pdfs/one_page_resume.pdf
+
+# Generate index.html from index.md
+pandoc -s ./resume/index.md \
+  --template=./templates/index-template.html \
+  -c ../styles/resume.css \
+  -o ./index.html
+
+echo "PDFs generated successfully in ./assets/pdfs/"
+echo "Index page generated as index.html"
+echo "Resume build complete!"
+
+# Add technical expertise from skills
+echo "## TECHNICAL EXPERTISE MATRIX" >> "$OUTPUT_DIR/resume.md"
+EXPERTISE=$(grep -A 20 "^## Technical Expertise Matrix" ./resume/sections/skills.md | tail -n +2)
+echo "$EXPERTISE" >> "$OUTPUT_DIR/resume.md"
 echo "" >> "$OUTPUT_DIR/resume.md"
 
 # Add experience section
