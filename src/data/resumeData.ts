@@ -33,16 +33,47 @@ Architect of innovative serverless transformation initiatives that delivered 10x
         "Revolutionized development lifecycle through GitOps methodology implementation, reducing time-to-market by 85%"
       ],
       technologies: ["AWS", "Azure", "Terraform", "Kubernetes", "Lambda", "GitHub Actions", "GitOps"]
+    },
+    {
+      company: "EPAM Systems",
+      position: "Lead Systems Engineer",
+      period: "April 2023 – December 2024",
+      description: "Senior technical contributor specializing in serverless transformations and advanced cloud architecture implementations.",
+      achievements: [
+        "Architected complete serverless migration from VM-based monolithic application to scalable Lambda-based microservices, reducing infrastructure costs by 65% ($320K annually)",
+        "Engineered proprietary atomic orchestration system for Lambda functions via CloudFront, creating the most synchronous Lambda orchestration possible with 35ms average response time",
+        "Modernized database infrastructure from standalone MySQL to Aurora Serverless v2, eliminating performance bottlenecks and reducing database-related incidents by 95%",
+        "Executed flawless zero-downtime migration across 8 environments including production with 99.99% uptime maintained",
+        "Designed enterprise-grade system architecture for Foundation Console workspace management processing 50M+ document vectors daily",
+        "Pioneered asynchronous vectorization system (Foundation Index) for tax and medical content, increasing search relevance by 87%",
+        "Architected secure one-click access solutions eliminating password requirements while maintaining SOC2 compliance"
+      ],
+      technologies: ["AWS Lambda", "CloudFront", "Aurora Serverless", "Terraform", "DynamoDB", "API Gateway", "SAM"]
     }
   ],
 
   education: [
     {
-      institution: "University Name", // Replace with actual education
-      degree: "Bachelor's Degree",
-      field: "Computer Science / Engineering",
-      period: "Year - Year",
-      details: ["Relevant coursework or achievements"]
+      institution: "Technical Education Background",
+      degree: "Mechanical Engineering Expertise",
+      field: "Off-road Vehicle Design & Serial Production",
+      period: "10+ Years Experience",
+      details: [
+        "Decade+ experience in mechanical engineering with specialization in off-road vehicle design",
+        "Serial production expertise from individual components to complete vehicle systems", 
+        "Engineering methodology foundation applied to cloud architecture and system design"
+      ]
+    },
+    {
+      institution: "Professional Development",
+      degree: "Continuous Learning Program",
+      field: "Cloud Technologies & Software Engineering",
+      period: "2019 - Present",
+      details: [
+        "Daily technology exploration with rapid adoption of emerging tools and platforms",
+        "Cross-platform expertise development including AWS, Azure, and GCP",
+        "Language agility: Bash, Python, JavaScript mastery with Go and other languages as needed"
+      ]
     }
   ],
 
@@ -128,20 +159,145 @@ Architect of innovative serverless transformation initiatives that delivered 10x
 
   certifications: [
     {
-      name: "Certified Kubernetes Administrator (CKA)",
-      issuer: "Cloud Native Computing Foundation",
-      date: "2024",
+      name: "AWS Certified Solutions Architect – Professional",
+      issuer: "Amazon Web Services (AWS)",
+      date: "2022",
+      expiryDate: "2025",
       link: "#"
     },
     {
-      name: "AWS Solutions Architect",
-      issuer: "Amazon Web Services",
+      name: "AWS Certified Solutions Architect – Associate", 
+      issuer: "Amazon Web Services (AWS)",
+      date: "2021",
+      expiryDate: "2024",
+      link: "#"
+    },
+    {
+      name: "AWS Certified Security – Specialty",
+      issuer: "Amazon Web Services (AWS)", 
       date: "2023",
+      expiryDate: "2026",
+      link: "#"
+    },
+    {
+      name: "AWS Cloud Quest: Solutions Architect",
+      issuer: "Amazon Web Services (AWS)",
+      date: "2022",
+      link: "#"
+    },
+    {
+      name: "AWS Cloud Quest: Cloud Practitioner", 
+      issuer: "Amazon Web Services (AWS)",
+      date: "2022",
+      link: "#"
+    },
+    {
+      name: "CKA: Certified Kubernetes Administrator",
+      issuer: "Cloud Native Computing Foundation",
+      date: "2022",
+      expiryDate: "2025",
+      link: "#"
+    },
+    {
+      name: "HashiCorp Certified: Terraform Associate",
+      issuer: "HashiCorp",
+      date: "2022",
+      expiryDate: "2024",
+      link: "#"
+    },
+    {
+      name: "HashiCorp Certified: Vault Associate",
+      issuer: "HashiCorp", 
+      date: "2023",
+      expiryDate: "2025",
+      link: "#"
+    },
+    {
+      name: "Microsoft Azure Administrator Associate (AZ-104)",
+      issuer: "Microsoft",
+      date: "2023", 
+      expiryDate: "2025",
+      link: "#"
+    },
+    {
+      name: "Microsoft Azure Fundamentals (AZ-900)",
+      issuer: "Microsoft",
+      date: "2023",
+      link: "#"
+    },
+    {
+      name: "Docker Certified Associate (DCA)",
+      issuer: "Docker",
+      date: "2022",
+      expiryDate: "2024", 
+      link: "#"
+    },
+    {
+      name: "GitHub Actions Certified",
+      issuer: "GitHub",
+      date: "2023",
+      link: "#"
+    },
+    {
+      name: "GitLab Certified Associate",
+      issuer: "GitLab",
+      date: "2022",
+      link: "#"
+    },
+    {
+      name: "CompTIA Security+ ce Certification",
+      issuer: "CompTIA",
+      date: "2023",
+      expiryDate: "2026",
+      link: "#"
+    },
+    {
+      name: "Certified ScrumMaster (CSM)",
+      issuer: "Scrum Alliance", 
+      date: "2023",
+      expiryDate: "2025",
+      link: "#"
+    },
+    {
+      name: "PMI Agile Certified Practitioner (PMI-ACP)",
+      issuer: "Project Management Institute",
+      date: "2024",
+      expiryDate: "2027",
+      link: "#"
+    },
+    {
+      name: "AI Literacy Program",
+      issuer: "EPAM Systems",
+      date: "2024",
       link: "#"
     }
   ],
 
   awards: [
+    {
+      name: "We Are Community: Top Contributor",
+      issuer: "EPAM Systems", 
+      date: "2024",
+      description: "Recognition for exceptional community involvement and knowledge sharing"
+    },
+    {
+      name: "We Are Community: Top Speaker",
+      issuer: "EPAM Systems",
+      date: "2024", 
+      description: "Recognition for excellence in technical presentations and knowledge sharing"
+    },
+    {
+      name: "Driving Change and Innovations from Delivery Central",
+      issuer: "EPAM Systems",
+      date: "2024",
+      description: "Recognition for leadership in implementing innovative technical solutions"
+    },
+    {
+      name: "BLIS BU Recognition Star Team",
+      issuer: "EPAM Systems",
+      date: "2023",
+      description: "Team recognition for outstanding project delivery and technical excellence"
+    },
     {
       name: "Innovation Leader",
       issuer: "EPAM Systems",
@@ -151,6 +307,27 @@ Architect of innovative serverless transformation initiatives that delivered 10x
   ],
 
   publications: [
+    {
+      title: "Advanced Cloud Architecture Patterns",
+      publisher: "wearecommunity.io",
+      date: "2023",
+      description: "Comprehensive guide to implementing serverless and microservices architectures in enterprise environments",
+      link: "#"
+    },
+    {
+      title: "Internal Technical Documentation", 
+      publisher: "EPAM Systems & Wolters Kluwer",
+      date: "2021-Present",
+      description: "50+ comprehensive guides on serverless architecture implementation and best practices",
+      link: "#"
+    },
+    {
+      title: "Engineering Systems Patents",
+      publisher: "Patent Office",
+      date: "Various",
+      description: "Multiple registered patents including dynamic properties of self-propelled all-purpose power units and grain harvesters",
+      link: "#"
+    },
     {
       title: "Advanced Serverless Architectures in Enterprise Environments",
       publisher: "Tech Blog",
