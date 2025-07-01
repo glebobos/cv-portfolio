@@ -1,12 +1,10 @@
 ---
 title: 
 ---
+# HLEB YARMOLCHYK
+**Chief Systems Engineer I | AWS Cloud Architecture & DevOps Expert**
+
 📧 [Email] | 📱 [Phone] | 🔗 [LinkedIn: hleb-yarmolchyk-573142153](https://www.linkedin.com/in/hleb-yarmolchyk-573142153) | 📍 [Location] | 🌐 [GitHub: github.com/glebobos]
-
-## EXECUTIVE SUMMARY
-
-**Highly accomplished Chief Systems Engineer (I)** with ~5 years of accelerated impact in **enterprise cloud architecture**, advanced **DevOps automation**, and pioneering **serverless computing initiatives**. A proven technical leader and architect, guiding, mentoring, and influencing **70+ developers** in designing and deploying solutions across **24+ complex AWS, Azure, and multi-cloud production environments**. Architect of innovative **serverless transformation initiatives** that delivered **10x performance improvements** and **30%+ cost reductions** for Fortune 500 clients.
-
 
 ## EXECUTIVE SUMMARY
 
