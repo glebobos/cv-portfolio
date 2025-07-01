@@ -41,7 +41,7 @@ jobs:
 
       # Prepare content for GitHub Pages
       - name: Prepare GitHub Pages content
-        if: github.ref == 'refs/heads/main'
+        # if: github.ref == 'refs/heads/main'
         run: |
           # Copy built files to pages directory
           mkdir -p pages
@@ -52,7 +52,7 @@ jobs:
 
       # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
-        if: github.ref == 'refs/heads/main'
+        # if: github.ref == 'refs/heads/main'
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
