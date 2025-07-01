@@ -3,114 +3,287 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Professional resume of HLEB YARMOLCHYK">
+  <meta name="theme-color" content="#0070f3">
   <title>HLEB YARMOLCHYK - Professional Resume</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
   <style>
+    :root {
+      /* Color palette */
+      --color-primary: #0070f3;
+      --color-primary-dark: #0050d0;
+      --color-secondary: #171717;
+      --color-text: #333333;
+      --color-text-light: #666666;
+      --color-background: #ffffff;
+      --color-surface: #f8fafc;
+      --color-border: #eaeaea;
+      --color-accent: #00a3bf;
+      
+      /* Typography */
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      
+      /* Spacing */
+      --spacing-xs: 0.25rem;
+      --spacing-sm: 0.5rem;
+      --spacing-md: 1rem;
+      --spacing-lg: 1.5rem;
+      --spacing-xl: 2rem;
+      
+      /* Transitions */
+      --transition-standard: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      
+      /* Shadows */
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      
+      /* Border radius */
+      --radius-sm: 0.25rem;
+      --radius-md: 0.5rem;
+      --radius-lg: 1rem;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
     body {
-      font-family: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: var(--font-sans);
       line-height: 1.6;
-      color: #333;
-      max-width: 800px;
+      color: var(--color-text);
+      max-width: 1000px;
       margin: 0 auto;
-      padding: 20px;
-      background-color: #f9f9f9;
+      padding: var(--spacing-md);
+      background-color: #f5f8fa;
     }
     
     h1 {
-      color: #2c3e50;
-      border-bottom: 2px solid #3498db;
-      padding-bottom: 10px;
+      font-size: clamp(1.8rem, 1.6rem + 1vw, 2.5rem);
+      color: var(--color-secondary);
+      border-bottom: 3px solid var(--color-primary);
+      padding-bottom: var(--spacing-sm);
+      margin-bottom: var(--spacing-lg);
     }
     
     .container {
-      background-color: white;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      margin-top: 20px;
+      background-color: var(--color-background);
+      padding: var(--spacing-xl);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      margin-top: var(--spacing-lg);
+      transition: var(--transition-standard);
     }
     
     .card {
-      margin-bottom: 20px;
-      padding: 20px;
-      border-left: 4px solid #3498db;
-      background-color: #f8f9fa;
-      border-radius: 4px;
+      margin-bottom: var(--spacing-lg);
+      padding: var(--spacing-lg);
+      border-left: 4px solid var(--color-primary);
+      background-color: var(--color-surface);
+      border-radius: var(--radius-md);
+      transition: var(--transition-standard);
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
     }
     
     .btn {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: #3498db;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--spacing-xs);
+      padding: var(--spacing-sm) var(--spacing-lg);
+      background-color: var(--color-primary);
       color: white;
       text-decoration: none;
-      border-radius: 4px;
+      border-radius: var(--radius-md);
       font-weight: 600;
-      margin-right: 10px;
-      margin-bottom: 10px;
-      transition: background-color 0.2s;
+      margin-right: var(--spacing-sm);
+      margin-bottom: var(--spacing-sm);
+      transition: var(--transition-standard);
+      box-shadow: var(--shadow-sm);
     }
     
     .btn:hover {
-      background-color: #2980b9;
+      background-color: var(--color-primary-dark);
+      text-decoration: none;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
     }
     
-    .footer {
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 1px solid #eee;
-      font-size: 0.9em;
-      color: #777;
+    .btn:active {
+      transform: translateY(0);
+    }
+    
+    .btn i {
+      font-size: 1.2em;
+    }
+    
+    footer {
       text-align: center;
+      margin-top: var(--spacing-xl);
+      padding-top: var(--spacing-lg);
+      color: var(--color-text-light);
+      font-size: 0.9em;
+      border-top: 1px solid var(--color-border);
+    }
+    
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: var(--spacing-md);
+      margin-top: var(--spacing-sm);
+    }
+    
+    .footer-links a {
+      color: var(--color-primary);
+      text-decoration: none;
+      transition: var(--transition-standard);
+    }
+    
+    .footer-links a:hover {
+      color: var(--color-primary-dark);
+    }
+    
+    /* Hero section */
+    .hero {
+      text-align: center;
+      margin-bottom: var(--spacing-xl);
+    }
+    
+    .hero-subtitle {
+      font-size: 1.2rem;
+      color: var(--color-text-light);
+      margin-bottom: var(--spacing-lg);
+    }
+    
+    /* Dark mode */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-primary: #3b82f6;
+        --color-primary-dark: #2563eb;
+        --color-secondary: #f0f0f0;
+        --color-text: #e0e0e0;
+        --color-text-light: #a0a0a0;
+        --color-background: #121212;
+        --color-surface: #1e1e1e;
+        --color-border: #2a2a2a;
+      }
+      
+      body {
+        background-color: #0a0a0a;
+      }
+    }
+    
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .container {
+        padding: var(--spacing-lg);
+      }
+      
+      .card {
+        padding: var(--spacing-md);
+      }
+      
+      h1 {
+        font-size: 1.8rem;
+      }
+    }
+    
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .card {
+      animation: fadeInUp 0.5s ease-out;
+      animation-fill-mode: both;
+    }
+    
+    .card:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+    
+    .card:nth-child(3) {
+      animation-delay: 0.4s;
     }
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="hero">
     <h1>HLEB YARMOLCHYK</h1>
-    <h2>Chief Systems Engineer I | AWS Cloud Architecture & DevOps Expert</h2>
+    <p class="hero-subtitle">Professional Resume & Portfolio</p>
+  </div>
+  
+  <div class="container">
+    <p>Welcome to my professional resume and portfolio site. Here you can explore my qualifications, experience, and skills in different formats.</p>
     
     <div class="card">
-      <p>📧 [Email] | 📱 [Phone] | 🔗 <a href="https://www.linkedin.com/in/hleb-yarmolchyk-573142153">LinkedIn: hleb-yarmolchyk-573142153</a> | 📍 [Location] | 🌐 <a href="https://github.com/glebobos">GitHub: github.com/glebobos</a></p>
-      
-      <a href="full_resume.pdf" class="btn">Download Full Resume (PDF)</a>
-      <a href="one_page_resume.pdf" class="btn">Download One-Page Resume (PDF)</a>
-      <a href="resume.html" class="btn">View Full HTML Resume</a>
-      <a href="one_page.html" class="btn">View One-Page HTML Resume</a>
+      <h3>Complete Professional Resume</h3>
+      <p>View my comprehensive professional resume with detailed experience, education, skills, and more.</p>
+      <a href="resume.html" class="btn">
+        <i class="ri-file-text-line"></i> View Full Resume
+      </a>
+      <a href="resume.pdf" class="btn" download>
+        <i class="ri-download-line"></i> Download PDF
+      </a>
     </div>
     
     <div class="card">
-      <h2>Professional Profile</h2>
-      <p>Highly accomplished AWS Cloud Architecture & DevOps Expert with ~5 years of accelerated impact in enterprise solutions. Architect of innovative serverless transformation initiatives that delivered 10x performance improvements and 30%+ cost reductions for Fortune 500 clients.</p>
-      <p>Key areas of expertise include:</p>
-      <ul>
-        <li>Enterprise Cloud Architecture (AWS, Azure)</li>
-        <li>DevOps Automation & CI/CD Pipeline Development</li>
-        <li>Infrastructure as Code (Terraform, CloudFormation)</li>
-        <li>Kubernetes Orchestration</li>
-        <li>Serverless Computing & Microservices</li>
-        <li>Patent Holder in Engineering Systems</li>
-      </ul>
+      <h3>One-Page Resume</h3>
+      <p>A condensed version of my resume optimized for quick review and recruitment purposes.</p>
+      <a href="one_page.html" class="btn">
+        <i class="ri-file-list-line"></i> View One-Page
+      </a>
+      <a href="one_page_resume.pdf" class="btn" download>
+        <i class="ri-download-line"></i> Download PDF
+      </a>
     </div>
     
     <div class="card">
-      <h2>Resume Sections</h2>
-      <ul>
-        <li><a href="resume.html#executive-summary">Executive Summary</a></li>
-        <li><a href="resume.html#professional-experience">Work Experience</a></li>
-        <li><a href="resume.html#education">Education</a></li>
-        <li><a href="resume.html#technical-expertise-matrix">Skills</a></li>
-        <li><a href="resume.html#major-project-portfolio">Projects</a></li>
-        <li><a href="resume.html#professional-certifications">Certifications</a></li>
-        <li><a href="resume.html#awards--recognition">Awards & Recognition</a></li>
-        <li><a href="resume.html#publications--technical-contributions">Publications</a></li>
-        <li><a href="resume.html#references">References</a></li>
-      </ul>
-    </div>
-    
-    <div class="footer">
-      <p>Last Updated: July 1, 2025</p>
-      <p><a href="https://github.com/glebobos/cv-portfolio">View Source on GitHub</a></p>
+      <h3>Portfolio Highlights</h3>
+      <p>Explore some of my notable projects and professional achievements.</p>
+      <a href="resume.html#projects" class="btn">
+        <i class="ri-lightbulb-line"></i> View Projects
+      </a>
     </div>
   </div>
+  
+  <footer>
+    <p>&copy; 2025 HLEB YARMOLCHYK</p>
+    <div class="footer-links">
+      <a href="https://github.com/yourusername" target="_blank"><i class="ri-github-fill"></i> GitHub</a>
+      <a href="https://linkedin.com/in/yourusername" target="_blank"><i class="ri-linkedin-fill"></i> LinkedIn</a>
+      <a href="https://github.com/yourusername/cv-portfolio" target="_blank"><i class="ri-code-box-line"></i> Source Code</a>
+    </div>
+  </footer>
+  
+  <script>
+    // Add smooth scroll behavior
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
 </body>
 </html>
