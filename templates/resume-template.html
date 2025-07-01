@@ -6,8 +6,15 @@
   <meta name="description" content="Professional resume of HLEB YARMOLCHYK">
   <meta name="theme-color" content="#0070f3">
   <title>HLEB YARMOLCHYK - Professional Resume</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
+  <!-- Using system fonts instead of external resources to avoid network dependency during build -->
+  <style>
+    /* Icon styles using Unicode symbols */
+    .icon-download::before { content: "⬇️"; margin-right: 6px; }
+    .icon-file::before { content: "📄"; margin-right: 6px; }
+    .icon-print::before { content: "🖨️"; margin-right: 6px; }
+    .icon-github::before { content: "🔗"; margin-right: 6px; }
+    .icon-projects::before { content: "💡"; margin-right: 6px; }
+  </style>
   <link rel="stylesheet" href="resume.css">
   <style>
     /* Additional modern styles for web viewing */
@@ -102,15 +109,15 @@
   <div class="resume-container">
     <div class="resume-actions">
       <a href="resume.pdf" class="btn" download>
-        <i class="ri-file-download-line"></i>
+        <span class="icon-download"></span>
         Download Full Resume PDF
       </a>
       <a href="one_page_resume.pdf" class="btn" download>
-        <i class="ri-file-list-line"></i>
+        <span class="icon-file"></span>
         Download One-Page PDF
       </a>
       <a href="javascript:window.print()" class="btn">
-        <i class="ri-printer-line"></i>
+        <span class="icon-print"></span>
         Print Resume
       </a>
     </div>
@@ -123,7 +130,7 @@
     <div class="source-link">
       <p>Generated using modern web technologies. Last updated: July 1, 2025</p>
       <p><a href="https://github.com/yourusername/cv-portfolio">
-        <i class="ri-github-fill"></i> View Source on GitHub
+        <span class="icon-github"></span> View Source on GitHub
       </a></p>
     </div>
   </div>

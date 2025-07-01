@@ -6,8 +6,17 @@
   <meta name="description" content="Professional resume of HLEB YARMOLCHYK">
   <meta name="theme-color" content="#0070f3">
   <title>HLEB YARMOLCHYK - Professional Resume</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
+  <!-- Using system fonts instead of external resources to avoid network dependency during build -->
+  <style>
+    /* Icon styles using Unicode symbols */
+    .icon-download::before { content: "⬇️"; margin-right: 6px; }
+    .icon-file::before { content: "📄"; margin-right: 6px; }
+    .icon-print::before { content: "🖨️"; margin-right: 6px; }
+    .icon-github::before { content: "🔗"; margin-right: 6px; }
+    .icon-projects::before { content: "💡"; margin-right: 6px; }
+    .icon-linkedin::before { content: "🔗"; margin-right: 6px; }
+    .icon-code::before { content: "💻"; margin-right: 6px; }
+  </style>
   <style>
     :root {
       /* Color palette */
@@ -238,10 +247,10 @@
       <h3>Complete Professional Resume</h3>
       <p>View my comprehensive professional resume with detailed experience, education, skills, and more.</p>
       <a href="resume.html" class="btn">
-        <i class="ri-file-text-line"></i> View Full Resume
+        <span class="icon-file"></span> View Full Resume
       </a>
       <a href="resume.pdf" class="btn" download>
-        <i class="ri-download-line"></i> Download PDF
+        <span class="icon-download"></span> Download PDF
       </a>
     </div>
     
@@ -249,10 +258,10 @@
       <h3>One-Page Resume</h3>
       <p>A condensed version of my resume optimized for quick review and recruitment purposes.</p>
       <a href="one_page.html" class="btn">
-        <i class="ri-file-list-line"></i> View One-Page
+        <span class="icon-file"></span> View One-Page
       </a>
       <a href="one_page_resume.pdf" class="btn" download>
-        <i class="ri-download-line"></i> Download PDF
+        <span class="icon-download"></span> Download PDF
       </a>
     </div>
     
@@ -260,7 +269,7 @@
       <h3>Portfolio Highlights</h3>
       <p>Explore some of my notable projects and professional achievements.</p>
       <a href="resume.html#projects" class="btn">
-        <i class="ri-lightbulb-line"></i> View Projects
+        <span class="icon-projects"></span> View Projects
       </a>
     </div>
   </div>
@@ -268,9 +277,9 @@
   <footer>
     <p>&copy; 2025 HLEB YARMOLCHYK</p>
     <div class="footer-links">
-      <a href="https://github.com/yourusername" target="_blank"><i class="ri-github-fill"></i> GitHub</a>
-      <a href="https://linkedin.com/in/yourusername" target="_blank"><i class="ri-linkedin-fill"></i> LinkedIn</a>
-      <a href="https://github.com/yourusername/cv-portfolio" target="_blank"><i class="ri-code-box-line"></i> Source Code</a>
+      <a href="https://github.com/yourusername" target="_blank"><span class="icon-github"></span> GitHub</a>
+      <a href="https://linkedin.com/in/yourusername" target="_blank"><span class="icon-linkedin"></span> LinkedIn</a>
+      <a href="https://github.com/yourusername/cv-portfolio" target="_blank"><span class="icon-code"></span> Source Code</a>
     </div>
   </footer>
   
