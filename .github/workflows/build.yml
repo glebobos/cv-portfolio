@@ -27,7 +27,7 @@ jobs:
           path: build/resume.html
 
       - name: Upload PDF resumes
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: resume-pdfs
           path: |
