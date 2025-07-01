@@ -23,22 +23,17 @@ cv-portfolio/
 │       ├── skills.md
 │       ├── projects.md
 │       ├── certifications.md
-├── resume-md/           # Example resume implementation
-├── scripts/             # Build scripts
-│   └── build_resume.sh  # Script to combine MD files and generate outputs
-├── styles/              # CSS stylesheets
-│   ├── resume.css       # Styles for the full resume
-│   └── one_page.css     # Styles for the one-page resume
-├── flake.nix            # Nix configuration for reproducible builds
-├── flake.lock           # Lock file for Nix dependencies
 │       ├── awards.md
 │       ├── publications.md
 │       └── references.md
-├── scripts/
-│   └── generate_pdfs.sh # Script to generate PDF versions of resume
-├── styles/
-│   ├── resume.css       # Styling for full resume
-│   └── one_page.css     # Styling for one-page resume
+├── styles/              # CSS stylesheets
+│   ├── resume.css       # Styles for the full resume
+│   └── one_page.css     # Styles for the one-page resume
+├── templates/           # HTML templates
+│   ├── index-template.html # Template for index page
+│   └── resume-template.html # Template for resume page
+├── flake.nix            # Nix configuration for reproducible builds
+├── flake.lock           # Lock file for Nix dependencies
 ├── LICENSE
 └── README.md
 ```
@@ -82,20 +77,19 @@ nix build
 nix develop
 ```
 
-### Using the Bash Script
+### Manual Build
 
-If you don't have Nix or prefer a more traditional approach:
+If you don't have Nix, you'll need to install the following dependencies:
 
 ```bash
-# Make sure you have pandoc and wkhtmltopdf installed
 # For Ubuntu/Debian:
-# sudo apt-get install pandoc wkhtmltopdf
-# For macOS with Homebrew:
-# brew install pandoc wkhtmltopdf
+sudo apt-get install pandoc wkhtmltopdf
 
-# Run the build script
-./scripts/build_resume.sh
+# For macOS with Homebrew:
+brew install pandoc wkhtmltopdf
 ```
+
+Then run the pandoc and wkhtmltopdf commands manually following the pattern in the flake.nix file.
 
 ### GitHub Actions
 

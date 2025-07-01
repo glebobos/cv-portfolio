@@ -20,11 +20,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install dependencies
-        run: sudo apt-get update && sudo apt-get install -y pandoc wkhtmltopdf
-
-      - name: Build resume
-        run: ./scripts/build_resume.sh
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
+      
+      - name: Build resume with Nix
+        run: nix run
 
       - name: Upload HTML resume
         uses: actions/upload-artifact@v4
@@ -50,10 +50,6 @@ jobs:
           # Create index.html from template
           cp templates/index-template.html pages/index.html
           
-          # Ensure PDF files are in the root directory of pages
-          cp build/resume.pdf pages/full_resume.pdf
-          cp build/one_page_resume.pdf pages/one_page_resume.pdf
-          
           # Create .nojekyll file to prevent Jekyll processing
           touch pages/.nojekyll
           
@@ -61,7 +57,6 @@ jobs:
           GITHUB_USERNAME=$(echo $GITHUB_REPOSITORY | cut -d '/' -f 1)
           sed -i "s/yourusername/$GITHUB_USERNAME/g" pages/index.html
           sed -i "s/yourusername/$GITHUB_USERNAME/g" pages/resume.html
-
 
       # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
