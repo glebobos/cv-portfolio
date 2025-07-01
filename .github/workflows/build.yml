@@ -1,0 +1,57 @@
+name: Build Resume
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt-get install -y pandoc wkhtmltopdf
+
+      - name: Build resume
+        run: ./scripts/build_resume.sh
+
+      - name: Upload HTML resume
+        uses: actions/upload-artifact@v3
+        with:
+          name: resume-html
+          path: build/resume.html
+
+      - name: Upload PDF resumes
+        uses: actions/upload-artifact@v3
+        with:
+          name: resume-pdfs
+          path: |
+            build/resume.pdf
+            build/one_page_resume.pdf
+
+      # Prepare content for GitHub Pages
+      - name: Prepare GitHub Pages content
+        if: github.ref == 'refs/heads/main'
+        run: |
+          mkdir -p pages
+          cp -r build/* pages/
+          cp templates/index-template.html pages/index.html
+          
+          # Replace placeholder with actual GitHub username
+          GITHUB_USERNAME=$(echo $GITHUB_REPOSITORY | cut -d '/' -f 1)
+          sed -i "s/yourusername/$GITHUB_USERNAME/g" pages/index.html
+          sed -i "s/yourusername/$GITHUB_USERNAME/g" pages/resume.html
+
+      # Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        if: github.ref == 'refs/heads/main'
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: gh-pages
+          folder: pages
+          clean: true
