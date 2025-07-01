@@ -120,8 +120,8 @@
             name = "cv-portfolio";
             src = ./.;
             inherit buildInputs buildPhase;
-            # Allow network access during build
-            __noChroot = true;
+            # Disable sandbox to allow network access
+            sandbox = false;
             installPhase = ''
               mkdir -p $out/build
               cp -r build/* $out/build/
@@ -136,8 +136,8 @@
             name = "cv-portfolio-checks";
             src = ./.;
             inherit buildInputs buildPhase;
-            # Allow network access during build
-            __noChroot = true;
+            # Disable sandbox to allow network access
+            sandbox = false;
             installPhase = ''
               mkdir -p $out
             '';
