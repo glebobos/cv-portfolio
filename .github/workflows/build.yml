@@ -23,8 +23,15 @@ jobs:
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@main
       
+      - name: Enable Nix Flakes
+        run: |
+          mkdir -p ~/.config/nix
+          echo "experimental-features = nix-command flakes" > ~/.config/nix/nix.conf
+      
       - name: Build resume with Nix
-        run: nix run
+        run: |
+          # Run without using or generating a lock file
+          nix run --no-write-lock-file
 
       - name: Upload HTML resume
         uses: actions/upload-artifact@v4

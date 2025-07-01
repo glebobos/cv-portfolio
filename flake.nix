@@ -2,14 +2,19 @@
   description = "CV Portfolio with Markdown";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { self, nixpkgs, flake-utils }:
+  outputs = { self, nixpkgs, flake-utils, ... }:
     flake-utils.lib.eachDefaultSystem (system:
       let
-        pkgs = import nixpkgs { inherit system; };
+        pkgs = import nixpkgs { 
+          inherit system; 
+          config = {
+            permittedInsecurePackages = [ "openssl-1.1.1w" ];
+          };
+        };
         
         # Script to combine markdown files into a single resume
         combineScript = pkgs.writeShellScriptBin "combine-resume" ''
@@ -64,59 +69,79 @@
           cp ./styles/one_page.css "$OUTPUT_DIR/"
         '';
         
-        # Build the resume
-        buildResume = pkgs.writeShellScriptBin "build-resume" ''
-          #!/usr/bin/env bash
-          set -e
-          
-          OUTPUT_DIR="./build"
-          mkdir -p "$OUTPUT_DIR"
+        buildInputs = with pkgs; [
+          pandoc
+          wkhtmltopdf-bin
+          bashInteractive
+        ];
+
+        # Build phase for the resume
+        buildPhase = ''
+          # Create build directory
+          mkdir -p build
           
           # Combine markdown files
-          ${combineScript}/bin/combine-resume "$OUTPUT_DIR"
+          ${combineScript}/bin/combine-resume build
           
           # Generate HTML resume
-          ${pkgs.pandoc}/bin/pandoc -s \
+          pandoc -s \
             --template="$PWD/templates/resume-template.html" \
             --css=resume.css \
             -f markdown -t html \
-            "$OUTPUT_DIR/resume.md" -o "$OUTPUT_DIR/resume.html"
+            "build/resume.md" -o "build/resume.html"
           
           # Generate PDF resume
-          ${pkgs.wkhtmltopdf}/bin/wkhtmltopdf \
+          wkhtmltopdf \
             --enable-local-file-access \
-            "$OUTPUT_DIR/resume.html" "$OUTPUT_DIR/resume.pdf"
+            "build/resume.html" "build/resume.pdf"
           
           # Generate one-page PDF resume
-          ${pkgs.pandoc}/bin/pandoc -s \
+          pandoc -s \
             --template="$PWD/templates/resume-template.html" \
             --css=one_page.css \
             -f markdown -t html \
-            "$OUTPUT_DIR/resume.md" -o "$OUTPUT_DIR/one_page.html"
+            "build/resume.md" -o "build/one_page.html"
           
-          ${pkgs.wkhtmltopdf}/bin/wkhtmltopdf \
+          wkhtmltopdf \
             --enable-local-file-access \
-            "$OUTPUT_DIR/one_page.html" "$OUTPUT_DIR/one_page_resume.pdf"
-            
+            "build/one_page.html" "build/one_page_resume.pdf"
+          
           # Copy PDFs to assets folder
-          mkdir -p ./assets/pdfs
-          cp "$OUTPUT_DIR/resume.pdf" ./assets/pdfs/full_resume.pdf
-          cp "$OUTPUT_DIR/one_page_resume.pdf" ./assets/pdfs/one_page_resume.pdf
+          mkdir -p assets/pdfs
+          cp "build/resume.pdf" "assets/pdfs/full_resume.pdf"
+          cp "build/one_page_resume.pdf" "assets/pdfs/one_page_resume.pdf"
         '';
       in
-      {
+      with pkgs; {
         packages = {
           combine = combineScript;
-          build = buildResume;
-          default = buildResume;
+          
+          default = stdenvNoCC.mkDerivation {
+            name = "cv-portfolio";
+            src = ./.;
+            inherit buildInputs buildPhase;
+            installPhase = ''
+              mkdir -p $out/build
+              cp -r build/* $out/build/
+              mkdir -p $out/assets/pdfs
+              cp assets/pdfs/* $out/assets/pdfs/
+            '';
+          };
         };
         
-        devShell = pkgs.mkShell {
-          buildInputs = with pkgs; [
-            pandoc
-            wkhtmltopdf
-            bashInteractive
-          ];
+        checks = {
+          default = stdenvNoCC.mkDerivation {
+            name = "cv-portfolio-checks";
+            src = ./.;
+            inherit buildInputs buildPhase;
+            installPhase = ''
+              mkdir -p $out
+            '';
+          };
+        };
+        
+        devShell = mkShell {
+          inherit buildInputs;
         };
       }
     );

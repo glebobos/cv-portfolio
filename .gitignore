@@ -6,6 +6,7 @@ assets/pdfs/*.pdf
 
 # Nix result
 /result
+flake.lock
 
 # Temporary files
 /build/*.html

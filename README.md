@@ -57,11 +57,12 @@ cv-portfolio/
 
 2. Edit the resume sections in the `resume/sections/` directory to add your personal information.
 
-3. Generate PDF versions (requires [Pandoc](https://pandoc.org/) and [wkhtmltopdf](https://wkhtmltopdf.org/)):
+3. Generate PDF versions using Nix (recommended):
    ```
-   chmod +x scripts/generate_pdfs.sh
-   ./scripts/generate_pdfs.sh
+   nix run
    ```
+   
+   Or follow the manual build instructions below if you don't have Nix installed.
 
 ## Build Instructions
 
@@ -71,10 +72,10 @@ If you have Nix installed with flakes enabled:
 
 ```bash
 # Build the resume (generates HTML and PDF)
-nix build
+nix build --no-write-lock-file
 
 # Run the build directly
-nix run
+nix run --no-write-lock-file
 
 # Alternatively, enter a development shell with all dependencies
 nix develop
@@ -82,11 +83,27 @@ nix develop
 
 #### Troubleshooting Nix
 
-If you encounter errors with Nix build related to missing commits or 404 errors:
+If you encounter errors with Nix build:
 
-1. Try updating the nixpkgs reference in flake.nix to a more recent version
-2. Run `nix flake update` to update the flake.lock file with the latest dependencies
-3. Clean the Nix store with `nix store gc` if you're experiencing cache issues
+1. Make sure you have flakes enabled by adding this to your `~/.config/nix/nix.conf`:
+   ```
+   experimental-features = nix-command flakes
+   ```
+
+2. Run without lock file to always use the latest dependencies:
+   ```bash
+   nix run --no-write-lock-file
+   ```
+
+3. If you encounter cache issues or corrupted store paths:
+   ```bash
+   nix store gc
+   ```
+
+4. For permission errors with wkhtmltopdf, ensure the directory is writable:
+   ```bash
+   mkdir -p build assets/pdfs
+   ```
 
 ### Manual Build
 
