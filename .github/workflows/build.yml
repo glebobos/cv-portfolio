@@ -46,7 +46,13 @@ jobs:
         run: |
           mkdir -p pages
           cp -r build/* pages/
+          
+          # Create index.html from template
           cp templates/index-template.html pages/index.html
+          
+          # Ensure PDF files are in the root directory of pages
+          cp build/resume.pdf pages/full_resume.pdf
+          cp build/one_page_resume.pdf pages/one_page_resume.pdf
           
           # Create .nojekyll file to prevent Jekyll processing
           touch pages/.nojekyll

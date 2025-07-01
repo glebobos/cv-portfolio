@@ -5,8 +5,8 @@
 
 ## Resume Downloads
 
-- [**Download Full Resume (PDF)**](../assets/pdfs/full_resume.pdf)
-- [**Download One-Page Resume (PDF)**](../assets/pdfs/one_page_resume.pdf)
+- [**Download Full Resume (PDF)**](full_resume.pdf)
+- [**Download One-Page Resume (PDF)**](one_page_resume.pdf)
 
 ## Resume Sections
 
@@ -22,8 +22,8 @@
 
 ## Downloads
 
-- [Download Full Resume (PDF)](../assets/pdfs/full_resume.pdf)
-- [Download One-Page Resume (PDF)](../assets/pdfs/one_page_resume.pdf)
+- [Download Full Resume (PDF)](full_resume.pdf)
+- [Download One-Page Resume (PDF)](one_page_resume.pdf)
 
 ## Build Information
 

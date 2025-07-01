@@ -147,11 +147,7 @@ mkdir -p ./assets/pdfs
 cp "$OUTPUT_DIR/resume.pdf" ./assets/pdfs/full_resume.pdf
 cp "$OUTPUT_DIR/one_page_resume.pdf" ./assets/pdfs/one_page_resume.pdf
 
-# Generate index.html from index.md
-pandoc -s ./resume/index.md \
-  --template=./templates/index-template.html \
-  -c ../styles/resume.css \
-  -o ./index.html
+# GitHub Pages deployment is handled by the GitHub Actions workflow
 
 echo "PDFs generated successfully in ./assets/pdfs/"
 echo "Index page generated as index.html"
@@ -240,6 +236,8 @@ if command -v pandoc &> /dev/null; then
     mkdir -p ./assets/pdfs
     cp "$OUTPUT_DIR/resume.pdf" ./assets/pdfs/full_resume.pdf
     cp "$OUTPUT_DIR/one_page_resume.pdf" ./assets/pdfs/one_page_resume.pdf
+    
+    # PDFs will be copied to the correct location by the GitHub Actions workflow
     
     echo "PDFs generated successfully in ./assets/pdfs/"
   else
