@@ -32,12 +32,8 @@
           echo "title: $TITLE" >> "$OUTPUT_DIR/resume.md"
           echo "---" >> "$OUTPUT_DIR/resume.md"
           
-          # Add contact information from summary
-          grep -A 5 "📧" ./resume/sections/summary.md >> "$OUTPUT_DIR/resume.md"
-          echo "" >> "$OUTPUT_DIR/resume.md"
-          
-          # Add summary
-          grep -A 10 "## EXECUTIVE SUMMARY" ./resume/sections/summary.md >> "$OUTPUT_DIR/resume.md"
+          # Add contact information and executive summary (they're already in sequence in the summary.md)
+          grep -A 15 "# HLEB YARMOLCHYK" ./resume/sections/summary.md >> "$OUTPUT_DIR/resume.md"
           echo "" >> "$OUTPUT_DIR/resume.md"
           
           # Add skills section
