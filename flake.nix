@@ -120,6 +120,8 @@
             name = "cv-portfolio";
             src = ./.;
             inherit buildInputs buildPhase;
+            # Allow network access during build
+            __noChroot = true;
             installPhase = ''
               mkdir -p $out/build
               cp -r build/* $out/build/
@@ -134,6 +136,8 @@
             name = "cv-portfolio-checks";
             src = ./.;
             inherit buildInputs buildPhase;
+            # Allow network access during build
+            __noChroot = true;
             installPhase = ''
               mkdir -p $out
             '';
