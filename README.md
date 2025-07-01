@@ -73,9 +73,20 @@ If you have Nix installed with flakes enabled:
 # Build the resume (generates HTML and PDF)
 nix build
 
+# Run the build directly
+nix run
+
 # Alternatively, enter a development shell with all dependencies
 nix develop
 ```
+
+#### Troubleshooting Nix
+
+If you encounter errors with Nix build related to missing commits or 404 errors:
+
+1. Try updating the nixpkgs reference in flake.nix to a more recent version
+2. Run `nix flake update` to update the flake.lock file with the latest dependencies
+3. Clean the Nix store with `nix store gc` if you're experiencing cache issues
 
 ### Manual Build
 
