@@ -1,0 +1,232 @@
+/* Main resume styling - inspired by resume-md */
+html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    font-family: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    font-size: 16px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 2em;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+h2 {
+    font-size: 1.5em;
+    color: #2980b9;
+    margin-top: 25px;
+    border-bottom: 1px solid #eaecef;
+    padding-bottom: 0.3em;
+}
+
+h3 {
+    font-size: 1.25em;
+    color: #3498db;
+    margin-top: 20px;
+}
+
+h4 {
+    font-size: 1em;
+    color: #555;
+}
+
+h5, h6 {
+    font-size: 0.875em;
+    color: #777;
+}
+
+a {
+    color: #3498db;
+    text-decoration: none;
+    background: transparent;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Code blocks for skills */
+code {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #f6f8fa;
+    border-radius: 3px;
+    padding: 0.2em 0.4em;
+    margin: 0 0.2em;
+    font-size: 85%;
+}
+
+pre {
+    background-color: #f6f8fa;
+    border-radius: 3px;
+    padding: 16px;
+    overflow: auto;
+    font-size: 85%;
+    line-height: 1.45;
+}
+
+/* Special styling for skill tags */
+pre code {
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+}
+
+/* Layout and structure */
+p {
+    margin-top: 0;
+    margin-bottom: 1em;
+}
+
+ul, ol {
+    margin-top: 0;
+    margin-bottom: 1em;
+    padding-left: 2em;
+}
+
+li {
+    margin-bottom: 0.5em;
+}
+
+hr {
+    height: 1px;
+    padding: 0;
+    margin: 24px 0;
+    background-color: #e1e4e8;
+    border: 0;
+}
+
+/* Contact information styling */
+.contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 1em;
+    gap: 10px;
+    font-size: 0.9em;
+}
+
+/* Skills section */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 1em;
+}
+
+.skill-tag {
+    background-color: #f0f7ff;
+    color: #0366d6;
+    border: 1px solid #cce5ff;
+    border-radius: 20px;
+    padding: 2px 12px;
+    font-size: 0.85em;
+}
+
+/* Experience section */
+.experience-item {
+    margin-bottom: 1.5em;
+}
+
+.company {
+    font-weight: 600;
+    font-size: 1.1em;
+}
+
+.position {
+    font-style: italic;
+    color: #555;
+}
+
+.date-range {
+    color: #777;
+    font-size: 0.9em;
+}
+
+/* Project styling */
+.project {
+    margin-bottom: 1.5em;
+}
+
+.project-title {
+    font-weight: 600;
+}
+
+.project-description {
+    margin-top: 0.5em;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th, td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #f5f5f5;
+}
+
+/* Page break control for PDFs */
+.page-break {
+    page-break-after: always;
+}
+
+/* For print/PDF */
+@media print {
+    body {
+        font-size: 12pt;
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+    
+    a {
+        color: #000;
+    }
+    
+    h1 {
+        font-size: 18pt;
+    }
+    
+    h2 {
+        font-size: 16pt;
+    }
+    
+    h3 {
+        font-size: 14pt;
+    }
+    
+    h4, h5, h6 {
+        font-size: 12pt;
+    }
+    
+    code, pre {
+        font-size: 10pt;
+    }
+}
