@@ -83,7 +83,7 @@ cv-portfolio/
 │   └── index.css              # Global styles and Tailwind imports
 ├── 📁 resume/                  # Markdown content system
 │   ├── 📁 images/             # Resume images and assets
-│   │   └── avatar.jpg         # Profile avatar
+│   │   └── avatar.jpg         # Profile avatar (referenced in summary.md)
 │   └── 📁 sections/           # Markdown resume sections
 │       ├── awards.md          # Awards and recognition
 │       ├── certifications.md  # Professional certifications
@@ -199,6 +199,26 @@ export const resumeData: ResumeData = {
 Use the markdown system in `resume/sections/` for easier content management:
 
 ```markdown
+<!-- resume/sections/summary.md -->
+# Professional Summary
+
+*Executive summary of professional background and core competencies.*
+
+![Profile Avatar](../images/avatar.jpg)
+
+---
+
+# YOUR NAME
+**Your Professional Title**
+
+📧 [Email] | 📱 [Phone] | 🔗 [LinkedIn: your-profile](https://linkedin.com/in/your-profile) | 📍 [Location]
+
+## EXECUTIVE SUMMARY
+
+Your professional summary content here...
+```
+
+```markdown
 <!-- resume/sections/experience.md -->
 # Professional Experience
 
@@ -224,6 +244,26 @@ import { resumeData } from './data/resumeData';
 // For Markdown data
 import { markdownResumeData } from './data/markdownResumeData';
 ```
+
+### Avatar Image Management
+
+The portfolio automatically extracts and displays your profile avatar from the markdown system:
+
+1. **Add your avatar image** to `resume/images/` directory (e.g., `avatar.jpg`, `profile.png`)
+2. **Reference it in your summary.md**:
+   ```markdown
+   # Professional Summary
+   
+   ![Profile Avatar](../images/your-image-name.jpg)
+   ```
+3. **The system automatically**:
+   - Extracts the image filename from the markdown image syntax
+   - Displays it in the Hero section of the website
+   - Shows the photo when viewing the markdown files on GitHub
+   - Works with both development and production builds
+   - Falls back to `avatar.jpg` if not specified
+
+**Supported image formats:** JPG, PNG, WebP, GIF
 
 ## 🎨 Customization Guide
 

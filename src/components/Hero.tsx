@@ -51,7 +51,7 @@ const Hero = () => {
           >
             <div className="w-32 h-32 md:w-40 md:h-40 mx-auto mb-6 relative">
               <img 
-                src={`${import.meta.env.BASE_URL}images/avatar.jpg`}
+                src={`${import.meta.env.BASE_URL}images/${markdownResumeData.personalInfo.avatar || 'avatar.jpg'}`}
                 alt={markdownResumeData.personalInfo.name}
                 className="w-full h-full rounded-full object-cover border-4 border-white shadow-lg"
               />

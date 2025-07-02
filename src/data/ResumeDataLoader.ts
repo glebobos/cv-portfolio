@@ -9,6 +9,7 @@ export interface PersonalInfo {
   linkedin: string;
   github: string;
   location: string;
+  avatar?: string;
 }
 
 export interface Experience {
@@ -267,8 +268,9 @@ export class ResumeDataLoader {
     }
     
     const location = this.findPattern(summaryContent, config.locationPatterns) || config.fallbacks?.location || "Remote";
+    const avatar = this.extractAvatar();
 
-    return { name, title, email, phone, linkedin, github, location };
+    return { name, title, email, phone, linkedin, github, location, avatar };
   }
 
   // Extract summary
@@ -297,6 +299,35 @@ export class ResumeDataLoader {
     }
     
     return '';
+  }
+
+  // Extract avatar image name from summary
+  extractAvatar(): string | undefined {
+    const summaryContent = this.markdownSections.summary;
+    if (!summaryContent) return undefined;
+    
+    // Look for markdown image pattern: ![alt text](../images/filename.jpg)
+    const imageMatch = summaryContent.match(/!\[.*?\]\(\.\.\/images\/([^)]+)\)/i);
+    if (imageMatch) {
+      return imageMatch[1].trim();
+    }
+    
+    // Legacy patterns for backward compatibility
+    const legacyPatterns = [
+      /\*\*Avatar:\*\*\s*([^\s\n]+)/i,
+      /Avatar:\s*([^\s\n]+)/i,
+      /Image:\s*([^\s\n]+)/i,
+      /Profile:\s*([^\s\n]+)/i
+    ];
+    
+    for (const pattern of legacyPatterns) {
+      const match = summaryContent.match(pattern);
+      if (match) {
+        return match[1].trim();
+      }
+    }
+    
+    return undefined;
   }
 
   // Extract experience (flexible for any company/role structure)

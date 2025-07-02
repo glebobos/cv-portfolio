@@ -24,18 +24,17 @@ const markdownSections = {
   references: referencesMd
 };
 
-// Custom configuration for this specific resume
-const customConfig: ExtractorConfig = {
+// Configuration for markdown data extraction
+const extractorConfig: ExtractorConfig = {
   personalInfo: {
-    fallbacks: {
-      name: "Hleb Yarmolchyk",
-      title: "Chief Systems Engineer I | AWS Cloud Architecture & DevOps Expert",
-      email: "hleb.yarmolchyk@example.com",
-      phone: "+1 (555) 123-4567",
-      linkedin: "https://www.linkedin.com/in/hleb-yarmolchyk-573142153",
-      github: "https://github.com/glebobos",
-      location: "Remote / International"
-    }
+    // Let the system extract data from markdown content
+    namePatterns: [/^# ([A-Z\s]+)$/m],
+    titlePatterns: [/\*\*([^*]+)\*\*/],
+    emailPatterns: [/📧\s*\[([^\]]+)\]|\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b/],
+    phonePatterns: [/📱\s*\[([^\]]+)\]|\+?\d[\d\s\-\(\)]{8,}/],
+    linkedinPatterns: [/linkedin\.com\/in\/([^)\s]+)/],
+    githubPatterns: [/github\.com\/([^)\s]+)/],
+    locationPatterns: [/📍\s*\[([^\]]+)\]/]
   },
   experience: {
     companyPatterns: [/EPAM Systems/]
@@ -52,7 +51,7 @@ const customConfig: ExtractorConfig = {
 };
 
 // Create the resume data loader
-const resumeLoader = new ResumeDataLoader(markdownSections, customConfig);
+const resumeLoader = new ResumeDataLoader(markdownSections, extractorConfig);
 
 // Export the extracted resume data
 export const markdownResumeData = resumeLoader.extractAll();
