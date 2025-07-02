@@ -20,60 +20,25 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install Nix
-        uses: cachix/install-nix-action@v31
-        with:
-          github_access_token: ${{ github.token }}
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
       
-      - name: Build Resumes
+      - name: Build with Docker
         run: |
-          # Build the project
-          nix build
-          
-          # Create build directory if it doesn't exist
-          mkdir -p build
-          
-          # Copy the build outputs to the expected location
-          cp -r ./result/build/* ./build/
+          mkdir -p dist && touch dist/.nojekyll
+          ./dev.sh build
 
-      - name: Upload HTML resume
+      - name: Upload built assets
         uses: actions/upload-artifact@v4
         with:
-          name: resume-html
-          path: build/resume.html
+          name: built-portfolio
+          path: dist/
 
-      - name: Upload PDF resumes
-        uses: actions/upload-artifact@v4
-        with:
-          name: resume-pdfs
-          path: |
-            build/resume.pdf
-            build/one_page_resume.pdf
-
-      # Prepare content for GitHub Pages
-      - name: Prepare GitHub Pages content
-        if: github.ref == 'refs/heads/main'
-        run: |
-          mkdir -p pages
-          cp -r build/* pages/
-          
-          # Create index.html from template
-          cp templates/index-template.html pages/index.html
-          
-          # Create .nojekyll file to prevent Jekyll processing
-          touch pages/.nojekyll
-          
-          # Replace placeholder with actual GitHub username
-          GITHUB_USERNAME=$(echo $GITHUB_REPOSITORY | cut -d '/' -f 1)
-          sed -i "s/yourusername/$GITHUB_USERNAME/g" pages/index.html
-          sed -i "s/yourusername/$GITHUB_USERNAME/g" pages/resume.html
-
-      # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
-        if: github.ref == 'refs/heads/main'
+        # if: github.ref == 'refs/heads/main'
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: pages
+          folder: dist
           clean: true
           token: ${{ github.token }}

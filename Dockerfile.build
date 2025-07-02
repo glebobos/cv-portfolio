@@ -1,0 +1,13 @@
+# Build-only Dockerfile for CI/CD
+FROM node:18-alpine
+
+WORKDIR /app
+
+# Copy package files first for better caching
+COPY package*.json ./
+
+# Install dependencies (including dev dependencies for build)
+RUN npm install
+
+# Copy source code
+COPY . .

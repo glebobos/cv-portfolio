@@ -1,0 +1,38 @@
+services:
+  # Development service
+  dev:
+    build:
+      context: .
+      #add host network for local development  within secure field
+      # network: host
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - ./resume/images:/app/public/images
+    environment:
+      - NODE_ENV=development
+    command: npm run dev
+
+  # Production service
+  prod:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    environment:
+      - NODE_ENV=production
+
+  # Build service for CI/CD
+  build:
+    build:
+      context: .
+      dockerfile: Dockerfile.build
+    # user: ${MY_UID}:${MY_GID}
+    volumes:
+      - ./dist:/app/dist
+      - ./resume/images:/app/public/images
+    command: npm run build

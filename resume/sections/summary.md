@@ -2,6 +2,8 @@
 
 *Executive summary of professional background and core competencies.*
 
+![Profile Avatar](../images/avatar.jpg)
+
 ---
 
 # HLEB YARMOLCHYK
