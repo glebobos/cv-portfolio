@@ -15,6 +15,8 @@ export default defineConfig({
         main: resolve(__dirname, 'index.html'),
       },
     },
+    // Copy resume images to build output
+    copyPublicDir: true,
   },
   resolve: {
     alias: {

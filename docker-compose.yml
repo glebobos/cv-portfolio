@@ -32,4 +32,5 @@ services:
       dockerfile: Dockerfile.build
     volumes:
       - ./dist:/app/dist
+      - ./resume/images:/app/public/images
     command: npm run build
