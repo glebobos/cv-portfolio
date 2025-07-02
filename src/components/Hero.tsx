@@ -50,11 +50,11 @@ const Hero = () => {
             className="mb-8"
           >
             <div className="w-32 h-32 md:w-40 md:h-40 mx-auto mb-6 relative">
-              <div className="w-full h-full bg-gradient-to-r from-primary-500 to-primary-700 rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-4xl md:text-5xl">
-                  {markdownResumeData.personalInfo.name.split(' ').map(n => n[0]).join('')}
-                </span>
-              </div>
+              <img 
+                src={`${import.meta.env.BASE_URL}images/avatar.jpg`}
+                alt={markdownResumeData.personalInfo.name}
+                className="w-full h-full rounded-full object-cover border-4 border-white shadow-lg"
+              />
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 8, repeat: Infinity, ease: "linear" }}

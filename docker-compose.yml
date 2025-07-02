@@ -11,6 +11,7 @@ services:
     volumes:
       - .:/app
       - /app/node_modules
+      - ./resume/images:/app/public/images
     environment:
       - NODE_ENV=development
     command: npm run dev
