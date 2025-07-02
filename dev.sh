@@ -4,6 +4,8 @@
 
 set -e
 
+export MY_UID="$(id -u)" MY_GID="$(id -g)"
+
 echo "🚀 Setting up CV Portfolio development environment..."
 
 # Check if Docker is installed

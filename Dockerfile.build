@@ -15,7 +15,4 @@ COPY . .
 # Build the application
 RUN npm run build
 
-# Ensure proper permissions for output directory
-RUN chmod -R 755 dist
-
 # The dist folder will be available at /app/dist

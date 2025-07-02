@@ -24,21 +24,15 @@ jobs:
         uses: docker/setup-buildx-action@v3
       
       - name: Build with Docker
-        env:
-          DOCKER_USER: "1001:1001"
-        run: ./dev.sh build
+        run: |
+          ./dev.sh build
+          touch dist/.nojekyll
 
       - name: Upload built assets
         uses: actions/upload-artifact@v4
         with:
           name: built-portfolio
           path: dist/
-
-      # Prepare content for GitHub Pages
-      - name: Prepare GitHub Pages content
-        # if: github.ref == 'refs/heads/main'
-        run: |
-          touch dist/.nojekyll
 
       # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages

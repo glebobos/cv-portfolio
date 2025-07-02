@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   # Development service
   dev:
@@ -31,7 +29,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.build
-    user: "${DOCKER_USER:-1000:1000}"
+    user: ${MY_UID}:${MY_GID}
     volumes:
       - ./dist:/app/dist
       - ./resume/images:/app/public/images
