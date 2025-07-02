@@ -29,7 +29,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.build
-    user: ${MY_UID}:${MY_GID}
+    # user: ${MY_UID}:${MY_GID}
     volumes:
       - ./dist:/app/dist
       - ./resume/images:/app/public/images
