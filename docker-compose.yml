@@ -3,6 +3,8 @@ services:
   dev:
     build:
       context: .
+      #add host network for local development  within secure field
+      # network: host
       dockerfile: Dockerfile.dev
     ports:
       - "3000:3000"
