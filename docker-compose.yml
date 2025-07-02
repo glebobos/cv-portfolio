@@ -31,6 +31,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.build
+    user: "${DOCKER_USER:-1000:1000}"
     volumes:
       - ./dist:/app/dist
       - ./resume/images:/app/public/images

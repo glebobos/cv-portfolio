@@ -24,8 +24,9 @@ jobs:
         uses: docker/setup-buildx-action@v3
       
       - name: Build with Docker
-        run: |
-          ./dev.sh build
+        env:
+          DOCKER_USER: "1001:1001"
+        run: ./dev.sh build
 
       - name: Upload built assets
         uses: actions/upload-artifact@v4
