@@ -25,13 +25,7 @@ jobs:
       
       - name: Build with Docker
         run: |
-          # Build using the build-only Dockerfile
-          docker build -f Dockerfile.build -t cv-portfolio-builder .
-          
-          # Extract the built files from the container
-          docker create --name temp-container cv-portfolio-builder
-          docker cp temp-container:/app/dist ./dist
-          docker rm temp-container
+          ./dev.sh build
 
       - name: Upload built assets
         uses: actions/upload-artifact@v4
@@ -43,12 +37,7 @@ jobs:
       - name: Prepare GitHub Pages content
         # if: github.ref == 'refs/heads/main'
         run: |
-          # Copy built files to pages directory
-          mkdir -p pages
-          cp -r dist/* pages/
-          
-          # Create .nojekyll file to prevent Jekyll processing
-          touch pages/.nojekyll
+          touch dist/.nojekyll
 
       # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
@@ -56,6 +45,6 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: pages
+          folder: dist
           clean: true
           token: ${{ github.token }}
