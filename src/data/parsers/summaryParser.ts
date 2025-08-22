@@ -1,4 +1,5 @@
 import { PersonalInfo } from '../ResumeDataLoader';
+import { getRawMarkdownSection } from '../../utils/markdownParser';
 
 /**
  * Extracts personal information from the summary markdown content.
@@ -50,34 +51,18 @@ export function extractPersonalInfo(
 
 /**
  * Extracts the summary text from the parsed markdown section.
- * @param parsedSection - The parsed markdown content for the summary section.
  * @param rawContent - The raw markdown content of the summary section.
  * @param config - The extractor configuration for summary.
- * @param cleanMarkdownForDisplay - A utility function to clean markdown.
  * @returns The summary string.
  */
 export function extractSummary(
-  parsedSection: any,
   rawContent: string,
   config: any,
-  cleanMarkdownForDisplay: (content: string) => string
 ): string {
   const sectionTitles = config.sectionTitles || ['EXECUTIVE SUMMARY', 'SUMMARY', 'ABOUT'];
 
-  if (!parsedSection) return '';
-
-  const summarySection = parsedSection.sections.find((s: any) =>
-    sectionTitles.some((title: string) => s.title.includes(title))
-  );
-
-  if (summarySection) {
-    return config.cleanMarkdown ?
-      cleanMarkdownForDisplay(summarySection.content) :
-      summarySection.content.trim();
-  }
-
   for (const title of sectionTitles) {
-    const content = rawContent?.split(`## ${title}`)[1]?.split('##')[0]?.trim();
+    const content = getRawMarkdownSection(rawContent, title);
     if (content) return content;
   }
 

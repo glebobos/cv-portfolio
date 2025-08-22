@@ -104,3 +104,29 @@ export function cleanMarkdownForDisplay(content: string): string {
     .replace(/^\s*[-*+]\s+/gm, '• ') // Convert list markers to bullets
     .trim();
 }
+
+export function getRawMarkdownSection(markdownContent: string, sectionTitle: string): string {
+  const lines = markdownContent.split('\n');
+  let inSection = false;
+  const sectionLines: string[] = [];
+
+  for (const line of lines) {
+    const headerMatch = line.match(/^(#{1,6})\s+(.+)$/);
+    if (headerMatch) {
+      const title = headerMatch[2].trim();
+      if (title.toLowerCase() === sectionTitle.toLowerCase()) {
+        inSection = true;
+      } else {
+        if (inSection) {
+          // We've reached the next section
+          break;
+        }
+        inSection = false;
+      }
+    } else if (inSection) {
+      sectionLines.push(line);
+    }
+  }
+
+  return sectionLines.join('\n').trim();
+}

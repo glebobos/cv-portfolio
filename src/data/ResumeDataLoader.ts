@@ -263,7 +263,7 @@ export class ResumeDataLoader {
   extractAll(): ResumeData {
     return {
       personalInfo: extractPersonalInfo(this.markdownSections.summary, this.config.personalInfo, this.findPattern),
-      summary: extractSummary(this.parsedSections.summary, this.markdownSections.summary, this.config.summary, this.cleanMarkdownForDisplay),
+      summary: extractSummary(this.markdownSections.summary, this.config.summary),
       experience: extractExperience(this.parsedSections.experience, this.config.experience),
       education: extractEducation(this.parsedSections.education, this.config.education),
       projects: extractProjects(this.parsedSections.projects, this.config.projects),

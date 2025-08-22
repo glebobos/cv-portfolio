@@ -34,7 +34,7 @@ const About = () => {
             >
               <div className="prose prose-lg">
                 <MarkdownRenderer 
-                  content={markdownResumeData.raw.summary}
+                  content={markdownResumeData.summary}
                   className="text-secondary-700 leading-relaxed"
                 />
               </div>

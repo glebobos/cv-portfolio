@@ -35,15 +35,19 @@ export function extractExperience(
       period = parts[1]?.trim() || '';
     }
 
+    let isDescriptionDone = false;
     for (const line of lines) {
       if (line.toLowerCase().startsWith('**role:')) {
-        description = line.replace(/\*\*Role:\*\*/i, '').trim();
+        description = line; // Keep the raw markdown
       } else if (line.startsWith('- ')) {
-        const achievement = line.replace(/^- \*\*[^*]+\*\* -/, '').replace(/^- /, '').trim();
-        if (achievement) achievements.push(achievement);
+        isDescriptionDone = true; // Achievements start, so description is done
+        achievements.push(line); // Keep the raw markdown
       } else if (line.startsWith('**') && line.endsWith('**')) {
-        // Add subheadings to achievements for context
-        achievements.push(`\n**${line.replace(/\*\*/g, '')}**`);
+        isDescriptionDone = true;
+        achievements.push(line); // Keep the raw markdown (for subheadings)
+      } else if (!isDescriptionDone) {
+        // Append to description if it's not an achievement list yet
+        description += `\n${line}`;
       }
     }
 
