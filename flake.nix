@@ -16,21 +16,18 @@
           };
         };
 
-        # List of resume sections in order
-        resumeFiles = [
-          ./resume/sections/summary.md
-          ./resume/sections/skills.md
-          ./resume/sections/experience.md
-          ./resume/sections/education.md
-          ./resume/sections/projects.md
-          ./resume/sections/certifications.md
-          ./resume/sections/awards.md
-          ./resume/sections/publications.md
-          ./resume/sections/references.md
-        ];
-
-        # Concatenate file paths for pandoc command
-        resumeFilesStr = pkgs.lib.concatStringsSep " " (map (p: toString p) resumeFiles);
+        # List of resume sections in order as a string of relative paths
+        resumeFilesStr = ''
+          resume/sections/summary.md \
+          resume/sections/skills.md \
+          resume/sections/experience.md \
+          resume/sections/education.md \
+          resume/sections/projects.md \
+          resume/sections/certifications.md \
+          resume/sections/awards.md \
+          resume/sections/publications.md \
+          resume/sections/references.md
+        '';
 
         buildInputs = with pkgs; [
           pandoc
@@ -45,9 +42,9 @@
 
           # Generate HTML resume
           pandoc -s \
-            --metadata-file="$PWD/resume/metadata.yaml" \
-            --template="$PWD/templates/resume-template.html" \
-            --css="$PWD/styles/resume.css" \
+            --metadata-file="resume/metadata.yaml" \
+            --template="templates/resume-template.html" \
+            --css="styles/resume.css" \
             -f markdown -t html \
             ${resumeFilesStr} -o "build/resume.html"
 
@@ -61,9 +58,9 @@
 
           # Generate one-page PDF resume
           pandoc -s \
-            --metadata-file="$PWD/resume/metadata.yaml" \
-            --template="$PWD/templates/resume-template.html" \
-            --css="$PWD/styles/one_page.css" \
+            --metadata-file="resume/metadata.yaml" \
+            --template="templates/resume-template.html" \
+            --css="styles/one_page.css" \
             -f markdown -t html \
             ${resumeFilesStr} -o "build/one_page.html"
 
