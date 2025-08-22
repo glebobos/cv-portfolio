@@ -1,13 +1,7 @@
-# Professional Summary
-
-*Executive summary of professional background and core competencies.*
-
----
-
 # HLEB YARMOLCHYK
 **Chief Systems Engineer I | AWS Cloud Architecture & DevOps Expert**
 
-📧 [Email] | 📱 [Phone] | 🔗 [LinkedIn: hleb-yarmolchyk-573142153](https://www.linkedin.com/in/hleb-yarmolchyk-573142153) | 📍 [Location] | 🌐 [GitHub: github.com/glebobos]
+📧 your.email@example.com | 📱 +1 123-456-7890 | 🔗 [LinkedIn: hleb-yarmolchyk-573142153](https://www.linkedin.com/in/hleb-yarmolchyk-573142153) | 📍 City, Country | 🌐 [GitHub: github.com/glebobos]
 
 ## EXECUTIVE SUMMARY
 
@@ -45,7 +39,7 @@ Leveraging expert-level proficiency in **AWS Solutions Architecture**, **Infrast
 ### **Programming & Scripting**
 - **Python:** AWS SDK (Boto3), automation scripts, data processing, API development
 - **Bash/Shell:** Advanced scripting, system automation, performance optimization
-- **JavaScript/Node.js:** Lambda functions, API development, front-end integration
+-- **JavaScript/Node.js:** Lambda functions, API development, front-end integration
 - **HCL (HashiCorp Configuration Language):** Terraform configurations, policy definitions
 
 ### **Databases & Data Management**
@@ -59,5 +53,3 @@ Leveraging expert-level proficiency in **AWS Solutions Architecture**, **Infrast
 - **OpsGenie:** Incident management, escalation policies
 - **KICS:** Infrastructure security scanning, policy enforcement
 - **AWS Security:** IAM best practices, encryption, compliance frameworks
-
-[Back to Resume Index](../index.md)

@@ -310,50 +310,55 @@ th {
     page-break-after: always;
 }
 
-/* For print/PDF */
-@media print {
-    body {
-        font-size: 12pt;
-        max-width: 100%;
-        padding: 0;
-        margin: 0;
-    }
-    
-    a {
-        color: #000;
-    }
-    
-    h1 {
-        font-size: 18pt;
-    }
-    
-    h2 {
-        font-size: 16pt;
-    }
-    
-    h3 {
-        font-size: 14pt;
-    }
-    
-    h4, h5, h6 {
-        font-size: 12pt;
-    }
-    
-    code, pre {
-        font-size: 10pt;
-    }
-}
-
 /* Responsive design */
 @media (max-width: 768px) {
     body {
         padding: var(--spacing-md);
+        font-size: 1rem;
     }
     
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    h3 {
+        font-size: 1.3rem;
+    }
+
     .contact-info {
-        justify-content: flex-start;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-sm);
     }
 }
+
+@media (max-width: 480px) {
+    body {
+        padding: var(--spacing-sm);
+        line-height: 1.6;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    ul, ol {
+        padding-left: var(--spacing-md);
+    }
+}
+
 
 /* Dark mode support */
 @media (prefers-color-scheme: dark) {
@@ -401,74 +406,46 @@ h3 {
     animation-delay: 0.2s;
 }
 
-.experience-item:nth-child(1) {
-    animation-delay: 0.3s;
-}
-
-.experience-item:nth-child(2) {
-    animation-delay: 0.4s;
-}
-
-.experience-item:nth-child(3) {
-    animation-delay: 0.5s;
-}
-
-.project:nth-child(1) {
-    animation-delay: 0.3s;
-}
-
-.project:nth-child(2) {
-    animation-delay: 0.4s;
-}
-
-.project:nth-child(3) {
-    animation-delay: 0.5s;
-}
-
 /* Print styles */
 @media print {
+    :root {
+        --color-background: #ffffff !important;
+        --color-surface: #ffffff !important;
+    }
+
     body {
         padding: 0;
-        font-size: 11pt;
+        font-size: 10pt;
         line-height: 1.4;
+        background-color: var(--color-background);
+        -webkit-print-color-adjust: exact;
+        color-adjust: exact;
     }
     
-    h1, h2, h3, h4, h5, h6 {
+    h1, h2, h3, h4, h5, h6, .project, .experience-item {
         page-break-after: avoid;
-    }
-    
-    .project, .experience-item {
         page-break-inside: avoid;
     }
-    
-    .project {
-        box-shadow: none;
-        padding: 0;
-        background: none;
-    }
-    
+
     a {
         text-decoration: none;
-        color: var(--color-text);
+        color: var(--color-primary);
     }
-    
-    .contact-info a {
-        padding: 0;
-        background: none;
-    }
-    
-    .date-range {
-        background: none;
-        padding: 0;
-    }
-    
-    .experience-item {
-        border-left: none;
-        padding-left: 0;
-    }
-    
-    .skill-tag {
+
+    .project, .experience-item {
         box-shadow: none;
+        border-left: 2px solid var(--color-border);
+    }
+
+    .skill-tag, .date-range, .contact-info a {
+        box-shadow: none;
+        border: 1px solid var(--color-border);
+    }
+
+    /* Remove animations and transitions */
+    * {
+        animation: none !important;
+        transition: none !important;
     }
 }
 

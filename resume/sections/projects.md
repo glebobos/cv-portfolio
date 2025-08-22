@@ -1,80 +1,32 @@
-# Major Projects
+## Personal & Open Source Projects
 
-*Showcase of significant project accomplishments and technical implementations.*
+### HUB2: Serverless Deployment Framework
+**Description:** A proprietary deployment system for AWS Lambda that enables atomic, zero-downtime blue-green deployments for serverless applications. HUB2 is designed to be lightweight, fast, and highly reliable for mission-critical workloads.
+**Technologies:** `Bash`, `AWS CLI`, `SAM`, `CloudFormation`
+**Outcome:**
+- Implemented in production at EPAM, managing over 1,200 Lambda function deployments with a 99.999% success rate.
+- Reduced serverless deployment times by over 90%, from 45+ minutes to under 5 minutes.
+- [Link to project/article (if available)]
 
----
+### Terraform Proctoring System
+**Description:** An automated assessment system for Terraform training programs that simulates resource creation and validates infrastructure code without provisioning actual AWS resources.
+**Technologies:** `Terraform`, `Bash`, `Git`
+**Outcome:**
+- Adopted by 15+ education programs at EPAM, training over 200 engineers.
+- Reduced training infrastructure costs by 95% (approx. $150K annually).
+- [Link to project/article (if available)]
 
-## Wolters Kluwer Digital Experience Group (WKL-DXG)
-**Foundation and Beyond Platform** | *Cloud Platform Architect* | *2023-Present*
+### Lightweight Filebeat in Bash
+**Description:** A custom, resource-efficient log shipping agent written in pure Bash, designed for environments where resource utilization is critical.
+**Technologies:** `Bash`, `Linux`, `Filebeat`
+**Outcome:**
+- Reduced CPU utilization by 75% compared to the standard Filebeat agent.
+- Deployed across heterogeneous environments, processing over 15GB of logs daily.
+- [Link to project/article (if available)]
 
-### Description
-Comprehensive AI-powered platform serving as primary aggregator of LLM capabilities, transformers, data lakes, and AI advancements for key Wolters Kluwer products including AnswerConnect, VitalLaw, and Benelux.
-
-### Technical Architecture
-- **Multi-tenant serverless architecture** supporting 12+ production and staging environments
-- **Advanced vector processing capabilities** with Qdrant high-availability clusters
-- **Integrated Neo4j SaaS solutions** for graph-based data relationships
-- **Custom OIDC and DNS mapping** for seamless client integration
-
-### Results & Impact
-- **Reduced POC to MVP transition time** to less than 1 week through automated infrastructure provisioning
-- **Implemented comprehensive backup/recovery** with RPO of 5-9999999 minutes and RTO of 2-15 minutes
-- **Achieved 30%+ cost reduction** in infrastructure and application support through optimization
-- **Enabled simultaneous management of 70+ developers** in unified development environment
-
----
-
-## EPM-RDEX Examinator Platform
-**Key Engineer & Architect** | *2021-Present*
-
-### Description
-B2C application transformation from monolithic architecture to scalable serverless platform for automated candidate prescreening.
-
-### Technical Implementation
-- **Complete serverless architecture redesign** using AWS Lambda, S3, and Aurora Serverless v2
-- **Microservices decomposition** with API Gateway routing and CloudFormation orchestration
-- **DynamoDB integration** for microservice state synchronization
-- **Custom automation frameworks** for developer-managed configurations
-
-### Results & Impact
-- **Eliminated database crashes** through Aurora Serverless v2 implementation
-- **Achieved 99.99% uptime** during complete architectural transformation
-- **Reduced manual operations to zero** through comprehensive automation
-- **Enabled rapid feature deployment** with continuous delivery capabilities
-
----
-
-## OneML Machine Learning Platform
-**Technical Consultant** | *2023*
-
-### Description
-Transformation of monolithic B2B partner application for model training system deployment.
-
-### Technical Solution
-- **Decomposed monolithic application** into microservices architecture in 1 day
-- **Deployed multi-tenant Kubernetes cluster** with comprehensive features and automated backups
-- **Implemented Continuous Deployment (CD)** with client-side Continuous Integration (CI)
-- **Created scalable infrastructure** requiring no modifications or capacity increases post-deployment
-
-### Results & Impact
-- **Reduced deployment complexity by 90%** for B2B partners
-- **Eliminated manual intervention requirements** through full automation
-- **Improved system reliability** with built-in monitoring and self-healing capabilities
-
----
-
-## Proprietary Framework Development
-
-### Foundation and Beyond Self-Platform Orchestration Framework
-- **Custom orchestration system** for managing serverless and containerized workloads
-- **Support for multiple IaC tools:** SAM, CloudFormation, Terraform, HUB2
-- **Integrated release management** with automated testing and deployment validation
-- **Production deployment** across 15+ enterprise applications
-
-### EPM-RDEX Lazy DevOps Framework
-- **Developer-centric automation platform** enabling self-service infrastructure management
-- **Configuration-driven deployment** with minimal developer intervention required
-- **Integrated monitoring and alerting** with automated incident response
-- **Comprehensive documentation generation** with code-embedded specifications
-
-[Back to Resume Index](../index.md)
+### Cross-Platform CI/CD Integration
+**Description:** A seamless integration solution to bridge legacy Bamboo CI/CD systems with modern GitHub Actions workflows.
+**Technologies:** `GitHub Actions`, `Bamboo`, `Groovy`, `Bash`
+**Outcome:**
+- Enabled unified CI/CD operations, allowing teams to migrate to GitHub Actions incrementally with 100% backward compatibility.
+- [Link to project/article (if available)]

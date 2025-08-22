@@ -1,10 +1,4 @@
-# Technical Expertise
-
-*Comprehensive inventory of technical and professional capabilities.*
-
----
-
-## Technical & Leadership Expertise Matrix
+## Technical Skills
 
 ### Enterprise Architecture (Expert Level)
 - **Strategic Systems Thinking:** Advanced ability to decompose complex legacy systems and engineer innovative cloud-native solutions with measurable business impact
@@ -23,8 +17,6 @@
 - **DevOps Transformation Leadership:** Implemented Scrum, Kanban, and GitOps methodologies, resulting in 85% faster feature delivery and 70% reduction in production incidents
 - **Cross-functional Business Alignment:** Orchestrated seamless collaboration between Development, QA, Product Management, Security, and Compliance teams, eliminating silos and accelerating delivery cycles
 - **Enterprise Risk Management:** Designed and implemented comprehensive disaster recovery strategies, security frameworks, and compliance validation processes achieving zero security breaches and 100% compliance
-
-## Technical Skill Categories
 
 ### Cloud Platforms & Services
 - **Amazon Web Services (AWS):** S3, Lambda, API Gateway, CloudFormation, ECS, Aurora Serverless, DynamoDB, CloudWatch, IAM, VPC, Route53, CloudFront
@@ -61,7 +53,5 @@
 - **KICS:** Infrastructure security scanning, policy enforcement
 - **AWS Security:** IAM best practices, encryption, compliance frameworks
 
-## Languages
+### Languages
 - **English:** B2 Professional Working Proficiency
-
-[Back to Resume Index](../index.md)
