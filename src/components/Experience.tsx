@@ -42,8 +42,8 @@ const Experience = () => {
                     </h4>
                     <MarkdownRenderer content={exp.description} className="text-secondary-600" />
                   </div>
-                  <div className="lg:text-right">
-                    <span className="inline-block bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm font-medium">
+                  <div className="text-center lg:text-right">
+                    <span className="inline-block bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm font-medium mt-4 lg:mt-0">
                       {exp.period}
                     </span>
                   </div>

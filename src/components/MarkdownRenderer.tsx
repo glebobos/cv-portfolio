@@ -18,9 +18,15 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content, cla
       if (currentListItems.length > 0) {
         elements.push(
           <ul key={`list-${elements.length}`} className="list-disc list-inside space-y-1 my-4">
-            {currentListItems.map((item, index) => (
-              <li key={index} className="text-secondary-700">{item}</li>
-            ))}
+            {currentListItems.map((item, index) => {
+              const processedItem = item
+                .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+                .replace(/\*([^*]+)\*/g, '<em>$1</em>')
+                .replace(/`([^`]+)`/g, '<code class="bg-secondary-100 px-1 py-0.5 rounded text-sm">$1</code>')
+                .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-primary-600 hover:text-primary-800 underline" target="_blank" rel="noopener noreferrer">$1</a>');
+
+              return <li key={index} className="text-secondary-700" dangerouslySetInnerHTML={{ __html: processedItem }} />;
+            })}
           </ul>
         );
         currentListItems = [];
