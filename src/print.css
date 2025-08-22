@@ -1,0 +1,73 @@
+/* src/print.css */
+
+@media print {
+  /* Hide non-essential elements */
+  body > #root > .relative > .relative.z-10 > header,
+  body > #root > .relative > .relative.z-10 > main > :not(#about):not(#experience):not(#skills):not(#projects):not(#education):not(#certifications),
+  body > #root > .relative > .relative.z-10 > footer,
+  #root > .relative > div:first-child /* Particle Background */ {
+    display: none !important;
+  }
+
+  /* General print styles */
+  body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.5;
+    color: #000;
+    background-color: #fff;
+  }
+
+  /* Ensure the main content area takes up the full width */
+  main {
+    padding: 0 !important;
+  }
+
+  /* Reset padding and margins for sections */
+  section {
+    padding: 1rem 0 !important;
+    margin: 0 !important;
+    border-bottom: 1px solid #ccc;
+  }
+
+  section:last-of-type {
+    border-bottom: none;
+  }
+
+  /* Typography */
+  h1, h2, h3, h4, h5, h6 {
+    color: #000 !important;
+    page-break-after: avoid;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    border-bottom: 2px solid #000;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  a {
+    color: #000 !important;
+    text-decoration: none;
+  }
+
+  /* Remove shadows and other visual effects */
+  .glass-effect, .shadow-lg {
+    box-shadow: none !important;
+    background: none !important;
+  }
+
+  /* Ensure resume sections are displayed correctly */
+  #about, #experience, #skills, #projects, #education, #certifications {
+    display: block !important;
+  }
+
+  /* Avoid page breaks inside components */
+  .experience-item, .project-item, .education-item, .skill-category {
+    page-break-inside: avoid;
+  }
+}
