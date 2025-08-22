@@ -59,7 +59,7 @@
 **Role:** Entry-level cloud engineer with rapid progression to advanced responsibilities.
 
 **Key Accomplishments:**
-- Mastered cloud technologies in record time: Bash proficiency in 1 month, complete AWS architecture understanding in 6 weeks.
-- Transitioned complex legacy systems from manual operations to fully automated infrastructure.
-- Built foundational knowledge in Kubernetes, Docker, and microservices architecture.
-- Contributed to production systems within the first 3 months of a cloud engineering career.
+- **Rapid Learning:** Mastered cloud technologies in record time, including Bash proficiency in 1 month and complete AWS architecture understanding in 6 weeks.
+- **Automation of Legacy Systems:** Transitioned complex legacy systems from manual operations to fully automated infrastructure.
+- **Technology Foundation:** Built foundational knowledge in Kubernetes, Docker, and microservices architecture.
+- **Early Production Impact:** Contributed to production systems within the first 3 months of a cloud engineering career.
