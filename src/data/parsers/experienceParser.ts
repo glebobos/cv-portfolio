@@ -35,26 +35,21 @@ export function extractExperience(
       period = parts[1]?.trim() || '';
     }
 
-    let parsingState: 'description' | 'achievements' = 'description';
-
+    // The next lines are the role description until we hit the achievements list
+    let achievementsStarted = false;
     for (const line of lines) {
-        // A line with just bold text is a subheading for achievements
-        if (line.startsWith('**') && line.endsWith('**')) {
-            parsingState = 'achievements';
-            achievements.push(line);
-            continue;
-        }
+      if (line.startsWith('**') && line.includes('Achievements')) {
+        achievementsStarted = true;
+        continue; // Skip the "Key Responsibilities & Achievements:" line itself
+      }
 
-        // A list item indicates the start of achievements
+      if (achievementsStarted) {
         if (line.startsWith('- ')) {
-            parsingState = 'achievements';
+          achievements.push(line);
         }
-
-        if (parsingState === 'description') {
-            description += `\n${line}`;
-        } else {
-            achievements.push(line);
-        }
+      } else {
+        description += `\n${line}`;
+      }
     }
 
     if (position) {
