@@ -35,20 +35,26 @@ export function extractExperience(
       period = parts[1]?.trim() || '';
     }
 
-    let isDescriptionDone = false;
+    let parsingState: 'description' | 'achievements' = 'description';
+
     for (const line of lines) {
-      if (line.toLowerCase().startsWith('**role:')) {
-        description = line; // Keep the raw markdown
-      } else if (line.startsWith('- ')) {
-        isDescriptionDone = true; // Achievements start, so description is done
-        achievements.push(line); // Keep the raw markdown
-      } else if (line.startsWith('**') && line.endsWith('**')) {
-        isDescriptionDone = true;
-        achievements.push(line); // Keep the raw markdown (for subheadings)
-      } else if (!isDescriptionDone) {
-        // Append to description if it's not an achievement list yet
-        description += `\n${line}`;
-      }
+        // A line with just bold text is a subheading for achievements
+        if (line.startsWith('**') && line.endsWith('**')) {
+            parsingState = 'achievements';
+            achievements.push(line);
+            continue;
+        }
+
+        // A list item indicates the start of achievements
+        if (line.startsWith('- ')) {
+            parsingState = 'achievements';
+        }
+
+        if (parsingState === 'description') {
+            description += `\n${line}`;
+        } else {
+            achievements.push(line);
+        }
     }
 
     if (position) {
@@ -56,7 +62,7 @@ export function extractExperience(
         company: section.title,
         position,
         period,
-        description,
+        description: description.trim(),
         achievements,
         technologies,
       });
