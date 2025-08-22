@@ -6,6 +6,10 @@ interface MarkdownRendererProps {
 }
 
 export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content, className = '' }) => {
+  if (typeof content !== 'string' || content.trim() === '') {
+    return null;
+  }
+
   // Simple markdown parsing - for production, consider using a library like 'marked' or 'remark'
   const parseMarkdown = (text: string): React.ReactNode[] => {
     const lines = text.split('\n');

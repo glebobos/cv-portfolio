@@ -40,7 +40,7 @@ const Experience = () => {
                     <h4 className="text-xl font-semibold text-primary-600 mb-2">
                       {exp.company}
                     </h4>
-                    <MarkdownRenderer content={exp.description} className="text-secondary-600" />
+                    {exp.description && <MarkdownRenderer content={exp.description} className="text-secondary-600" />}
                   </div>
                   <div className="text-center lg:text-right">
                     <span className="inline-block bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm font-medium mt-4 lg:mt-0">
@@ -49,14 +49,16 @@ const Experience = () => {
                   </div>
                 </div>
 
-                <div className="space-y-3">
-                  {exp.achievements.map((achievement, achIndex) => (
-                    <div key={achIndex} className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-primary-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <MarkdownRenderer content={achievement.replace(/^\s*[-*+]\s+/, '')} className="text-secondary-700" />
-                    </div>
-                  ))}
-                </div>
+                {exp.achievements && exp.achievements.length > 0 && (
+                  <div className="space-y-3">
+                    {exp.achievements.map((achievement, achIndex) => (
+                      <div key={achIndex} className="flex items-start space-x-3">
+                        <div className="w-2 h-2 bg-primary-500 rounded-full mt-2 flex-shrink-0"></div>
+                        <MarkdownRenderer content={achievement.replace(/^\s*[-*+]\s+/, '')} className="text-secondary-700" />
+                      </div>
+                    ))}
+                  </div>
+                )}
 
                 {exp.technologies && (
                   <div className="mt-6 pt-6 border-t border-secondary-100">
