@@ -42,7 +42,7 @@ const About = () => {
               <div className="prose prose-lg max-w-none">
                 <MarkdownRenderer 
                   content={markdownResumeData.summary}
-                  className="text-secondary-700 leading-relaxed text-center"
+                  className="text-secondary-700 leading-relaxed"
                 />
               </div>
             </motion.div>

@@ -53,7 +53,7 @@ const Experience = () => {
                   {exp.achievements.map((achievement, achIndex) => (
                     <div key={achIndex} className="flex items-start space-x-3">
                       <div className="w-2 h-2 bg-primary-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <MarkdownRenderer content={achievement} className="text-secondary-700" />
+                      <MarkdownRenderer content={achievement.replace(/^\s*[-*+]\s+/, '')} className="text-secondary-700" />
                     </div>
                   ))}
                 </div>
