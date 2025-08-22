@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { markdownResumeData } from '../data/markdownResumeData';
+import { MarkdownRenderer } from './MarkdownRenderer';
 
 const Projects = () => {
   const [ref, inView] = useInView({
@@ -39,15 +40,13 @@ const Projects = () => {
                       </h3>
                     </div>
 
-                    <p className="text-secondary-700 mb-4 leading-relaxed">
-                      {project.description}
-                    </p>
+                    <MarkdownRenderer content={project.description} className="text-secondary-700 mb-4 leading-relaxed" />
 
                     <div className="space-y-3 mb-6">
                       {project.highlights.map((highlight, highlightIndex) => (
                         <div key={highlightIndex} className="flex items-start space-x-2">
                           <div className="w-1.5 h-1.5 bg-primary-500 rounded-full mt-2 flex-shrink-0"></div>
-                          <p className="text-secondary-600 text-sm">{highlight}</p>
+                          <MarkdownRenderer content={highlight} className="text-secondary-600 text-sm" />
                         </div>
                       ))}
                     </div>
