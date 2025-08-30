@@ -37,7 +37,7 @@ const Skills = () => {
   };
 
   return (
-    <section id="skills" className="py-20 bg-white">
+    <section id="skills" className="py-20 bg-white overflow-x-hidden print:overflow-x-visible">
       <div className="container section-padding">
         <motion.div
           ref={ref}
@@ -125,7 +125,7 @@ const Skills = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="mt-12"
+              className="mt-12 print:mt-4"
             >
               <div className="bg-gradient-to-br from-primary-50 to-secondary-50 rounded-2xl p-8">
                 <h3 className="text-2xl font-bold text-secondary-900 mb-6 text-center">
@@ -179,7 +179,7 @@ const Skills = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.7 }}
-              className="mt-8 text-center"
+              className="mt-8 print:mt-4 text-center"
             >
               <div className="bg-white rounded-xl p-6 shadow-md border border-secondary-100">
                 <p className="text-secondary-600 text-sm">

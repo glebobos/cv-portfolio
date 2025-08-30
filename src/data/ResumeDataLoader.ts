@@ -218,12 +218,16 @@ export class ResumeDataLoader {
     markdownSections: Record<string, string>,
     config: ExtractorConfig = DEFAULT_EXTRACTOR_CONFIG
   ) {
-    this.markdownSections = markdownSections;
+    this.markdownSections = {};
     this.config = { ...DEFAULT_EXTRACTOR_CONFIG, ...config };
     this.parsedSections = {};
     
-    // Parse all markdown sections
-    Object.entries(markdownSections).forEach(([key, content]) => {
+    const commentRegex = /<!--[\s\S]*?-->/g;
+
+    // Strip comments and then parse all markdown sections
+    Object.entries(markdownSections).forEach(([key, rawContent]) => {
+      const content = rawContent.replace(commentRegex, '');
+      this.markdownSections[key] = content; // Store the cleaned content
       this.parsedSections[key] = parseMarkdown(content);
     });
   }

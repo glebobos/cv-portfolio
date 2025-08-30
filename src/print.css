@@ -1,11 +1,8 @@
 /* src/print.css */
 
 @media print {
-  /* Hide non-essential elements */
-  body > #root > .relative > .relative.z-10 > header,
-  body > #root > .relative > .relative.z-10 > main > :not(#about):not(#experience):not(#skills):not(#projects):not(#education):not(#certifications),
-  body > #root > .relative > .relative.z-10 > footer,
-  #root > .relative > div:first-child /* Particle Background */ {
+  /* Hide elements with the .no-print class */
+  .no-print {
     display: none !important;
   }
 
@@ -14,7 +11,9 @@
     font-family: 'Inter', sans-serif;
     line-height: 1.5;
     color: #000;
-    background-color: #fff;
+    background-color: #fff !important;
+    -webkit-print-color-adjust: exact; /* For Chrome */
+    print-color-adjust: exact; /* Standard */
   }
 
   /* Ensure the main content area takes up the full width */
@@ -27,10 +26,16 @@
     padding: 1rem 0 !important;
     margin: 0 !important;
     border-bottom: 1px solid #ccc;
+    background: none !important;
   }
 
   section:last-of-type {
     border-bottom: none;
+  }
+
+  /* Ensure main content is visible */
+  main > section {
+      display: block !important;
   }
 
   /* Typography */
@@ -55,15 +60,20 @@
     text-decoration: none;
   }
 
-  /* Remove shadows and other visual effects */
-  .glass-effect, .shadow-lg {
-    box-shadow: none !important;
-    background: none !important;
+  a[href]:after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #555;
   }
 
-  /* Ensure resume sections are displayed correctly */
-  #about, #experience, #skills, #projects, #education, #certifications {
-    display: block !important;
+  /* Remove shadows and other visual effects */
+  .glass-effect, .shadow-lg, .shadow-md {
+    box-shadow: none !important;
+  }
+
+  .gradient-text {
+      background: none !important;
+      -webkit-text-fill-color: inherit !important;
   }
 
   /* Avoid page breaks inside components */

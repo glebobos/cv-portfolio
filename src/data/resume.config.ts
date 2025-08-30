@@ -6,6 +6,5 @@ export const resumeSectionsConfig: Record<string, string> = {
   certifications: '../../resume/sections/certifications.md',
   projects: '../../resume/sections/projects.md',
   awards: '../../resume/sections/awards.md',
-  publications: '../../resume/sections/publications.md',
-  references: '../../resume/sections/references.md'
+  publications: '../../resume/sections/publications.md'
 };

@@ -1,65 +1,40 @@
-# Professional Summary
+<!--
+INSTRUCTIONS:
+1.  To add your photo, replace the placeholder file at `resume/images/avatar.svg` with your own image.
+2.  Make sure your image file is named `avatar.svg` or update the markdown tag below to match your file name (e.g., `![Profile Avatar](../images/my-photo.jpg)`).
+3.  Update the main header with your full name in uppercase, like `# YOUR NAME`.
+4.  Fill in your professional title and contact details.
+5.  Write a compelling executive summary under the "EXECUTIVE SUMMARY" heading.
+-->
 
-*Executive summary of professional background and core competencies.*
+# YOUR NAME
+**Your Professional Title**
 
-![Profile Avatar](../images/avatar.jpg)
+📧 [your-email@example.com] | 📱 [+1 (555) 123-4567] | 🔗 [LinkedIn: your-profile](https://www.linkedin.com/in/your-profile) | 📍 [Your City, Your Country] | 🌐 [GitHub: your-username](https://github.com/your-username)
+
+![Profile Avatar](../images/avatar.svg)
 
 ---
 
-# HLEB YARMOLCHYK
-**Chief Systems Engineer I | AWS Cloud Architecture & DevOps Expert**
-
-📧 [Email] | 📱 [Phone] | 🔗 [LinkedIn: hleb-yarmolchyk-573142153](https://www.linkedin.com/in/hleb-yarmolchyk-573142153) | 📍 [Location] | 🌐 [GitHub: github.com/glebobos]
-
 ## EXECUTIVE SUMMARY
 
-**Highly accomplished Chief Systems Engineer (I)** with ~5 years of accelerated impact in **enterprise cloud architecture**, advanced **DevOps automation**, and pioneering **serverless computing initiatives**. A proven technical leader and architect, guiding, mentoring, and influencing **70+ developers** in designing and deploying solutions across **24+ complex AWS, Azure, and multi-cloud production environments**. Architect of innovative **serverless transformation initiatives** that delivered **10x performance improvements** and **30%+ cost reductions** for Fortune 500 clients.
+*Start with a powerful summary of your professional background. Highlight your key skills, years of experience, and major achievements. Tailor this section to the job you are applying for.*
 
-Leveraging expert-level proficiency in **AWS Solutions Architecture**, **Infrastructure as Code (Terraform)**, **Kubernetes orchestration**, and **CI/CD pipeline automation**, successfully led **zero-downtime migrations** of monolithic applications to scalable **microservices architectures**, enabling **20+ daily releases** through advanced **GitOps methodologies**.
-
-**Recognized Innovation Leader and patent holder**, conceptualizing and deploying proprietary **orchestration frameworks** and **automation systems** that have scaled to power **15+ critical production applications**, significantly enhancing operational efficiency and accelerating time-to-market. Active contributor to **open-source communities**, regularly engaging with **60-100+ monthly meetup attendees**.
+---
 
 ## CORE TECHNICAL COMPETENCIES
 
+*List your most important technical skills here. You can categorize them as shown below.*
+
 ### **Cloud Platforms & Services**
-- **Amazon Web Services (AWS):** S3, Lambda, API Gateway, CloudFormation, ECS, Aurora Serverless, DynamoDB, CloudWatch, IAM, VPC, Route53, CloudFront
-- **Microsoft Azure:** Resource Manager, Azure Functions, Container Instances, DevOps Services
-- **Multi-Cloud Management:** Cross-platform orchestration, unified monitoring, cost optimization strategies
+- **[Cloud Platform e.g., AWS]:** [Skill 1], [Skill 2], [Skill 3]
+- **[Another Cloud e.g., Azure]:** [Skill 1], [Skill 2]
 
 ### **Infrastructure as Code (IaC)**
-- **Terraform:** Advanced modules, state management, Terraspace architecture, multi-environment deployments
-- **AWS CloudFormation:** Complex stack orchestration, nested templates, custom resources
-- **AWS CDK:** TypeScript/Python implementations, custom constructs
-- **Pulumi:** Infrastructure as software, policy as code
+- **[IaC Tool e.g., Terraform]:** [Skill 1], [Skill 2], [Skill 3]
 
 ### **Container Technologies & Orchestration**
-- **Kubernetes:** CKA-certified administrator, cluster management, custom operators, Helm charts
-- **Docker:** Multi-stage builds, optimization, security scanning
-- **Amazon ECS:** Task definitions, service mesh, auto-scaling
-- **Custom Orchestration:** HUB2 framework development and implementation
+- **[Container Tool e.g., Docker]:** [Skill 1], [Skill 2]
+- **[Orchestration Tool e.g., Kubernetes]:** [Skill 1], [Skill 2]
 
-### **CI/CD & DevOps Automation**
-- **GitHub Actions:** Complex workflows, matrix builds, custom actions
-- **GitLab CI/CD:** Pipeline optimization, multi-stage deployments
-- **Bamboo:** Enterprise integration, deployment automation
-- **Jenkins:** Pipeline as code, plugin development
-
-### **Programming & Scripting**
-- **Python:** AWS SDK (Boto3), automation scripts, data processing, API development
-- **Bash/Shell:** Advanced scripting, system automation, performance optimization
-- **JavaScript/Node.js:** Lambda functions, API development, front-end integration
-- **HCL (HashiCorp Configuration Language):** Terraform configurations, policy definitions
-
-### **Databases & Data Management**
-- **Aurora Serverless v1/v2:** Performance tuning, backup strategies, global replication
-- **DynamoDB:** NoSQL design patterns, GSI optimization, stream processing
-- **MongoDB DocumentDB:** Backup automation, serverless integration
-- **Neo4j:** Graph database architecture, SaaS implementation
-
-### **Monitoring, Security & Compliance**
-- **CloudWatch:** Custom metrics, log aggregation, alerting strategies
-- **OpsGenie:** Incident management, escalation policies
-- **KICS:** Infrastructure security scanning, policy enforcement
-- **AWS Security:** IAM best practices, encryption, compliance frameworks
-
-[Back to Resume Index](../index.md)
+---

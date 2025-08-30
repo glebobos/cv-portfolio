@@ -27,8 +27,11 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content, cla
           ul: ({...props}) => <ul className="list-disc list-inside space-y-1 my-4" {...props} />,
           li: ({...props}) => <li className="text-secondary-700" {...props} />,
           a: ({...props}) => <a className="text-primary-600 hover:text-primary-800 underline" target="_blank" rel="noopener noreferrer" {...props} />,
-          code: ({ inline, ...props}) => {
-            if (inline) {
+          code: ({node, ...props}) => {
+            // A bit of a heuristic: if the code is on a single line, it's likely inline.
+            // A more robust way might be needed if there are edge cases.
+            const isInline = node?.position?.start.line === node?.position?.end.line;
+            if (isInline) {
               return <code className="bg-secondary-100 px-1 py-0.5 rounded text-sm" {...props} />;
             }
             return <code className="text-sm" {...props} />;
