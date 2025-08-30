@@ -34,4 +34,3 @@ INSTRUCTIONS:
 - [Briefly describe the certification and the skills it validates.]
 
 ---
-[Back to Resume Index](../index.md)

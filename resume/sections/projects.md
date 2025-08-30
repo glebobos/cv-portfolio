@@ -52,4 +52,3 @@ INSTRUCTIONS:
 - **[Result 2]:** [Describe another key result.]
 
 ---
-[Back to Resume Index](../index.md)

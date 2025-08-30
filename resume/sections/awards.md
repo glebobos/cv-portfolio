@@ -41,4 +41,3 @@ INSTRUCTIONS:
 - [Briefly describe the patent and its significance.]
 
 ---
-[Back to Resume Index](../index.md)

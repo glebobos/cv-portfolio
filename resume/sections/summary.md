@@ -38,4 +38,3 @@ INSTRUCTIONS:
 - **[Orchestration Tool e.g., Kubernetes]:** [Skill 1], [Skill 2]
 
 ---
-[Back to Resume Index](../index.md)

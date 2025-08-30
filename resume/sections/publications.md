@@ -25,4 +25,3 @@ INSTRUCTIONS:
 - [Briefly describe the presentation or contribution.]
 
 ---
-[Back to Resume Index](../index.md)

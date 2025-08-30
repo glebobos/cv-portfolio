@@ -28,5 +28,3 @@ Make sure you have permission from your references before sharing their informat
 - **Contact:** [Email or Phone, optional]
 
 -->
-
-[Back to Resume Index](../index.md)
