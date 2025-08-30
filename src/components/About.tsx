@@ -9,6 +9,13 @@ const About = () => {
     threshold: 0.1
   });
 
+  const stats = [
+    { label: 'Projects Led', value: '15+' },
+    { label: 'Cloud Environments', value: '24+' },
+    { label: 'Team Members', value: '70+' },
+    { label: 'Cost Savings', value: '$1.2M+' },
+  ];
+
   return (
     <section id="about" className="py-20 bg-white">
       <div className="container section-padding">
@@ -24,48 +31,32 @@ const About = () => {
             <div className="w-24 h-1 bg-gradient-to-r from-primary-500 to-primary-700 mx-auto mb-8"></div>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="flex flex-col items-center gap-12">
             {/* Content */}
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="space-y-6"
+              className="w-full"
             >
-              <div className="prose prose-lg">
+              <div className="prose prose-lg max-w-none">
                 <MarkdownRenderer 
                   content={markdownResumeData.summary}
                   className="text-secondary-700 leading-relaxed"
                 />
               </div>
-
-              <div className="grid grid-cols-2 gap-6 pt-6">
-                <div>
-                  <h4 className="font-semibold text-secondary-900 mb-2">Location</h4>
-                  <p className="text-secondary-600">{markdownResumeData.personalInfo.location}</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-secondary-900 mb-2">Experience</h4>
-                  <p className="text-secondary-600">5+ Years</p>
-                </div>
-              </div>
             </motion.div>
 
             {/* Visual Element */}
             <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="relative"
+              className="w-full"
             >
               <div className="bg-gradient-to-br from-primary-50 to-secondary-50 p-8 rounded-2xl">
-                <div className="grid grid-cols-2 gap-6">
-                  {[
-                    { label: 'Projects Led', value: '15+' },
-                    { label: 'Cloud Environments', value: '24+' },
-                    { label: 'Team Members', value: '70+' },
-                    { label: 'Cost Savings', value: '$1.2M+' },
-                  ].map((stat, index) => (
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                  {stats.map((stat, index) => (
                     <motion.div
                       key={stat.label}
                       initial={{ scale: 0.5, opacity: 0 }}

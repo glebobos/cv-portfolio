@@ -114,9 +114,10 @@ const Hero = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="btn-primary"
+                onClick={() => window.print()}
               >
                 <Download size={20} className="mr-2" />
-                Download Resume
+                Download CV
               </motion.button>
               <motion.a
                 href={`mailto:${markdownResumeData.personalInfo.email}`}

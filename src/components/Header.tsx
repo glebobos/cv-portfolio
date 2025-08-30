@@ -95,6 +95,7 @@ const Header = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="btn-primary ml-4"
+              onClick={() => window.print()}
             >
               <Download size={18} className="mr-2" />
               Download CV
@@ -154,6 +155,7 @@ const Header = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="btn-primary flex-1"
+                onClick={() => window.print()}
               >
                 <Download size={18} className="mr-2" />
                 Download CV
