@@ -104,7 +104,7 @@ const Hero = () => {
 
             {/* CTA Buttons */}
             <motion.div 
-              className="flex flex-col sm:flex-row gap-4 justify-center pt-8"
+              className="flex flex-col sm:flex-row gap-4 justify-center pt-8 no-print"
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 1.2, duration: 0.6 }}
