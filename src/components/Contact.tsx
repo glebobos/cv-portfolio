@@ -48,7 +48,7 @@ const Contact = () => {
       <div className="container section-padding">
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
@@ -65,7 +65,7 @@ const Contact = () => {
             <div className="grid md:grid-cols-2 gap-12">
               {/* Contact Information */}
               <motion.div
-                initial={{ opacity: 0, x: -50 }}
+                initial={{ x: -50 }}
                 animate={inView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="space-y-8"
@@ -120,7 +120,7 @@ const Contact = () => {
 
               {/* CTA Section */}
               <motion.div
-                initial={{ opacity: 0, x: 50 }}
+                initial={{ x: 50 }}
                 animate={inView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.4 }}
                 className="bg-gradient-to-br from-primary-50 to-secondary-50 rounded-2xl p-8"

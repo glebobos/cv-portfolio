@@ -15,7 +15,6 @@ import ParticleBackground from './components/ParticleBackground';
 function App() {
   return (
     <div className="relative min-h-screen">
-      <div style={{ height: '1px' }} />
       <ParticleBackground />
       
       <div className="relative z-10">

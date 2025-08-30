@@ -20,7 +20,7 @@ const Awards = () => {
       <div className="container section-padding">
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
@@ -36,7 +36,7 @@ const Awards = () => {
             {awardsData.map((award, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ y: 30 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="bg-secondary-50 rounded-xl p-6 border border-secondary-100 hover:border-primary-200 transition-colors duration-300"

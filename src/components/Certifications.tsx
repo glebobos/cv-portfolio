@@ -35,7 +35,7 @@ const Certifications = () => {
       <div className="container section-padding">
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
@@ -52,7 +52,7 @@ const Certifications = () => {
               {Object.entries(certificationGroups).map(([issuer, certs], groupIndex) => (
                 <motion.div
                   key={issuer}
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ y: 30 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, delay: groupIndex * 0.1 }}
                   className="bg-white rounded-2xl shadow-lg overflow-hidden"
@@ -72,7 +72,7 @@ const Certifications = () => {
                       {certs.map((cert, index) => (
                         <motion.div
                           key={index}
-                          initial={{ opacity: 0, scale: 0.9 }}
+                          initial={{ scale: 0.9 }}
                           animate={inView ? { opacity: 1, scale: 1 } : {}}
                           transition={{ duration: 0.5, delay: (groupIndex * 0.1) + (index * 0.05) }}
                           className="group"
@@ -115,7 +115,7 @@ const Certifications = () => {
             </div>
 
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.4 }}
               className="mt-12 text-center"

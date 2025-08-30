@@ -14,7 +14,7 @@ const Projects = () => {
       <div className="container section-padding">
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
@@ -28,7 +28,7 @@ const Projects = () => {
               {markdownResumeData.projects.map((project, index) => (
                 <motion.div
                   key={project.name}
-                  initial={{ opacity: 0, y: 50 }}
+                  initial={{ y: 50 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="bg-white rounded-xl shadow-lg overflow-hidden border border-secondary-100 hover:shadow-xl transition-shadow duration-300"

@@ -45,7 +45,7 @@ const Hero = () => {
         <div className="text-center max-w-4xl mx-auto">
           {/* Profile Image */}
           <motion.div
-            initial={{ scale: 0, opacity: 0 }}
+            initial={{ scale: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
             className="mb-8"
@@ -66,7 +66,7 @@ const Hero = () => {
 
           {/* Main Content */}
           <motion.div
-            initial={{ y: 30, opacity: 0 }}
+            initial={{ y: 30 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.6 }}
             className="space-y-6"
@@ -74,7 +74,7 @@ const Hero = () => {
             <div>
               <motion.h1 
                 className="text-4xl md:text-6xl lg:text-7xl font-bold text-secondary-900 mb-4"
-                initial={{ y: 20, opacity: 0 }}
+                initial={{ y: 20 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.6, duration: 0.6 }}
               >
@@ -85,7 +85,7 @@ const Hero = () => {
               
               <motion.p 
                 className="text-xl md:text-2xl text-secondary-600 mb-6 leading-relaxed"
-                initial={{ y: 20, opacity: 0 }}
+                initial={{ y: 20 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.8, duration: 0.6 }}
               >
@@ -95,7 +95,7 @@ const Hero = () => {
 
             <motion.div
               className="text-lg text-secondary-700 max-w-3xl mx-auto leading-relaxed"
-              initial={{ y: 20, opacity: 0 }}
+              initial={{ y: 20 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 1, duration: 0.6 }}
             >
@@ -105,7 +105,7 @@ const Hero = () => {
             {/* CTA Buttons */}
             <motion.div 
               className="flex flex-col sm:flex-row gap-4 justify-center pt-8"
-              initial={{ y: 20, opacity: 0 }}
+              initial={{ y: 20 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 1.2, duration: 0.6 }}
             >
@@ -132,7 +132,7 @@ const Hero = () => {
 
           {/* Scroll Indicator */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 2, duration: 0.6 }}
             className="absolute bottom-8 left-1/2 transform -translate-x-1/2 no-print"
