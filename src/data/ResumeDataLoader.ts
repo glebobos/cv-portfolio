@@ -1,4 +1,4 @@
-import { parseMarkdown } from '../utils/markdownParser';
+import { parseMarkdown, ParsedMarkdown } from '../utils/markdownParser';
 import { extractExperience } from './parsers/experienceParser';
 import { extractSkills } from './parsers/skillsParser';
 import { extractEducation } from './parsers/educationParser';
@@ -91,7 +91,7 @@ export interface ResumeData {
   awards: Award[];
   publications: Publication[];
   raw: Record<string, string>;
-  parsed: Record<string, any>;
+  parsed: Record<string, ParsedMarkdown>;
 }
 
 // Configuration interface for extractors
@@ -212,7 +212,7 @@ export const DEFAULT_EXTRACTOR_CONFIG: ExtractorConfig = {
 export class ResumeDataLoader {
   private config: ExtractorConfig;
   private markdownSections: Record<string, string>;
-  private parsedSections: Record<string, any>;
+  private parsedSections: Record<string, ParsedMarkdown>;
 
   constructor(
     markdownSections: Record<string, string>,

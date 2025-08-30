@@ -23,7 +23,7 @@ const extractorConfig: ExtractorConfig = {
     namePatterns: [/^# ([A-Z\s]+)$/m],
     titlePatterns: [/\*\*([^*]+)\*\*/],
     emailPatterns: [/📧\s*\[([^\]]+)\]|\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b/],
-    phonePatterns: [/📱\s*\[([^\]]+)\]|\+?\d[\d\s\-\(\)]{8,}/],
+    phonePatterns: [/📱\s*\[([^\]]+)\]|\+?\d[\d\s\-()]{8,}/],
     linkedinPatterns: [/linkedin\.com\/in\/([^)\s]+)/],
     githubPatterns: [/github\.com\/([^)\s]+)/],
     locationPatterns: [/📍\s*\[([^\]]+)\]/]

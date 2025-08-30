@@ -1,5 +1,5 @@
 import { Experience } from '../ResumeDataLoader';
-import { extractListItems } from '../../utils/markdownParser';
+import { extractListItems, ParsedMarkdown } from '../../utils/markdownParser';
 
 /**
  * Extracts experience from a parsed markdown section object.
@@ -7,7 +7,7 @@ import { extractListItems } from '../../utils/markdownParser';
  * @returns An array of experience objects.
  */
 export function extractExperience(
-  parsedSection: any
+  parsedSection: ParsedMarkdown
 ): Experience[] {
   if (!parsedSection || !parsedSection.sections) {
     console.warn('Experience section not found or empty.');

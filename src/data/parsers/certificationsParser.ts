@@ -1,4 +1,5 @@
-import { Certification } from '../ResumeDataLoader';
+import { Certification, ExtractorConfig } from '../ResumeDataLoader';
+import { ParsedMarkdown } from '../../utils/markdownParser';
 
 /**
  * Extracts certifications from a parsed markdown section.
@@ -8,8 +9,8 @@ import { Certification } from '../ResumeDataLoader';
  * @returns An array of certification objects.
  */
 export function extractCertifications(
-  parsedSection: any,
-  config: any,
+  parsedSection: ParsedMarkdown,
+  config: ExtractorConfig['certifications'],
   findPattern: (content: string, patterns: RegExp[] | undefined) => string | null
 ): Certification[] {
   if (!parsedSection) {
@@ -18,10 +19,10 @@ export function extractCertifications(
   }
 
   const certifications: Certification[] = [];
-  const sectionLevel = config.sectionLevel || 3;
-  const issuerPatterns = config.issuerPatterns || [/Issued by/, /Issuer:/];
+  const sectionLevel = config?.sectionLevel || 3;
+  const issuerPatterns = config?.issuerPatterns || [/Issued by/, /Issuer:/];
 
-  const certSections = parsedSection.sections.filter((s: any) => s.level === sectionLevel);
+  const certSections = parsedSection.sections.filter((s) => s.level === sectionLevel);
 
   for (const section of certSections) {
     const lines = section.content.split('\n');

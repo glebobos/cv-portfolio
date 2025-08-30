@@ -1,4 +1,4 @@
-import { PersonalInfo } from '../ResumeDataLoader';
+import { PersonalInfo, ExtractorConfig } from '../ResumeDataLoader';
 import { getRawMarkdownSection } from '../../utils/markdownParser';
 
 /**
@@ -10,7 +10,7 @@ import { getRawMarkdownSection } from '../../utils/markdownParser';
  */
 export function extractPersonalInfo(
   summaryContent: string,
-  config: any,
+  config: ExtractorConfig['personalInfo'],
   findPattern: (content: string, patterns: RegExp[] | undefined) => string | null
 ): PersonalInfo {
   const allHeaders = summaryContent.match(/# ([^\n]+)/g) || [];
@@ -34,13 +34,13 @@ export function extractPersonalInfo(
   let linkedin = config.fallbacks?.linkedin || 'https://linkedin.com/in/profile';
   const linkedinMatch = findPattern(summaryContent, config.linkedinPatterns);
   if (linkedinMatch) {
-    linkedin = linkedinMatch.includes('http') ? linkedinMatch : `https://www.linkedin.com/in/${linkedinMatch.replace(/[\[\]]/g, '')}`;
+    linkedin = linkedinMatch.includes('http') ? linkedinMatch : `https://www.linkedin.com/in/${linkedinMatch.replace(/[[\]]/g, '')}`;
   }
 
   let github = config.fallbacks?.github || 'https://github.com/username';
   const githubMatch = findPattern(summaryContent, config.githubPatterns);
   if (githubMatch) {
-    github = githubMatch.includes('http') ? githubMatch : `https://${githubMatch.replace(/[\[\]]/g, '')}`;
+    github = githubMatch.includes('http') ? githubMatch : `https://${githubMatch.replace(/[[\]]/g, '')}`;
   }
 
   const location = findPattern(summaryContent, config.locationPatterns) || config.fallbacks?.location || 'Remote';
@@ -57,9 +57,9 @@ export function extractPersonalInfo(
  */
 export function extractSummary(
   rawContent: string,
-  config: any,
+  config: ExtractorConfig['summary'],
 ): string {
-  const sectionTitles = config.sectionTitles || ['EXECUTIVE SUMMARY', 'SUMMARY', 'ABOUT'];
+  const sectionTitles = config?.sectionTitles || ['EXECUTIVE SUMMARY', 'SUMMARY', 'ABOUT'];
 
   for (const title of sectionTitles) {
     const content = getRawMarkdownSection(rawContent, title);

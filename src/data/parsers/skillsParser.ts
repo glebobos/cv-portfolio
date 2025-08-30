@@ -1,5 +1,5 @@
-import { SkillCategory, Skill } from '../ResumeDataLoader';
-import { extractListItems } from '../../utils/markdownParser';
+import { SkillCategory, Skill, ExtractorConfig } from '../ResumeDataLoader';
+import { extractListItems, ParsedMarkdown } from '../../utils/markdownParser';
 
 /**
  * Extracts skill categories from a parsed markdown section.
@@ -8,8 +8,8 @@ import { extractListItems } from '../../utils/markdownParser';
  * @returns An array of skill category objects.
  */
 export function extractSkills(
-  parsedSection: any,
-  config: any
+  parsedSection: ParsedMarkdown,
+  config: ExtractorConfig['skills']
 ): SkillCategory[] {
   if (!parsedSection) {
     console.warn('Skills section not found or empty.');
@@ -17,7 +17,7 @@ export function extractSkills(
   }
 
   const skillCategories: SkillCategory[] = [];
-  const levelKeywords = config.levelKeywords || {
+  const levelKeywords = config?.levelKeywords || {
     5: ['Expert', 'Advanced', 'Senior'],
     4: ['Proficient', 'Experienced'],
     3: ['Intermediate', 'Working'],
@@ -25,7 +25,7 @@ export function extractSkills(
     1: ['Beginner', 'Learning'],
   };
 
-  const skillSections = parsedSection.sections.filter((s: any) => s.level === 2);
+  const skillSections = parsedSection.sections.filter((s) => s.level === 2);
 
   for (const section of skillSections) {
     const skills: Skill[] = extractListItems(section.content).map((item: string) => {

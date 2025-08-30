@@ -2,11 +2,15 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Award as AwardIcon } from 'lucide-react';
 import { markdownResumeData } from '../data/markdownResumeData';
+import { usePrintMode } from '../hooks/usePrintMode';
 
 const Awards = () => {
+  const isPrinting = usePrintMode();
   const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: 0.1
+    threshold: 0.1,
+    skip: isPrinting,
+    initialInView: isPrinting,
   });
 
   const awardsData = markdownResumeData.awards;

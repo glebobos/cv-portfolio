@@ -57,7 +57,7 @@ const Contact = () => {
             <div className="w-24 h-1 bg-gradient-to-r from-primary-500 to-primary-700 mx-auto mb-8"></div>
             <p className="text-lg text-secondary-600 max-w-2xl mx-auto">
               Ready to discuss your next project or explore collaboration opportunities? 
-              I'd love to hear from you!
+              I&apos;d love to hear from you!
             </p>
           </div>
 
@@ -129,8 +129,8 @@ const Contact = () => {
                   Ready to Work Together?
                 </h3>
                 <p className="text-secondary-600 mb-6 leading-relaxed">
-                  Whether you're looking for cloud architecture expertise, DevOps automation, 
-                  or technical leadership, I'm here to help bring your vision to life.
+                  Whether you&apos;re looking for cloud architecture expertise, DevOps automation,
+                  or technical leadership, I&apos;m here to help bring your vision to life.
                 </p>
                 
                 <div className="space-y-4">

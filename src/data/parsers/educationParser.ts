@@ -1,4 +1,5 @@
 import { Education } from '../ResumeDataLoader';
+import { ParsedMarkdown } from '../../utils/markdownParser';
 
 /**
  * Extracts education from a parsed markdown section.
@@ -6,7 +7,7 @@ import { Education } from '../ResumeDataLoader';
  * @returns An array of education objects.
  */
 export function extractEducation(
-  parsedSection: any
+  parsedSection: ParsedMarkdown
 ): Education[] {
   if (!parsedSection || !parsedSection.sections) {
     console.warn('Education section not found or empty.');
@@ -15,7 +16,7 @@ export function extractEducation(
 
   const education: Education[] = [];
   // Each H2 is a new institution or section
-  const institutionSections = parsedSection.sections.filter((s: any) => s.level === 2);
+  const institutionSections = parsedSection.sections.filter((s) => s.level === 2);
 
   for (const section of institutionSections) {
     const lines = section.content.split('\n').filter((line: string) => line.trim() !== '');

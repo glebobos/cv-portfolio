@@ -1,4 +1,5 @@
-import { Award } from '../ResumeDataLoader';
+import { Award, ExtractorConfig } from '../ResumeDataLoader';
+import { ParsedMarkdown } from '../../utils/markdownParser';
 
 /**
  * Extracts awards from a parsed markdown section.
@@ -8,8 +9,8 @@ import { Award } from '../ResumeDataLoader';
  * @returns An array of award objects.
  */
 export function extractAwards(
-  parsedSection: any,
-  config: any,
+  parsedSection: ParsedMarkdown,
+  config: ExtractorConfig['awards'],
   findPattern: (content: string, patterns: RegExp[] | undefined) => string | null
 ): Award[] {
   if (!parsedSection) {
@@ -18,10 +19,10 @@ export function extractAwards(
   }
 
   const awards: Award[] = [];
-  const sectionLevel = config.sectionLevel || 3;
-  const issuerPatterns = config.issuerPatterns || [/Presented by/, /Awarded by/];
+  const sectionLevel = config?.sectionLevel || 3;
+  const issuerPatterns = config?.issuerPatterns || [/Presented by/, /Awarded by/];
 
-  const awardSections = parsedSection.sections.filter((s: any) => s.level === sectionLevel);
+  const awardSections = parsedSection.sections.filter((s) => s.level === sectionLevel);
 
   for (const section of awardSections) {
     const lines = section.content.split('\n');
