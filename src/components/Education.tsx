@@ -72,7 +72,7 @@ const Education = () => {
                           {edu.details.map((detail, detailIndex) => (
                             <div key={detailIndex} className="flex items-start space-x-3">
                               <div className="w-2 h-2 bg-primary-500 rounded-full mt-2 flex-shrink-0"></div>
-                              <p className="text-secondary-700">{detail}</p>
+                              <MarkdownRenderer content={detail} className="text-secondary-700" />
                             </div>
                           ))}
                         </div>
