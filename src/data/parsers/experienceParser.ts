@@ -1,4 +1,5 @@
 import { Experience } from '../ResumeDataLoader';
+import { extractListItems } from '../../utils/markdownParser';
 
 /**
  * Extracts experience from a parsed markdown section.
@@ -22,8 +23,6 @@ export function extractExperience(
     let position = '';
     let period = '';
     let description = '';
-    const achievements: string[] = [];
-    const technologies: string[] = [];
 
     // The first line should be the position and period
     const firstLine = lines.shift() || '';
@@ -33,40 +32,30 @@ export function extractExperience(
       period = parts[1]?.trim() || '';
     }
 
-    // The next lines are the role description until we hit achievements or technologies
-    let achievementsStarted = false;
-    let technologiesStarted = false;
-    for (const line of lines) {
-      if (line.startsWith('**') && line.includes('Accomplishments')) {
-        achievementsStarted = true;
-        technologiesStarted = false;
-        continue;
-      }
-      if (line.startsWith('####') && line.toLowerCase().includes('technologies used')) {
-        technologiesStarted = true;
-        achievementsStarted = false;
-        continue;
-      }
-
-      if (technologiesStarted) {
-        if (line.startsWith('- ')) {
-          technologies.push(line.replace('- ', '').trim());
+    // The rest of the content before any H3 is the description
+    let contentBeforeSubsections = '';
+    for(const line of lines) {
+        if (line.startsWith('### ')) {
+            break;
         }
-      } else if (achievementsStarted) {
-        if (line.startsWith('- ')) {
-          achievements.push(line);
-        }
-      } else {
-        description += `\n${line}`;
-      }
+        contentBeforeSubsections += line + '\n';
     }
+    description = contentBeforeSubsections.trim();
+
+    // Find accomplishments and technologies in subsections
+    const accomplishmentsSection = section.sections.find((s: any) => s.title.toLowerCase().includes('accomplishments'));
+    const achievements = accomplishmentsSection ? extractListItems(accomplishmentsSection.content) : [];
+
+    const technologiesSection = section.sections.find((s: any) => s.title.toLowerCase().includes('technologies used'));
+    const technologies = technologiesSection ? extractListItems(technologiesSection.content) : [];
+
 
     if (position) {
       experiences.push({
         company: section.title,
         position,
         period,
-        description: description.trim(),
+        description,
         achievements,
         technologies,
       });
