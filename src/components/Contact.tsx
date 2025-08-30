@@ -76,7 +76,7 @@ const Contact = () => {
                   </h3>
                   
                   <div className="space-y-4">
-                    {contactInfo.map((item, index) => (
+                    {contactInfo.map((item) => (
                       <motion.a
                         key={item.label}
                         href={item.href}
@@ -101,7 +101,7 @@ const Contact = () => {
                     Follow Me
                   </h4>
                   <div className="flex space-x-4">
-                    {socialLinks.map((social, index) => (
+                    {socialLinks.map((social) => (
                       <motion.a
                         key={social.label}
                         href={social.href}

@@ -1,28 +1,20 @@
 import { ResumeDataLoader, ExtractorConfig } from './ResumeDataLoader';
 
-// Import markdown files as raw text
-import summaryMd from '../../resume/sections/summary.md?raw';
-import experienceMd from '../../resume/sections/experience.md?raw';
-import skillsMd from '../../resume/sections/skills.md?raw';
-import educationMd from '../../resume/sections/education.md?raw';
-import certificationsMd from '../../resume/sections/certifications.md?raw';
-import projectsMd from '../../resume/sections/projects.md?raw';
-import awardsMd from '../../resume/sections/awards.md?raw';
-import publicationsMd from '../../resume/sections/publications.md?raw';
-import referencesMd from '../../resume/sections/references.md?raw';
+import { resumeSectionsConfig } from './resume.config';
 
-// Define markdown sections
-const markdownSections = {
-  summary: summaryMd,
-  experience: experienceMd,
-  skills: skillsMd,
-  education: educationMd,
-  certifications: certificationsMd,
-  projects: projectsMd,
-  awards: awardsMd,
-  publications: publicationsMd,
-  references: referencesMd
-};
+// Dynamically import all markdown files from the resume sections directory
+const markdownFiles = import.meta.glob('../../resume/sections/*.md', { as: 'raw', eager: true });
+
+// Construct the markdownSections object based on the configuration
+const markdownSections: Record<string, string> = Object.entries(resumeSectionsConfig).reduce(
+  (acc, [section, path]) => {
+    if (markdownFiles[path]) {
+      acc[section] = markdownFiles[path];
+    }
+    return acc;
+  },
+  {} as Record<string, string>
+);
 
 // Configuration for markdown data extraction
 const extractorConfig: ExtractorConfig = {
@@ -37,7 +29,7 @@ const extractorConfig: ExtractorConfig = {
     locationPatterns: [/📍\s*\[([^\]]+)\]/]
   },
   experience: {
-    companyPatterns: [/EPAM Systems/]
+    companyPatterns: []
   },
   skills: {
     levelKeywords: {

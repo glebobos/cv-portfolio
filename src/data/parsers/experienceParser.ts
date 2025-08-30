@@ -3,12 +3,10 @@ import { Experience } from '../ResumeDataLoader';
 /**
  * Extracts experience from a parsed markdown section.
  * @param parsedSection - The parsed markdown content for the experience section.
- * @param config - The extractor configuration for experience.
  * @returns An array of experience objects.
  */
 export function extractExperience(
-  parsedSection: any,
-  config: any
+  parsedSection: any
 ): Experience[] {
   if (!parsedSection) {
     console.warn('Experience section not found or empty.');
@@ -20,7 +18,7 @@ export function extractExperience(
   const roleSections = parsedSection.sections.filter((s: any) => s.level === 2);
 
   for (const section of roleSections) {
-    const lines = section.content.split('\n').filter(line => line.trim() !== '');
+    const lines = section.content.split('\n').filter((line: string) => line.trim() !== '');
     let position = '';
     let period = '';
     let description = '';
