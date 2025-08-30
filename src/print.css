@@ -3,7 +3,7 @@
 @media print {
   /* Hide non-essential elements */
   body > #root > .relative > .relative.z-10 > header,
-  body > #root > .relative > .relative.z-10 > main > :not(#about):not(#experience):not(#skills):not(#projects):not(#education):not(#certifications),
+  body > #root > .relative > .relative.z-10 > main > :not(#hero):not(#experience):not(#skills):not(#projects):not(#education):not(#certifications):not(#awards):not(#publications):not(#references),
   body > #root > .relative > .relative.z-10 > footer,
   #root > .relative > div:first-child /* Particle Background */ {
     display: none !important;
