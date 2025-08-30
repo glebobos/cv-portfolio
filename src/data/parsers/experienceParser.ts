@@ -2,65 +2,73 @@ import { Experience } from '../ResumeDataLoader';
 import { extractListItems } from '../../utils/markdownParser';
 
 /**
- * Extracts experience from a parsed markdown section.
- * @param parsedSection - The parsed markdown content for the experience section.
+ * Extracts experience from a parsed markdown section object.
+ * @param parsedSection - The parsed markdown object for the entire experience.md file.
  * @returns An array of experience objects.
  */
 export function extractExperience(
   parsedSection: any
 ): Experience[] {
-  if (!parsedSection) {
+  if (!parsedSection || !parsedSection.sections) {
     console.warn('Experience section not found or empty.');
     return [];
   }
 
   const experiences: Experience[] = [];
-  // Each H2 is a new role
-  const roleSections = parsedSection.sections.filter((s: any) => s.level === 2);
+  const allSections = parsedSection.sections;
 
-  for (const section of roleSections) {
-    const lines = section.content.split('\n').filter((line: string) => line.trim() !== '');
-    let position = '';
-    let period = '';
-    let description = '';
+  for (let i = 0; i < allSections.length; i++) {
+    const currentSection = allSections[i];
 
-    // The first line should be the position and period
-    const firstLine = lines.shift() || '';
-    if (firstLine.includes('|') && firstLine.startsWith('**')) {
-      const parts = firstLine.split('|');
-      position = parts[0].replace(/\*\*/g, '').trim();
-      period = parts[1]?.trim() || '';
-    }
+    // A level 2 heading denotes a new company/role.
+    if (currentSection.level === 2) {
+      const company = currentSection.title;
+      const lines = currentSection.content.split('\n').filter((line: string) => line.trim() !== '');
 
-    // The rest of the content before any H3 is the description
-    let contentBeforeSubsections = '';
-    for(const line of lines) {
-        if (line.startsWith('### ')) {
-            break;
+      let position = '';
+      let period = '';
+      let description = '';
+
+      // The first line under the H2 should be the position and period.
+      const firstLine = lines.shift() || '';
+      if (firstLine.includes('|') && firstLine.startsWith('**')) {
+        const parts = firstLine.split('|');
+        position = parts[0].replace(/\*\*/g, '').trim();
+        period = parts[1]?.trim() || '';
+      }
+
+      // The rest of the content under the H2 is the role description.
+      description = lines.join('\n').trim();
+
+      const achievements: string[] = [];
+      const technologies: string[] = [];
+
+      // Look ahead for H3 sections (Accomplishments, Technologies) that belong to this role.
+      let j = i + 1;
+      while (j < allSections.length && allSections[j].level > currentSection.level) {
+        const subSection = allSections[j];
+        if (subSection.level === 3) {
+          if (subSection.title.toLowerCase().includes('accomplishments')) {
+            achievements.push(...extractListItems(subSection.content));
+          } else if (subSection.title.toLowerCase().includes('technologies used')) {
+            technologies.push(...extractListItems(subSection.content));
+          }
         }
-        contentBeforeSubsections += line + '\n';
-    }
-    description = contentBeforeSubsections.trim();
+        j++;
+      }
 
-    // Find accomplishments and technologies in subsections
-    const accomplishmentsSection = section.sections.find((s: any) => s.title.toLowerCase().includes('accomplishments'));
-    const achievements = accomplishmentsSection ? extractListItems(accomplishmentsSection.content) : [];
-
-    const technologiesSection = section.sections.find((s: any) => s.title.toLowerCase().includes('technologies used'));
-    const technologies = technologiesSection ? extractListItems(technologiesSection.content) : [];
-
-
-    if (position) {
-      experiences.push({
-        company: section.title,
-        position,
-        period,
-        description,
-        achievements,
-        technologies,
-      });
-    } else {
-      console.warn(`Could not parse a position for role in section: "${section.title}"`);
+      if (position) {
+        experiences.push({
+          company,
+          position,
+          period,
+          description,
+          achievements,
+          technologies,
+        });
+      } else {
+        console.warn(`Could not parse a position for role in section: "${company}"`);
+      }
     }
   }
 
