@@ -1,4 +1,5 @@
 import React from 'react';
+import { markdownResumeData } from '../data/markdownResumeData';
 
 interface MarkdownRendererProps {
   content: string;
@@ -144,7 +145,6 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content, cla
 };
 
 // Simple hook to use markdown content directly
-export const useMarkdownSection = (sectionName: keyof typeof import('../data/markdownResumeData').markdownResumeData.raw) => {
-  const { markdownResumeData } = require('../data/markdownResumeData');
+export const useMarkdownSection = (sectionName: keyof typeof markdownResumeData.raw) => {
   return markdownResumeData.raw[sectionName];
 };

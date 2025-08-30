@@ -1,4 +1,4 @@
-import { parseMarkdown, extractListItems } from '../utils/markdownParser';
+import { parseMarkdown } from '../utils/markdownParser';
 import { extractExperience } from './parsers/experienceParser';
 import { extractSkills } from './parsers/skillsParser';
 import { extractEducation } from './parsers/educationParser';
@@ -170,7 +170,7 @@ export const DEFAULT_EXTRACTOR_CONFIG: ExtractorConfig = {
     cleanMarkdown: false
   },
   experience: {
-    companyPatterns: [/EPAM Systems/, /Company Name/],
+    companyPatterns: [],
     positionPatterns: [/Engineer/, /Lead/, /Manager/, /Director/],
     periodPatterns: [/\d{4}\s*-\s*\d{4}/, /\d{4}\s*-\s*Present/]
   },
@@ -239,33 +239,13 @@ export class ResumeDataLoader {
     return null;
   }
 
-
-
-
-
-
-
-
-
-  // Helper method to clean markdown
-  private cleanMarkdownForDisplay(content: string): string {
-    return content
-      .replace(/#{1,6}\s+/g, '')
-      .replace(/\*([^*]+)\*/g, '$1')
-      .replace(/\*\*([^*]+)\*\*/g, '$1')
-      .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
-      .replace(/---+/g, '')
-      .replace(/^\s*[-*+]\s+/gm, '• ')
-      .trim();
-  }
-
   // Main method to extract all resume data
   extractAll(): ResumeData {
     return {
       personalInfo: extractPersonalInfo(this.markdownSections.summary, this.config.personalInfo, this.findPattern),
       summary: extractSummary(this.markdownSections.summary, this.config.summary),
-      experience: extractExperience(this.parsedSections.experience, this.config.experience),
-      education: extractEducation(this.parsedSections.education, this.config.education),
+      experience: extractExperience(this.parsedSections.experience),
+      education: extractEducation(this.parsedSections.education),
       projects: extractProjects(this.parsedSections.projects, this.config.projects),
       skillCategories: extractSkills(this.parsedSections.skills, this.config.skills),
       certifications: extractCertifications(this.parsedSections.certifications, this.config.certifications, this.findPattern),

@@ -1,15 +1,12 @@
 import { Education } from '../ResumeDataLoader';
-import { extractListItems } from '../../utils/markdownParser';
 
 /**
  * Extracts education from a parsed markdown section.
  * @param parsedSection - The parsed markdown content for the education section.
- * @param config - The extractor configuration for education.
  * @returns An array of education objects.
  */
 export function extractEducation(
-  parsedSection: any,
-  config: any
+  parsedSection: any
 ): Education[] {
   if (!parsedSection) {
     console.warn('Education section not found or empty.');
@@ -21,7 +18,7 @@ export function extractEducation(
   const institutionSections = parsedSection.sections.filter((s: any) => s.level === 2);
 
   for (const section of institutionSections) {
-    const lines = section.content.split('\n').filter(line => line.trim() !== '');
+    const lines = section.content.split('\n').filter((line: string) => line.trim() !== '');
     let degree = '';
     let period = '';
     const details: string[] = [];
