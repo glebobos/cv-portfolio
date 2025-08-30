@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { markdownResumeData } from '../data/markdownResumeData';
 
 interface MarkdownRendererProps {
   content: string;
@@ -42,9 +41,4 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content, cla
       </ReactMarkdown>
     </div>
   );
-};
-
-// Simple hook to use markdown content directly
-export const useMarkdownSection = (sectionName: keyof typeof markdownResumeData.raw) => {
-  return markdownResumeData.raw[sectionName];
 };
