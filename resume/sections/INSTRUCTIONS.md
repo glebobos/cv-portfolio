@@ -19,6 +19,7 @@ Welcome to your new resume template! This document is designed to be easily cust
 
 ## Important Notes
 
+*   **Data Management:** This project exclusively uses Markdown files for content management. All data is sourced from the `.md` files in this directory.
 *   **Keep the Formatting:** Try to maintain the markdown formatting (e.g., headings, bold text, bullet points) to ensure the resume renders correctly.
 *   **Be Concise:** Aim for clear and concise descriptions of your experience and skills.
 *   **Proofread:** Once you've filled everything out, be sure to proofread the entire resume for any spelling or grammar errors.

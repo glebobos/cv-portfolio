@@ -12,11 +12,11 @@ A state-of-the-art resume portfolio website built with **Vite**, **React 18**, *
 - **Smooth Scrolling**: Enhanced user experience with intersection observer
 
 ### 🚀 Technical Excellence
-- **Dual Data Systems**: Choose between TypeScript objects or Markdown files for content
-- **Type-Safe Development**: Full TypeScript implementation with custom type definitions
-- **Modern Build Tools**: Vite for lightning-fast development and optimized production builds
-- **Component Architecture**: Modular React components for maintainability
-- **Performance Optimized**: Code splitting, lazy loading, and optimized bundle size
+- **Markdown-Powered Content**: Easily manage resume content with simple Markdown files.
+- **Type-Safe Development**: Full TypeScript implementation with custom type definitions.
+- **Modern Build Tools**: Vite for lightning-fast development and optimized production builds.
+- **Component Architecture**: Modular React components for maintainability.
+- **Performance Optimized**: Code splitting, lazy loading, and optimized bundle size.
 
 ### 🐳 DevOps & Deployment
 - **Complete Docker Support**: Development, build, and production containerization
@@ -56,7 +56,6 @@ A state-of-the-art resume portfolio website built with **Vite**, **React 18**, *
 cv-portfolio/
 ├── 📁 src/
 │   ├── 📁 components/           # React UI components
-│   │   ├── About.tsx           # About section with markdown support
 │   │   ├── Certifications.tsx  # Certifications display
 │   │   ├── Contact.tsx         # Contact form and information
 │   │   ├── Education.tsx       # Education timeline
@@ -69,10 +68,9 @@ cv-portfolio/
 │   │   ├── Projects.tsx        # Project showcase
 │   │   └── Skills.tsx          # Skills visualization
 │   ├── 📁 data/                # Data management layer
-│   │   ├── resumeData.ts       # TypeScript resume data
 │   │   ├── markdownResumeData.ts # Markdown data loader
 │   │   ├── ResumeDataLoader.ts # Data extraction utilities
-│   │   └── 📁 examples/        # Alternative data examples
+│   │   └── 📁 parsers/          # Parsers for each resume section
 │   ├── 📁 types/               # TypeScript definitions
 │   │   ├── resume.ts           # Resume data types
 │   │   └── markdown.d.ts       # Markdown module declarations
@@ -83,7 +81,7 @@ cv-portfolio/
 │   └── index.css              # Global styles and Tailwind imports
 ├── 📁 resume/                  # Markdown content system
 │   ├── 📁 images/             # Resume images and assets
-│   │   └── avatar.jpg         # Profile avatar (referenced in summary.md)
+│   │   └── avatar.svg         # Profile avatar (referenced in summary.md)
 │   └── 📁 sections/           # Markdown resume sections
 │       ├── awards.md          # Awards and recognition
 │       ├── certifications.md  # Professional certifications
@@ -91,7 +89,6 @@ cv-portfolio/
 │       ├── experience.md      # Work experience
 │       ├── projects.md        # Project portfolio
 │       ├── publications.md    # Publications and articles
-│       ├── references.md      # Professional references
 │       ├── skills.md          # Technical skills
 │       └── summary.md         # Professional summary
 ├── 📁 .github/workflows/      # CI/CD automation
@@ -159,67 +156,19 @@ docker-compose run build   # Build only
 
 ## 📝 Content Management
 
-This portfolio supports **two data management approaches** - choose the one that best fits your workflow:
+This portfolio uses a Markdown-based system for content management. All resume data is sourced from the `.md` files located in the `resume/sections/` directory.
 
-### Option 1: TypeScript Data (Recommended for Developers)
+### How to Edit Content
 
-Edit `src/data/resumeData.ts` for programmatic control:
+1.  **Navigate to the `resume/sections/` directory.**
+2.  **Edit the Markdown files** to update your resume information. Each file corresponds to a section on the website.
+3.  **Follow the instructions** in `resume/sections/INSTRUCTIONS.md` for a detailed guide on how to fill out each section.
 
-```typescript
-export const resumeData: ResumeData = {
-  personalInfo: {
-    name: "Your Name",
-    title: "Your Professional Title",
-    email: "your.email@example.com",
-    phone: "+1 (555) 123-4567",
-    linkedin: "https://linkedin.com/in/yourprofile",
-    github: "https://github.com/yourusername",
-    location: "Your Location"
-  },
-  summary: "Your professional summary...",
-  experience: [
-    {
-      company: "Company Name",
-      position: "Your Position",
-      period: "Start - End Date",
-      description: "Brief role description",
-      achievements: [
-        "Achievement 1 with quantifiable results",
-        "Achievement 2 with impact metrics"
-      ],
-      technologies: ["Tech1", "Tech2", "Tech3"]
-    }
-  ],
-  // ... other sections
-};
-```
+### Example: Editing Experience
 
-### Option 2: Markdown Files (Content-Friendly)
-
-Use the markdown system in `resume/sections/` for easier content management:
+To edit your work experience, open `resume/sections/experience.md`:
 
 ```markdown
-<!-- resume/sections/summary.md -->
-# Professional Summary
-
-*Executive summary of professional background and core competencies.*
-
-![Profile Avatar](../images/avatar.jpg)
-
----
-
-# YOUR NAME
-**Your Professional Title**
-
-📧 [Email] | 📱 [Phone] | 🔗 [LinkedIn: your-profile](https://linkedin.com/in/your-profile) | 📍 [Location]
-
-## EXECUTIVE SUMMARY
-
-Your professional summary content here...
-```
-
-```markdown
-<!-- resume/sections/experience.md -->
 # Professional Experience
 
 ## Senior Software Engineer | TechCorp
@@ -235,35 +184,16 @@ Led development of cloud-native applications serving 100K+ users.
 **Technologies:** AWS, Docker, React, TypeScript
 ```
 
-To switch between data sources, modify the import in `src/App.tsx`:
-
-```typescript
-// For TypeScript data
-import { resumeData } from './data/resumeData';
-
-// For Markdown data
-import { markdownResumeData } from './data/markdownResumeData';
-```
-
 ### Avatar Image Management
 
-The portfolio automatically extracts and displays your profile avatar from the markdown system:
+The portfolio automatically extracts and displays your profile avatar.
 
-1. **Add your avatar image** to `resume/images/` directory (e.g., `avatar.jpg`, `profile.png`)
-2. **Reference it in your summary.md**:
-   ```markdown
-   # Professional Summary
-   
-   ![Profile Avatar](../images/your-image-name.jpg)
-   ```
-3. **The system automatically**:
-   - Extracts the image filename from the markdown image syntax
-   - Displays it in the Hero section of the website
-   - Shows the photo when viewing the markdown files on GitHub
-   - Works with both development and production builds
-   - Falls back to `avatar.jpg` if not specified
-
-**Supported image formats:** JPG, PNG, WebP, GIF
+1.  **Add your avatar image** to the `resume/images/` directory (e.g., `avatar.jpg`, `profile.png`).
+2.  **Reference it in `resume/sections/summary.md`**:
+    ```markdown
+    ![Profile Avatar](../images/your-image-name.jpg)
+    ```
+The system will automatically display the image in the Hero section.
 
 ## 🎨 Customization Guide
 
