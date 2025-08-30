@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { ChevronDown, Download, Mail } from 'lucide-react';
 import { markdownResumeData } from '../data/markdownResumeData';
+import { MarkdownRenderer } from './MarkdownRenderer';
 
 const Hero = () => {
   const scrollToAbout = () => {
@@ -92,16 +93,14 @@ const Hero = () => {
               </motion.p>
             </div>
 
-            <motion.p 
+            <motion.div
               className="text-lg text-secondary-700 max-w-3xl mx-auto leading-relaxed"
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 1, duration: 0.6 }}
             >
-              Architect of innovative cloud solutions with ~5 years of impact in enterprise environments.
-              Leading 70+ developers across 24+ production environments with a focus on serverless transformation
-              and DevOps excellence.
-            </motion.p>
+              <MarkdownRenderer content={markdownResumeData.summary} />
+            </motion.div>
 
             {/* CTA Buttons */}
             <motion.div 
@@ -128,35 +127,6 @@ const Hero = () => {
                 <Mail size={20} className="mr-2" />
                 Get In Touch
               </motion.a>
-            </motion.div>
-
-            {/* Stats */}
-            <motion.div 
-              className="grid grid-cols-1 sm:grid-cols-3 gap-8 pt-12"
-              initial={{ y: 30, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 1.4, duration: 0.6 }}
-            >
-              {[
-                { number: '5+', label: 'Years Experience' },
-                { number: '70+', label: 'Developers Mentored' },
-                { number: '24+', label: 'Production Environments' },
-              ].map((stat, index) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ scale: 0.5, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ delay: 1.6 + index * 0.1, duration: 0.5 }}
-                  className="text-center"
-                >
-                  <div className="text-3xl md:text-4xl font-bold gradient-text">
-                    {stat.number}
-                  </div>
-                  <div className="text-secondary-600 mt-1">
-                    {stat.label}
-                  </div>
-                </motion.div>
-              ))}
             </motion.div>
           </motion.div>
 
