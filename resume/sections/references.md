@@ -1,38 +1,32 @@
+<!--
+INSTRUCTIONS:
+It is generally recommended to state that references are available upon request rather than listing contact information directly. However, if you choose to list them, use the template below.
+-->
+
 # References
 
 *Professional contacts who can vouch for skills, character, and work ethic.*
 
 ---
 
-> **Note:** References, detailed project documentation, and comprehensive portfolio available upon request.
+> **Note:** References are available upon request.
 
-## Professional References
+<!--
+OPTIONAL: If you want to list your references, you can use the template below.
+Make sure you have permission from your references before sharing their information.
 
-Professional references from EPAM Systems, Wolters Kluwer, and other organizations are available upon request. References include technical leaders, project managers, and colleagues familiar with my contributions to major projects including:
+## [Reference Name]
+**[Reference's Title] at [Company]**
 
-- Foundation and Beyond Platform development
-- EPM-RDEX Serverless Transformation
-- OneML Machine Learning Platform
-- Custom framework and automation system development
+- **Relationship:** [How you know the reference, e.g., Former Manager, Colleague]
+- **Contact:** [Email or Phone, optional]
 
-## Client References
+## [Another Reference Name]
+**[Reference's Title] at [Company]**
 
-Client testimonials and references from key stakeholders at Wolters Kluwer and other client organizations can be provided upon request, highlighting:
+- **Relationship:** [How you know the reference]
+- **Contact:** [Email or Phone, optional]
 
-- Technical expertise and solution quality
-- Project delivery effectiveness
-- Communication and collaboration skills
-- Innovation and problem-solving capabilities
-
-## Community References
-
-References from technical community involvement are available, including:
-
-- CloudSquad community leadership team members
-- AWS User Group organizers and participants
-- Technical presentation attendees and co-presenters
-- Open-source project collaborators
-
-References will be provided with appropriate notice and permission from the individuals involved.
+-->
 
 [Back to Resume Index](../index.md)

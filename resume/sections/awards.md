@@ -1,3 +1,14 @@
+<!--
+INSTRUCTIONS:
+1.  Under "Professional Recognition", replace "[Award Name]" with the name of the award.
+2.  Replace "[Presenter]" with the name of the organization that gave you the award.
+3.  Add a brief description of the award.
+4.  Under "Patent Portfolio", replace "[Patent Title]" with the title of your patent.
+5.  Indicate your role (e.g., Patent Holder, Inventor).
+6.  Add a brief description of the patent.
+7.  You can copy and paste the templates for each award or patent.
+-->
+
 # Awards & Recognition
 
 *Acknowledgments of professional excellence and contributions.*
@@ -6,70 +17,28 @@
 
 ## Professional Recognition
 
-### We Are Community: Top Contributor
-**Presented by EPAM Systems**
+### [Award Name]
+**Presented by [Presenter]**
 
-- Recognition for exceptional community involvement and knowledge sharing
-- Acknowledges significant contributions to developer community and technical expertise
-- Awarded for consistent participation and valuable technical content
+- [Briefly describe the award and why you received it.]
+- [Add another point if necessary.]
 
-### We Are Community: Top Speaker
-**Presented by EPAM Systems**
+### [Another Award Name]
+**Presented by [Presenter]**
 
-- Recognition for excellence in technical presentations and knowledge sharing
-- Acknowledges exceptional communication skills and technical expertise
-- Awarded for high-quality presentations at community events
-
-### Driving Change and Innovations from Delivery Central
-**Presented by EPAM Systems**
-
-- Recognition for leadership in implementing innovative technical solutions
-- Acknowledges significant contributions to technical process improvement
-- Highlights impact on organizational efficiency and technical excellence
-
-### BLIS BU Recognition Star Team
-**Presented by EPAM Systems**
-
-- Team excellence recognition for outstanding project delivery
-- Acknowledges exceptional collaboration and technical implementation
-- Highlights significant business impact and client satisfaction
+- [Briefly describe the award and why you received it.]
 
 ## Patent Portfolio
 
-### Dynamic Properties of Self-Propelled All-Purpose Power Unit with a Hydromechanical Transmission of Two-Line Type
-**Patent Holder**
+### [Patent Title]
+**[Your Role, e.g., Patent Holder]**
 
-- Innovative mechanical engineering design for power transmission systems
-- Technical advancement in vehicle propulsion efficiency
+- [Briefly describe the patent and its significance.]
 
-### A Self-Propelled Grain Harvester Running on Gaseous Fuel
-**Patent Number: 190376 U1**
+### [Another Patent Title]
+**[Patent Number: XXXXXXX]**
 
-- Environmentally-friendly agricultural equipment innovation
-- Advancement in sustainable farm machinery technology
+- [Briefly describe the patent and its significance.]
 
-### Grain Harvester Y №4475
-**Patent Holder**
-
-- Agricultural machinery innovation with improved harvesting efficiency
-- Technical advancement in crop collection methodology
-
-### A Self-Propelled Grain Harvester with a Power Unit Running on Gaseous Fuel
-**Patent Number: U 190375 U1**
-
-- Eco-friendly alternative fuel implementation in agricultural machinery
-- Technical advancement in sustainable farming equipment
-
-### Device for Collecting Liquid and Monitoring its Level in a Tank 
-**Patent Number: BY U 10162**
-
-- Precision fluid monitoring system innovation
-- Technical advancement in liquid management technology
-
-### Friction Clutch
-**Patent Number: 20382 C2 F 16D 13/00**
-
-- Mechanical engineering innovation for power transmission systems
-- Technical advancement in vehicle component efficiency
-
+---
 [Back to Resume Index](../index.md)
