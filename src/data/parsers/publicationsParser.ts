@@ -33,7 +33,7 @@ export function extractPublications(
       const publisherMatch = findPattern(line, publisherPatterns);
       if (publisherMatch) {
         const parts = line.split('|');
-        publisher = parts[0].replace(/\*\*[^*]*\*\*/, '').trim();
+        publisher = parts[0].replace(/\*\*/g, '').trim();
         date = parts[1]?.trim() || '';
       } else if (line.startsWith('- ')) {
         description += line.replace('- ', '').trim() + ' ';

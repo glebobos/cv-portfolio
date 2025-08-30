@@ -1,8 +1,9 @@
 <!--
 INSTRUCTIONS:
-1.  Fill in the different sections with your publications, articles, open source projects, and speaking engagements.
-2.  Replace the placeholder text with your specific details.
-3.  Add or remove sections as needed to fit your profile.
+1.  Use a `###` heading for the title of your publication, article, or contribution.
+2.  On the next line, add the publisher/platform and the date, like `**Published on [Platform]** | [Year]`.
+3.  Add a brief description as bullet points.
+4.  Copy this structure for each entry.
 -->
 
 # Publications & Technical Contributions
@@ -11,37 +12,17 @@ INSTRUCTIONS:
 
 ---
 
-## Technical Articles & Documentation
+### [Title of Publication or Contribution]
+**Published on [Platform/Journal]** | [Date or Year]
 
-### [Article or Documentation Title]
-**Published on [Platform/Publication]** | [Year]
+- [Briefly describe the contribution and its impact.]
 
-- [Briefly describe the content and its impact.]
-- [Add another point if necessary.]
+---
 
-## Patent Portfolio
+### [Another Title or Contribution]
+**Presented at [Conference or Event]** | [Date or Year]
 
-### [Patent Category, e.g., Engineering Systems Patents]
-**[Your Role, e.g., Multiple Registered Patents]**
-
-- **Patent:** [Patent Title or Number]
-- **Patent:** [Another Patent Title or Number]
-
-## Open Source Projects
-
-### [Project Name]
-**[Link to Repository, e.g., GitHub Repository]**
-
-- [Briefly describe the project and its purpose.]
-- [Highlight key features or technologies used.]
-
-## Community Leadership & Speaking
-
-### [Event or Series Name]
-**[Community or Organization Name]**
-
-- [Describe your role or the topic of your presentation.]
-- [Mention the audience size or frequency of the event, if applicable.]
+- [Briefly describe the presentation or contribution.]
 
 ---
 [Back to Resume Index](../index.md)

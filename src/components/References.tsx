@@ -9,7 +9,9 @@ const References = () => {
     threshold: 0.1
   });
 
-  const referencesContent = markdownResumeData.raw.references;
+  const rawContent = markdownResumeData.raw.references || '';
+  // Strip HTML comments before rendering
+  const referencesContent = rawContent.replace(/<!--[\s\S]*?-->/g, '');
 
   if (!referencesContent) {
     return null;
