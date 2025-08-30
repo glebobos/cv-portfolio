@@ -37,7 +37,7 @@ const Skills = () => {
   };
 
   return (
-    <section id="skills" className="py-20 bg-white overflow-x-hidden">
+    <section id="skills" className="py-20 bg-white overflow-x-hidden print:overflow-x-visible">
       <div className="container section-padding">
         <motion.div
           ref={ref}
