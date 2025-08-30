@@ -1,12 +1,11 @@
 <!--
 INSTRUCTIONS:
 1.  Replace "[Project Name]" with the name of your project.
-2.  Replace "[Your Role]" with your role on the project (e.g., Lead Developer, Contributor).
-3.  Replace "[Date Range]" with the duration of the project.
-4.  Write a brief description of the project.
+2.  List the key technologies used in the project as bullet points right under the project title.
+3.  Replace "[Your Role]" and "[Date Range]".
+4.  Write a brief description of the project under the "Description" heading.
 5.  Detail the technical architecture or implementation.
 6.  List the results and impact of the project.
-7.  You can copy and paste the template for each project entry.
 -->
 
 # Major Projects
@@ -16,32 +15,37 @@ INSTRUCTIONS:
 ---
 
 ## [Project Name]
+- [Technology 1]
+- [Technology 2]
+- [Technology 3]
+
 **[Your Role]** | *[Date Range]*
 
 ### Description
 [Provide a brief overview of the project, its purpose, and the problem it solved.]
 
 ### Technical Architecture
-- **[Technology 1]:** [Describe how you used this technology in the project.]
-- **[Technology 2]:** [Describe another key technology or architectural feature.]
-- **[Technology 3]:** [Add more details about the technical stack.]
+- **[Architecture Point 1]:** [Describe a key architectural feature.]
+- **[Architecture Point 2]:** [Describe another architectural feature.]
 
 ### Results & Impact
-- **[Result 1]:** [Quantify the impact of your project, e.g., "Reduced latency by 50%".]
-- **[Result 2]:** [Describe another key result, e.g., "Increased user engagement by 25%".]
-- **[Result 3]:** [Highlight any other positive outcomes.]
+- **[Result 1]:** [Quantify the impact of your project.]
+- **[Result 2]:** [Describe another key result.]
 
 ---
 
 ## [Another Project Name]
+- [Technology A]
+- [Technology B]
+
 **[Your Role]** | *[Date Range]*
 
 ### Description
 [Provide a brief overview of the project, its purpose, and the problem it solved.]
 
 ### Technical Implementation
-- **[Technology 1]:** [Describe how you used this technology in the project.]
-- **[Technology 2]:** [Describe another key technology or architectural feature.]
+- **[Implementation Point 1]:** [Describe a key implementation detail.]
+- **[Implementation Point 2]:** [Describe another implementation detail.]
 
 ### Results & Impact
 - **[Result 1]:** [Quantify the impact of your project.]
