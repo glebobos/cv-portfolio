@@ -33,15 +33,26 @@ export function extractExperience(
       period = parts[1]?.trim() || '';
     }
 
-    // The next lines are the role description until we hit the achievements list
+    // The next lines are the role description until we hit achievements or technologies
     let achievementsStarted = false;
+    let technologiesStarted = false;
     for (const line of lines) {
-      if (line.startsWith('**') && line.includes('Achievements')) {
+      if (line.startsWith('**') && line.includes('Accomplishments')) {
         achievementsStarted = true;
-        continue; // Skip the "Key Responsibilities & Achievements:" line itself
+        technologiesStarted = false;
+        continue;
+      }
+      if (line.startsWith('####') && line.toLowerCase().includes('technologies used')) {
+        technologiesStarted = true;
+        achievementsStarted = false;
+        continue;
       }
 
-      if (achievementsStarted) {
+      if (technologiesStarted) {
+        if (line.startsWith('- ')) {
+          technologies.push(line.replace('- ', '').trim());
+        }
+      } else if (achievementsStarted) {
         if (line.startsWith('- ')) {
           achievements.push(line);
         }
