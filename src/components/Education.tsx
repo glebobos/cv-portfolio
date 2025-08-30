@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { GraduationCap, Calendar } from 'lucide-react';
 import { markdownResumeData } from '../data/markdownResumeData';
+import { MarkdownRenderer } from './MarkdownRenderer';
 
 const Education = () => {
   const [ref, inView] = useInView({
