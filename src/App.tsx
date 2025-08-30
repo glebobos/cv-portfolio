@@ -7,7 +7,6 @@ import Education from './components/Education';
 import Certifications from './components/Certifications';
 import Awards from './components/Awards';
 import Publications from './components/Publications';
-import References from './components/References';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ParticleBackground from './components/ParticleBackground';
@@ -29,7 +28,6 @@ function App() {
           <Certifications />
           <Awards />
           <Publications />
-          <References />
           <Contact />
         </main>
         
