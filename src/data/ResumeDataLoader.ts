@@ -137,69 +137,6 @@ export interface ExtractorConfig {
   };
 }
 
-// Default configuration for common markdown patterns
-export const DEFAULT_EXTRACTOR_CONFIG: ExtractorConfig = {
-  personalInfo: {
-    namePatterns: [/# ([A-Z\s]+)(?:\s*\n)/],
-    titlePatterns: [/\*\*([^*]+)\*\*/],
-    emailPatterns: [/📧\s*([^\s|]+)/],
-    phonePatterns: [/📱\s*([^\s|]+)/],
-    linkedinPatterns: [/LinkedIn:\s*([^)]+)/],
-    githubPatterns: [/GitHub:\s*([^)]+)/],
-    locationPatterns: [/📍\s*([^\s|]+)/],
-    fallbacks: {
-      name: "Professional Name",
-      title: "Professional Title",
-      email: "contact@example.com",
-      phone: "+1 (555) 123-4567",
-      linkedin: "https://linkedin.com/in/profile",
-      github: "https://github.com/username",
-      location: "Remote"
-    }
-  },
-  summary: {
-    sectionTitles: ['EXECUTIVE SUMMARY', 'SUMMARY', 'ABOUT'],
-    cleanMarkdown: false
-  },
-  experience: {
-    companyPatterns: [/EPAM Systems/, /Company Name/],
-    positionPatterns: [/Engineer/, /Lead/, /Manager/, /Director/],
-    periodPatterns: [/\d{4}\s*-\s*\d{4}/, /\d{4}\s*-\s*Present/]
-  },
-  education: {
-    sectionTitles: ['Technical Education', 'Professional Development', 'Education'],
-    institutionPatterns: [/Institution:/, /University:/, /School:/]
-  },
-  skills: {
-    sectionTitles: ['Platforms', 'Infrastructure', 'Container', 'CI/CD', 'Programming'],
-    levelKeywords: {
-      5: ['Expert', 'Advanced', 'Senior'],
-      4: ['Proficient', 'Experienced'],
-      3: ['Intermediate', 'Working'],
-      2: ['Familiar', 'Basic'],
-      1: ['Beginner', 'Learning']
-    }
-  },
-  certifications: {
-    sectionLevel: 3,
-    issuerPatterns: [/Issued by/, /Issuer:/],
-    datePatterns: [/\d{4}/, /\w+ \d{4}/]
-  },
-  projects: {
-    sectionLevel: 2,
-    descriptionKeywords: ['Description', 'Overview'],
-    technologyIndicators: ['Technologies', 'Tech Stack', 'Built with']
-  },
-  awards: {
-    sectionLevel: 3,
-    issuerPatterns: [/Presented by/, /Awarded by/]
-  },
-  publications: {
-    sectionLevel: 3,
-    publisherPatterns: [/Published on/, /Issued by/]
-  }
-};
-
 // Generic extractor class
 export class ResumeDataLoader {
   private config: ExtractorConfig;
@@ -208,10 +145,10 @@ export class ResumeDataLoader {
 
   constructor(
     markdownSections: Record<string, string>,
-    config: ExtractorConfig = DEFAULT_EXTRACTOR_CONFIG
+    config: ExtractorConfig
   ) {
     this.markdownSections = markdownSections;
-    this.config = { ...DEFAULT_EXTRACTOR_CONFIG, ...config };
+    this.config = config;
     this.parsedSections = {};
     
     // Parse all markdown sections
