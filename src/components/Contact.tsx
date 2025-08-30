@@ -44,7 +44,7 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-white no-print">
+    <section id="contact" className="py-20 bg-white no-print overflow-x-hidden">
       <div className="container section-padding">
         <motion.div
           ref={ref}
