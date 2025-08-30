@@ -6,6 +6,12 @@ import { markdownResumeData } from '../data/markdownResumeData';
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => setIsMounted(true), 100);
+    return () => clearTimeout(timeout);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
