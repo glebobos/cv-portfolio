@@ -20,7 +20,7 @@ const Publications = () => {
       <div className="container section-padding">
         <motion.div
           ref={ref}
-          initial={{ y: 50 }}
+          initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
@@ -36,7 +36,7 @@ const Publications = () => {
             {publicationsData.map((pub, index) => (
               <motion.div
                 key={index}
-                initial={{ y: 30 }}
+                initial={{ opacity: 0, y: 30 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="bg-white rounded-xl p-6 border border-secondary-100 hover:shadow-lg transition-shadow duration-300"

@@ -41,7 +41,7 @@ const Skills = () => {
       <div className="container section-padding">
         <motion.div
           ref={ref}
-          initial={{ y: 50 }}
+          initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
@@ -58,7 +58,7 @@ const Skills = () => {
               {markdownResumeData.skillCategories.map((category, categoryIndex) => (
                 <motion.div
                   key={category.name}
-                  initial={{ y: 30 }}
+                  initial={{ opacity: 0, y: 30 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
                   className="bg-secondary-50 rounded-2xl p-6 border border-secondary-100 hover:border-primary-200 transition-colors duration-300"
@@ -75,7 +75,7 @@ const Skills = () => {
                     {category.skills.map((skill, skillIndex) => (
                       <motion.div
                         key={skill.name}
-                        initial={{ x: -20 }}
+                        initial={{ opacity: 0, x: -20 }}
                         animate={inView ? { opacity: 1, x: 0 } : {}}
                         transition={{ 
                           duration: 0.5, 
@@ -122,7 +122,7 @@ const Skills = () => {
 
             {/* Skills Summary */}
             <motion.div
-              initial={{ y: 30 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.5 }}
               className="mt-12"
@@ -159,7 +159,7 @@ const Skills = () => {
                   ].map((stat, index) => (
                     <motion.div
                       key={stat.label}
-                      initial={{ scale: 0.5 }}
+                      initial={{ scale: 0.5, opacity: 0 }}
                       animate={inView ? { scale: 1, opacity: 1 } : {}}
                       transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
                       className="text-center p-6 bg-white rounded-xl shadow-sm"
@@ -176,7 +176,7 @@ const Skills = () => {
 
             {/* Additional Skills Note */}
             <motion.div
-              initial={{ y: 20 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.7 }}
               className="mt-8 text-center"
