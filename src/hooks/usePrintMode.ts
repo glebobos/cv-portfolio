@@ -4,21 +4,20 @@ export const usePrintMode = () => {
   const [isPrinting, setIsPrinting] = useState(false);
 
   useEffect(() => {
-    const printMediaQuery = window.matchMedia('print');
-
-    const handleChange = (event: MediaQueryListEvent) => {
-      setIsPrinting(event.matches);
+    const handleBeforePrint = () => {
+      setIsPrinting(true);
     };
 
-    printMediaQuery.addEventListener('change', handleChange);
+    const handleAfterPrint = () => {
+      setIsPrinting(false);
+    };
 
-    // Initial check
-    if (printMediaQuery.matches) {
-      setIsPrinting(true);
-    }
+    window.addEventListener('beforeprint', handleBeforePrint);
+    window.addEventListener('afterprint', handleAfterPrint);
 
     return () => {
-      printMediaQuery.removeEventListener('change', handleChange);
+      window.removeEventListener('beforeprint', handleBeforePrint);
+      window.removeEventListener('afterprint', handleAfterPrint);
     };
   }, []);
 
