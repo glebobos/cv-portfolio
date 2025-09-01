@@ -1,5 +1,5 @@
 # Build-only Dockerfile for CI/CD
-FROM node:18-alpine
+FROM node:18-alpine3.19
 
 WORKDIR /app
 
