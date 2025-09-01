@@ -91,15 +91,16 @@ const Header = () => {
                 <link.icon size={20} />
               </motion.a>
             ))}
-            <motion.button
+            <motion.a
+              href="/resume.pdf"
+              download="resume.pdf"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="btn-primary ml-4"
-              onClick={() => window.print()}
             >
               <Download size={18} className="mr-2" />
               Download CV
-            </motion.button>
+            </motion.a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -151,15 +152,16 @@ const Header = () => {
                   <link.icon size={20} />
                 </motion.a>
               ))}
-              <motion.button
+              <motion.a
+                href="/resume.pdf"
+                download="resume.pdf"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="btn-primary flex-1"
-                onClick={() => window.print()}
               >
                 <Download size={18} className="mr-2" />
                 Download CV
-              </motion.button>
+              </motion.a>
             </div>
           </div>
         </motion.div>

@@ -1,5 +1,5 @@
 # Build-only Dockerfile for CI/CD
-FROM node:18-alpine
+FROM node:18-alpine3.19
 
 WORKDIR /app
 
@@ -7,6 +7,16 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install dependencies (including dev dependencies for build)
+RUN apk add --no-cache \
+      chromium \
+      nss \
+      freetype \
+      harfbuzz \
+      ca-certificates \
+      ttf-freefont
+
+ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
+
 RUN npm install
 
 # Copy source code
