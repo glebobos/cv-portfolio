@@ -1,4 +1,5 @@
-import { Publication } from '../ResumeDataLoader';
+import { Publication, ExtractorConfig } from '../ResumeDataLoader';
+import { ParsedMarkdown } from '../../utils/markdownParser';
 
 /**
  * Extracts publications from a parsed markdown section.
@@ -8,8 +9,8 @@ import { Publication } from '../ResumeDataLoader';
  * @returns An array of publication objects.
  */
 export function extractPublications(
-  parsedSection: any,
-  config: any,
+  parsedSection: ParsedMarkdown,
+  config: ExtractorConfig['publications'],
   findPattern: (content: string, patterns: RegExp[] | undefined) => string | null
 ): Publication[] {
   if (!parsedSection) {
@@ -18,10 +19,10 @@ export function extractPublications(
   }
 
   const publications: Publication[] = [];
-  const sectionLevel = config.sectionLevel || 3;
-  const publisherPatterns = config.publisherPatterns || [/Published on/, /Issued by/];
+  const sectionLevel = config?.sectionLevel || 3;
+  const publisherPatterns = config?.publisherPatterns || [/Published on/, /Issued by/];
 
-  const pubSections = parsedSection.sections.filter((s: any) => s.level === sectionLevel);
+  const pubSections = parsedSection.sections.filter((s) => s.level === sectionLevel);
 
   for (const section of pubSections) {
     const lines = section.content.split('\n');

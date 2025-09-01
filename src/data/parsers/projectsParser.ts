@@ -1,4 +1,5 @@
-import { Project } from '../ResumeDataLoader';
+import { Project, ExtractorConfig } from '../ResumeDataLoader';
+import { ParsedMarkdown } from '../../utils/markdownParser';
 
 /**
  * Extracts projects from a parsed markdown section.
@@ -7,8 +8,8 @@ import { Project } from '../ResumeDataLoader';
  * @returns An array of project objects.
  */
 export function extractProjects(
-  parsedSection: any,
-  config: any
+  parsedSection: ParsedMarkdown,
+  config: ExtractorConfig['projects']
 ): Project[] {
   if (!parsedSection) {
     console.warn('Projects section not found or empty.');
@@ -16,10 +17,10 @@ export function extractProjects(
   }
 
   const projects: Project[] = [];
-  const sectionLevel = config.sectionLevel || 2;
-  const descriptionKeywords = config.descriptionKeywords || ['Description', 'Overview'];
+  const sectionLevel = config?.sectionLevel || 2;
+  const descriptionKeywords = config?.descriptionKeywords || ['Description', 'Overview'];
 
-  const projectSections = parsedSection.sections.filter((s: any) => s.level === sectionLevel);
+  const projectSections = parsedSection.sections.filter((s) => s.level === sectionLevel);
 
   for (const section of projectSections) {
     const lines = section.content.split('\n');

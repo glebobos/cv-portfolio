@@ -1,4 +1,4 @@
-import { PersonalInfo } from '../ResumeDataLoader';
+import { PersonalInfo, ExtractorConfig } from '../ResumeDataLoader';
 import { getRawMarkdownSection } from '../../utils/markdownParser';
 
 /**
@@ -10,11 +10,11 @@ import { getRawMarkdownSection } from '../../utils/markdownParser';
  */
 export function extractPersonalInfo(
   summaryContent: string,
-  config: any,
+  config: ExtractorConfig['personalInfo'],
   findPattern: (content: string, patterns: RegExp[] | undefined) => string | null
 ): PersonalInfo {
   const allHeaders = summaryContent.match(/# ([^\n]+)/g) || [];
-  let name = config.fallbacks?.name || 'Professional Name';
+  let name = config?.fallbacks?.name || 'Professional Name';
 
   const nameHeader = allHeaders.find(header => {
     const headerText = header.replace('# ', '');
@@ -27,23 +27,23 @@ export function extractPersonalInfo(
     name = nameHeader.replace('# ', '').trim();
   }
 
-  const title = findPattern(summaryContent, config.titlePatterns) || config.fallbacks?.title || 'Professional Title';
-  const email = findPattern(summaryContent, config.emailPatterns) || config.fallbacks?.email || 'contact@example.com';
-  const phone = findPattern(summaryContent, config.phonePatterns) || config.fallbacks?.phone || '+1 (555) 123-4567';
+  const title = findPattern(summaryContent, config?.titlePatterns) || config?.fallbacks?.title || 'Professional Title';
+  const email = findPattern(summaryContent, config?.emailPatterns) || config?.fallbacks?.email || 'contact@example.com';
+  const phone = findPattern(summaryContent, config?.phonePatterns) || config?.fallbacks?.phone || '+1 (555) 123-4567';
 
-  let linkedin = config.fallbacks?.linkedin || 'https://linkedin.com/in/profile';
-  const linkedinMatch = findPattern(summaryContent, config.linkedinPatterns);
+  let linkedin = config?.fallbacks?.linkedin || 'https://linkedin.com/in/profile';
+  const linkedinMatch = findPattern(summaryContent, config?.linkedinPatterns);
   if (linkedinMatch) {
-    linkedin = linkedinMatch.includes('http') ? linkedinMatch : `https://www.linkedin.com/in/${linkedinMatch.replace(/[\[\]]/g, '')}`;
+    linkedin = linkedinMatch.includes('http') ? linkedinMatch : `https://www.linkedin.com/in/${linkedinMatch.replace(/[[\]]/g, '')}`;
   }
 
-  let github = config.fallbacks?.github || 'https://github.com/username';
-  const githubMatch = findPattern(summaryContent, config.githubPatterns);
+  let github = config?.fallbacks?.github || 'https://github.com/username';
+  const githubMatch = findPattern(summaryContent, config?.githubPatterns);
   if (githubMatch) {
-    github = githubMatch.includes('http') ? githubMatch : `https://${githubMatch.replace(/[\[\]]/g, '')}`;
+    github = githubMatch.includes('http') ? githubMatch : `https://${githubMatch.replace(/[[\]]/g, '')}`;
   }
 
-  const location = findPattern(summaryContent, config.locationPatterns) || config.fallbacks?.location || 'Remote';
+  const location = findPattern(summaryContent, config?.locationPatterns) || config?.fallbacks?.location || 'Remote';
   const avatar = extractAvatar(summaryContent);
 
   return { name, title, email, phone, linkedin, github, location, avatar };
@@ -57,9 +57,9 @@ export function extractPersonalInfo(
  */
 export function extractSummary(
   rawContent: string,
-  config: any,
+  config: ExtractorConfig['summary'],
 ): string {
-  const sectionTitles = config.sectionTitles || ['EXECUTIVE SUMMARY', 'SUMMARY', 'ABOUT'];
+  const sectionTitles = config?.sectionTitles || ['EXECUTIVE SUMMARY', 'SUMMARY', 'ABOUT'];
 
   for (const title of sectionTitles) {
     const content = getRawMarkdownSection(rawContent, title);

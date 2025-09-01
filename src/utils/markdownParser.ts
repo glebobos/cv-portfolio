@@ -7,6 +7,7 @@ export interface ParsedMarkdown {
     content: string;
     level: number;
   }>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   metadata: Record<string, any>;
 }
 
@@ -15,6 +16,7 @@ export function parseMarkdown(markdownContent: string): ParsedMarkdown {
   const sections: Array<{ title: string; content: string; level: number }> = [];
   let currentSection: { title: string; content: string; level: number } | null = null;
   let title = '';
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const metadata: Record<string, any> = {};
 
   for (let i = 0; i < lines.length; i++) {
